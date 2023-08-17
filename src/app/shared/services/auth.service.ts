@@ -6,7 +6,7 @@ import { UserI } from '../../models/interfaces'
   providedIn: 'root'
 })
 export class AuthService {
-  db_url: string = "'http://localhost:3333'"
+  db_url: string = 'http://localhost:3333'
   constructor(private http: HttpClient) { }
 
   register(user: UserI){
