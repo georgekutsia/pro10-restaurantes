@@ -1,1 +1,11 @@
-<p>login works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div>
+        <input type="email" placeholder="Email" formControlName="email"/>
+        <p *ngIf="(submited && loginForm?.get('email')?.hasError('required'))">El campo es requerido</p>
+        <p *ngIf="(submited && loginForm?.get('email')?.hasError('pattern'))">No tiene formato válido</p>
+    </div>
+    <input type="password" placeholder="Password" formControlName="password"/>
+    <p *ngIf="(submited && loginForm?.get('password')?.hasError('required'))">El campo es requerido</p>
+    <p *ngIf="(submited && loginForm?.get('password')?.hasError('pattern'))">No tiene formato válido</p>
+    <button>Entrar</button>   
+</form>

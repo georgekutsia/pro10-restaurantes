@@ -9,22 +9,22 @@ import { UsersComponent } from './pages/users/users.component';
 
 const routes: Routes = [
   {
-    path:"", component: HomeComponent
+    path:'', component: HomeComponent
   },
   {
-    path:"/restaurants", component: RestaurantsComponent
+    path:'restaurants', component: RestaurantsComponent
   },
   {
-    path:"/login", component: LoginComponent
+    path:'login', component: LoginComponent
   },
   {
-    path:"/register", component: RegisterComponent
+    path:'registro', component: RegisterComponent
   },
   {
-    path:"/profile", component: ProfileComponent
+    path:'profile', component: ProfileComponent
   },
   {
-    path:"/users", component: UsersComponent
+    path:'users', component: UsersComponent
   },
 ];
 
