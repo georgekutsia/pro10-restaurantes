@@ -3,13 +3,19 @@
     <div>
         <button>Añadir nuevo</button>
     </div>
-    <div>
-        <div *ngFor="let restaurant of restList">
-            <img src="{{restaurant.foto}}" alt="{{restaurant.nombre}}"/>
-            <h4>{{restaurant.nombre}}</h4>
+    <!-- esto de abajo es bootstrap. se quita al maquetar bien con scss -->
+    <div class="d-flex justify-content-around flex-wrap">
+        <div [ngStyle]="{width: '300px'}"  *ngFor="let restaurant of restList">
+            <h4 class="mt-5">{{restaurant.nombre}}</h4>
+            <img src="{{restaurant.foto}}" alt="{{restaurant.nombre}}" width="300px" height="240"/>
             <p>{{restaurant.descripcion}}</p>
             <p>{{restaurant.ciudad}}</p>
-            <p>Valoración: {{restaurant.puntos}}*</p>
+            <p>Valoración: {{restaurant.puntos}}
+                <ng-container *ngFor="let star of [].constructor(10); let i = index">
+                    <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.puntos}"></i>
+                </ng-container>
+            </p>
+            <p>Comentario de los clientes: {{restaurant.comentarios}}*</p>
             <!-- Con auth usuario -->
             <div>
                 <button>Añadir a favoritos</button>
