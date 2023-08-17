@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { EditRestaurantComponent } from './pages/edit-restaurant/edit-restaurant.component';
+
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { EditRestaurantComponent } from './pages/edit-restaurant/edit-restaurant
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
