@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,15 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
 
-  constructor() { }
+  id!: string;
+  url: string = 'http://localhost:3333/usuarios'
+  constructor(private http: HttpClient) { }
+
+  getUsers(){
+    return this.http.get(this.url)
+  }
+
+  deleteUsers(id: string){
+    return this.http.delete(`${this.url}/${id}`)
+  }
 }
