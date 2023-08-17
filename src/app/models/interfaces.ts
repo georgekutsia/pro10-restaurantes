@@ -15,5 +15,6 @@ export interface RestaurantI{
     foto: string,
     descripcion: string,
     ciudad: string,
-    puntos: number
+    puntos: number,
+    comentarios: string[],
 }
