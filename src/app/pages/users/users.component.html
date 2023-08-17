@@ -1,1 +1,8 @@
-<p>users works!</p>
+<div>
+    <div *ngFor="let user of userList">
+        <img src="{{user.foto}}" alt="{{user.nombre}}"/>
+        <h4>{{user.nombre}}</h4>
+        <p>{{user.edad}}</p>
+        <button (click)="deleteUser(user.id)">Eliminar</button> 
+    </div>
+</div>

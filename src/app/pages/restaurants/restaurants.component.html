@@ -1,1 +1,24 @@
-<p>restaurants works!</p>
+<div>
+    <!-- Con auth admin -->
+    <div>
+        <button>Añadir nuevo</button>
+    </div>
+    <div>
+        <div *ngFor="let restaurant of restList">
+            <img src="{{restaurant.foto}}" alt="{{restaurant.nombre}}"/>
+            <h4>{{restaurant.nombre}}</h4>
+            <p>{{restaurant.descripcion}}</p>
+            <p>{{restaurant.ciudad}}</p>
+            <p>Valoración: {{restaurant.puntos}}*</p>
+            <!-- Con auth usuario -->
+            <div>
+                <button>Añadir a favoritos</button>
+            </div>
+            <!-- Con auth admin -->
+            <div>
+                <button>Editar</button>
+                <button (click)="deleteRestaurant(restaurant.id)">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
