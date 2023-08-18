@@ -2,12 +2,12 @@
     <div>
         <input type="email" placeholder="Email" formControlName="email"/>
         <p *ngIf="(submited && registerForm?.get('email')?.hasError('required'))">El campo es requerido</p>
-        <p *ngIf="(submited && registerForm?.get('email')?.hasError('pattern'))">Asegúrate de que tu email incluya mayúsculas, minúsculas, números y caracteres especiales</p>
+        <p *ngIf="(submited && registerForm?.get('email')?.hasError('pattern'))">Asegúrate de que tu email tiene el formato correcto</p>
     </div>
     <div>
     <input type="password" placeholder="Password" formControlName="password"/>
     <p *ngIf="(submited && registerForm?.get('password')?.hasError('required'))">El campo es requerido</p>
-    <p *ngIf="(submited && registerForm?.get('password')?.hasError('pattern'))">Asegúrate de que tu email incluya mayúsculas, minúsculas, números y caracteres especiales</p>
+    <p *ngIf="(submited && registerForm?.get('password')?.hasError('pattern'))">Asegúrate de que tu contraseña incluye una letra minúscula, una mayúscula y un número y tiene más de 8 caracteres</p>
     </div>
     <div>
         <input type="age" placeholder="Age" formControlName="age"/>
