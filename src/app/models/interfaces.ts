@@ -1,20 +1,20 @@
 export interface UserI{
     id: string,
-    nombre: string,
+    name: string,
     email: string,
     password: string,
-    edad: number,
-    foto?: string
+    age: number,
+    img?: string
     admin?: boolean,
-    favorito: string[]
+    favorite: string[]
 }
 
 export interface RestaurantI{
     id: string,
-    nombre: string,
-    foto: string,
-    descripcion: string,
-    ciudad: string,
-    puntos: number,
-    comentarios: string[],
+    name: string,
+    img: string,
+    description: string,
+    city: string,
+    score: number,
+    comments: string[],
 }
