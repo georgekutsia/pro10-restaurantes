@@ -10,12 +10,13 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
-import { RestaurantDetailsComponent } from './pages/restaurant-details/restaurant-details.component';
 import { UsersComponent } from './pages/users/users.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { EditRestaurantComponent } from './pages/edit-restaurant/edit-restaurant.component';
+import { RestaurantGestionComponent } from './pages/restaurant-gestion/restaurant-gestion.component';
+import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.component';
 
 
 
@@ -27,12 +28,13 @@ import { EditRestaurantComponent } from './pages/edit-restaurant/edit-restaurant
     LoginComponent,
     RegisterComponent,
     RestaurantsComponent,
-    RestaurantDetailsComponent,
+    RestaurantGestionComponent,
     UsersComponent,
     HeaderComponent,
     FooterComponent,
     NavbarComponent,
-    EditRestaurantComponent
+    EditRestaurantComponent,
+    AddRestaurantComponent
   ],
   imports: [
     BrowserModule,

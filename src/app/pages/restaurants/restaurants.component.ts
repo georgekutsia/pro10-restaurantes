@@ -16,17 +16,10 @@ export class RestaurantsComponent implements OnInit{
 
   constructor(private restApi: RestaurantsService, private router: Router) {}
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.restApi.getRestaurants().subscribe((data: any) => {
       this.restList = [...data]
     })
   }
 
-  deleteRestaurant(id: string){
-    this.restApi.deleteRestaurants(id).subscribe((data) => {
-      alert("Restaurante eliminado");
-      console.log("Restaurante eliminado", data);
-      this.router.navigate(["/restaurants"])
-    })
-  }
 }

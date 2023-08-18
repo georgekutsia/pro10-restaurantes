@@ -21,6 +21,10 @@ export class RestaurantsService {
     return this.http.get(`${this.url}/${id}`)
   }
 
+  postRestaurant(restaurant: RestaurantI){
+    return this.http.post(this.url, restaurant)
+  }
+
   putRestaurant(restaurant: RestaurantI, id: string){
     return this.http.put(`${this.url}/${id}`, restaurant)
   }
@@ -28,5 +32,19 @@ export class RestaurantsService {
   deleteRestaurants(id: string){
     return this.http.delete(`${this.url}/${id}`)
   }
+
+  setRestaurant(restaurant: RestaurantI, id: string){
+    this.restaurant = {...restaurant};
+    this.id = id
+  }
+
+  getRestaurant(){
+    return this.restaurant;
+  }
+
+  getId(){
+    return this.id;
+  }
+
 
 }
