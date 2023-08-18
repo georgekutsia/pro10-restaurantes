@@ -1,7 +1,7 @@
 <div>
     <!-- Con auth admin -->
     <div>
-        <button>Añadir nuevo</button>
+        <button routerLink='/restaurants/add'>Añadir nuevo</button>
     </div>
     <!-- esto de abajo es bootstrap. se quita al maquetar bien con scss -->
     <div class="d-flex justify-content-around flex-wrap">
@@ -23,7 +23,6 @@
             <!-- Con auth admin -->
             <div>
                 <button routerLink='/restaurants/{{restaurant.id}}'>Editar</button>
-                <button (click)="deleteRestaurant(restaurant.id)">Eliminar</button>
             </div>
         </div>
     </div>

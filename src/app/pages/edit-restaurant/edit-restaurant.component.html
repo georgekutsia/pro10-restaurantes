@@ -1,5 +1,4 @@
 <div>
-    <button routerLink='/restaurants'>Volver</button>
     <div>
         <form [formGroup]="restForm" (ngSubmit)="editRestaurant()">
             <div>
@@ -37,7 +36,7 @@
                     <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score}"></i>
                 </ng-container>
             </p>
-            <p>Comentario de los clientes: {{restaurant.coments}}*</p>
+            <p>Comentario de los clientes: {{restaurant.comments}}*</p>
         </div>
     </div>
 </div>
