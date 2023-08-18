@@ -22,11 +22,6 @@ export class RestaurantsComponent implements OnInit{
     })
   }
 
-  edit(){
-    this.restApi.setRestaurant(this.restaurant, this.id);
-    this.router.navigate(['restaurants/edit']);
-  }
-
   deleteRestaurant(id: string){
     this.restApi.deleteRestaurants(id).subscribe((data) => {
       alert("Restaurante eliminado");

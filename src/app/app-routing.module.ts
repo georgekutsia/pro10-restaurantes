@@ -16,7 +16,7 @@ const routes: Routes = [
     path:'restaurants', component: RestaurantsComponent
   },
   {
-    path:'restaurants/edit', component: EditRestaurantComponent
+    path:'restaurants/edit/:id', component: EditRestaurantComponent
   },
   {
     path:'login', component: LoginComponent

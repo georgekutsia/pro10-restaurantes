@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantI } from 'src/app/models/interfaces';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
 
@@ -15,18 +15,24 @@ export class EditRestaurantComponent {
   restForm!: FormGroup;
   submited: boolean = false;
 
-  constructor(private restApi: RestaurantsService, private form: FormBuilder, private router: Router){
-    this.restaurant = {...this.restApi.getRest()}
-    this.id = this.restApi.getId();
-   }
+  constructor(private restApi: RestaurantsService, private form: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute){}
 
   ngOnInit(): void {
+
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.id = String(params.get('id'))
+    })
+
+    this.restApi.getRestaurantById(this.id).subscribe((data:any) => {
+      this.restaurant = {...data}
+    })
+
     this.restForm = this.form.group({
-      nombre: [this.restaurant.nombre, Validators.required],
-      foto: [this.restaurant.foto, Validators.required],
-      descripcion: [this.restaurant.descripcion, Validators.required],
-      ciudad: [this.restaurant.ciudad, Validators.required],
-      puntos: [this.restaurant.puntos, Validators.required]
+      name: ["", Validators.required],
+      img: ["", Validators.required],
+      description: ["", Validators.required],
+      city: ["", Validators.required],
+      score: ["", Validators.required]
     })
 
     this.restForm.valueChanges.subscribe((data) => {
