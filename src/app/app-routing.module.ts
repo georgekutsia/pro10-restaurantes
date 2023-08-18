@@ -6,6 +6,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UsersComponent } from './pages/users/users.component';
+import { EditRestaurantComponent } from './pages/edit-restaurant/edit-restaurant.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path:'restaurants', component: RestaurantsComponent
+  },
+  {
+    path:'restaurants/edit', component: EditRestaurantComponent
   },
   {
     path:'login', component: LoginComponent
