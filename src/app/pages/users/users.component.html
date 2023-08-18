@@ -1,6 +1,6 @@
 <div>
     <div *ngFor="let user of userList">
-        <img src="{{user.img}}" alt="{{user.age}}"/>
+        <img src="{{user.img}}" alt="{{user.name}}"/>
         <h4>{{user.name}}</h4>
         <p>{{user.age}}</p>
         <button (click)="deleteUser(user.id)">Eliminar</button> 
