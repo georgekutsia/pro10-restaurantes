@@ -11,22 +11,25 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit{
   registerForm!: FormGroup;
   submited: boolean = false;
-  constructor(private form:     FormBuilder, private api: AuthService, private router: Router){}
+  constructor(private form: FormBuilder, private api: AuthService, private router: Router){}
     ngOnInit(): void{
       this.registerForm = this.form.group({
         email: ["", [Validators.required, Validators.pattern("^[a-zA-Z0-9.!#$%&`*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*")]],
-        password: [""]
+        password: [""],
+          name: ["", [Validators.required, Validators.pattern('^[a-zA-Z]+$'), Validators.minLength(1), Validators.maxLength(30)]],
+          age: ["", [Validators.required, Validators.min(18)]]
       })
   
   }
   registrar(){
     this.submited = true;
     if(this.registerForm.valid){
-      console.log("nombre1",this.registerForm.value)
+      console.log(this.registerForm.value)
       this.api.register(this.registerForm.value).subscribe((data) => {
-        console.log("nombre2",data);
+        console.log(data);
         this.router.navigate(['/login'])
-      })
+      },
+     )
     }
   }
 }
