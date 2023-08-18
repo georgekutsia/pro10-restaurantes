@@ -4,7 +4,7 @@
         <button>Añadir nuevo</button>
     </div>
     <!-- esto de abajo es bootstrap. se quita al maquetar bien con scss -->
-     <div class="d-flex justify-content-around flex-wrap">
+    <div class="d-flex justify-content-around flex-wrap">
         <div [ngStyle]="{width: '300px'}"  *ngFor="let restaurant of restList">
             <h4 class="mt-5">{{restaurant.name}}</h4>
             <img src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240"/>
@@ -15,7 +15,7 @@
                     <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score}"></i>
                 </ng-container>
             </p>
-            <p>Comentario de los clientes: {{restaurant.coments}}*</p>
+            <p>Comentario de los clientes: {{restaurant.comments}}*</p>
             <!-- Con auth usuario -->
             <div>
                 <button>Añadir a favoritos</button>
