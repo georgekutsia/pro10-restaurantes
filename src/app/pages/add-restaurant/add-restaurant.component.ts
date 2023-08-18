@@ -36,7 +36,7 @@ export class AddRestaurantComponent implements OnInit{
       this.submited = false;
       this.restApi.postRestaurant(this.restaurant).subscribe((data) => {
         console.log(data);
-
+        alert('Restaurante añadido correctamente')
         this.restForm.reset();
         this.router.navigate(['/restaurants'])
       })

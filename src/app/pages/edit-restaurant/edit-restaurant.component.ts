@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { RestaurantI } from 'src/app/models/interfaces';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
 
@@ -15,7 +15,7 @@ export class EditRestaurantComponent implements OnInit{
   restForm!: FormGroup;
   submited: boolean = false;
 
-  constructor(private restApi: RestaurantsService, private form: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute){
+  constructor(private restApi: RestaurantsService, private form: FormBuilder, private router: Router){
     this.restaurant = {...this.restApi.getRestaurant()};
     this.id = this.restApi.getId();
   }
@@ -41,7 +41,7 @@ export class EditRestaurantComponent implements OnInit{
       this.submited = false;
       this.restApi.putRestaurant(this.restaurant, this.id).subscribe((data) => {
         console.log(data);
-
+        alert('Cambios guardados correctamente')
         this.restForm.reset();
         this.router.navigate(['/restaurants'])
       })
