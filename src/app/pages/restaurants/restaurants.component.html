@@ -12,7 +12,7 @@
             <p class="city">{{restaurant.city}}</p>
             <p class="stars">Valoración: {{restaurant.score}}
                 <ng-container *ngFor="let star of [].constructor(10); let i = index">
-                    <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score, 'red-star': restaurant.score > 6, 'green-star': restaurant.score <= 6}"></i>
+                    <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score, 'red-star': restaurant.score < 6, 'green-star': restaurant.score >= 6}"></i>
                 </ng-container>
             </p>
             <p>Comentario de los clientes: {{restaurant.comments}}*</p>
