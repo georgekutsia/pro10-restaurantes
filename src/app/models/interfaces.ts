@@ -6,7 +6,9 @@ export interface UserI{
     age: number,
     img?: string
     admin?: boolean,
-    favorite: string[]
+    favorite: string[],
+    createdAt: string,
+    updatedAt: string
 }
 
 export interface RestaurantI{
@@ -16,5 +18,7 @@ export interface RestaurantI{
     description: string,
     city: string,
     score: number,
-    comments: string[],
+    coments: string[],
+    createdAt: string,
+    updatedAt: string
 }
