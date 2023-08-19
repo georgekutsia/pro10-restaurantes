@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantI, UserI } from 'src/app/models/interfaces';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,14 @@ export class ProfileComponent implements OnInit{
   usuario!: UserI; 
   id!: string;
   favorite!: any;
+
   constructor(private authUser: AuthService, private activatedRoute: ActivatedRoute, private router: Router) { }
+
+  private formatDate(date: string): string {
+    const formattedDate = format(new Date(date), 'dd/MM/yyyy HH:mm:ss');
+    return formattedDate;
+  }
+
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
       this.id = String(params.get('id'));
@@ -20,8 +28,11 @@ export class ProfileComponent implements OnInit{
     this.authUser.getUserById(this.id).subscribe((data: any) => {
       this.usuario = { ...data }
       this.favorite = this.usuario.favorite;
+      this.usuario.createdAt = this.formatDate(this.usuario.createdAt);
+      this.usuario.updatedAt = this.formatDate(this.usuario.updatedAt);
       console.log("eeee", this.usuario)
     })
+    
     // this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
     const reloadFlag = localStorage.getItem('reloadFlag');
     if (reloadFlag === 'true') {

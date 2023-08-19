@@ -9,7 +9,9 @@
             <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score}"></i>
         </ng-container>
     </p>
-    <p>Comentario de los clientes: {{restaurant.comments}}*</p>
-    <button (click)="edit()">Modificar datos</button>
-    <button (click)="delete()">Eliminar</button>
+    <p>Ultima actualización:{{restaurant.updatedAt}}</p>
+    <p>Comentario de los clientes: {{restaurant.coments}}</p>
+    <button  *ngIf="usuario.admin" (click)="edit()">Modificar datos</button>
+    <button *ngIf="usuario.admin" (click)="delete()">Eliminar</button>
+    <!-- <button (click)="edit()">Añadir comentarios</button> -->
 </div>

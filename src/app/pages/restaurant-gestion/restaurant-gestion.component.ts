@@ -2,6 +2,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
 import { RestaurantI } from 'src/app/models/interfaces';
+import { UserI } from 'src/app/models/interfaces';
+import { format } from 'date-fns';
+
 
 @Component({
   selector: 'app-restaurant-gestion',
@@ -12,15 +15,24 @@ export class RestaurantGestionComponent implements OnInit{
 
   id!: string;
   restaurant!: RestaurantI;
-  constructor(private restApi: RestaurantsService, private activatedRoute: ActivatedRoute, private router: Router){}
+  usuario!: UserI;
 
+  constructor(private restApi: RestaurantsService, private activatedRoute: ActivatedRoute, private router: Router){}
+  private formatDate(date: string): string {
+    const formattedDate = format(new Date(date), 'dd/MM/yyyy');
+    return formattedDate;
+  }
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
       this.id = String(params.get('id'));
+      this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
     })
 
     this.restApi.getRestaurantById(this.id).subscribe((data:any) => {
       this.restaurant = {...data}
+      this.restaurant.createdAt = this.formatDate(this.restaurant.createdAt);
+      this.restaurant.updatedAt = this.formatDate(this.restaurant.updatedAt);
+      console.log(this.restaurant);
     })
   }
 
