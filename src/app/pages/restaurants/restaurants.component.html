@@ -10,7 +10,7 @@
             <img  src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240"/>
             <p class="description">{{restaurant.description}}</p>
             <p class="city">{{restaurant.city}}</p>
-            <p class="stars">Valoración: {{restaurant.score}}
+            <p class="stars">{{restaurant.score}}
                 <ng-container *ngFor="let star of [].constructor(10); let i = index">
                     <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score, 'red-star': restaurant.score < 6, 'green-star': restaurant.score >= 6}"></i>
                 </ng-container>
