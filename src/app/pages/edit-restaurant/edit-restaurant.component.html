@@ -1,32 +1,37 @@
 <div>
     <div>
         <form [formGroup]="restForm" (ngSubmit)="editRestaurant()">
-            <div>
+            <div *ngIf="usuario.admin">
                 <input type="text" placeholder="Nombre del restaurante" formControlName="name"/>
-                <p *ngIf="(submited && restForm?.get('name')?.hasError('required'))">Es obligatorio rellenar este campo</p>
+                <p *ngIf="(submited && restForm?.get('name'))">Es obligatorio rellenar este campo</p>
             </div>
-            <div>
+            <div *ngIf="usuario.admin">
                 <input type="text" placeholder="Imagen" formControlName="img"/>
-                <p *ngIf="(submited && restForm?.get('img')?.hasError('required'))">Es obligatorio rellenar este campo</p>
+                <p *ngIf="(submited && restForm?.get('img'))">Es obligatorio rellenar este campo</p>
             </div>
-            <div>
+            <div *ngIf="usuario.admin">
                 <input type="text" placeholder="Descripción" formControlName="description"/>
-                <p *ngIf="(submited && restForm?.get('description')?.hasError('required'))">Es obligatorio rellenar este campo</p>
+                <p *ngIf="(submited && restForm?.get('description'))">Es obligatorio rellenar este campo</p>
             </div>
-            <div>
+            <div *ngIf="usuario.admin">
                 <input type="text" placeholder="Ciudad" formControlName="city"/>
-                <p *ngIf="(submited && restForm?.get('city')?.hasError('required'))">Es obligatorio rellenar este campo</p>
+                <p *ngIf="(submited && restForm?.get('city'))">Es obligatorio rellenar este campo</p>
+            </div>
+            <div *ngIf="usuario.admin">
+                <input type="number" placeholder="Puntuación" formControlName="score" min="1" max="10"/>
+                <p *ngIf="(submited && restForm?.get('score'))">Es obligatorio rellenar este campo</p>
             </div>
             <div>
-                <input type="text" placeholder="Puntuación" formControlName="score"/>
-                <p *ngIf="(submited && restForm?.get('score')?.hasError('required'))">Es obligatorio rellenar este campo</p>
+                <input type="text" placeholder="Añadir comentario" formControlName="coments"/>
+                <p *ngIf="(submited && restForm?.get('score'))">Es obligatorio rellenar este campo</p>
             </div>
-            <button>Guardar cambios</button>
+            <button *ngIf="usuario.admin">Guardar cambios</button>
+            <!-- <button *ngIf="!usuario.admin && usuario.name">Añadir comentario</button> -->
         </form>
     </div>
-    <div>
+    <div *ngIf="usuario.admin">
         <h4>Previsualización</h4>
-        <div [ngStyle]="{width: '300px'}"  *ngIf="restaurant">
+        <div  [ngStyle]="{width: '300px'}"  *ngIf="restaurant">
             <h4 class="mt-5">{{restaurant.name}}</h4>
             <img src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240"/>
             <p>{{restaurant.description}}</p>
@@ -36,7 +41,7 @@
                     <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score}"></i>
                 </ng-container>
             </p>
-            <p>Comentario de los clientes: {{restaurant.comments}}*</p>
+            <p>Comentario de los clientes: {{restaurant.coments}}*</p>
         </div>
     </div>
 </div>

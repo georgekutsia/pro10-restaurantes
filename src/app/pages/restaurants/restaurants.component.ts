@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestaurantI } from 'src/app/models/interfaces';
+import { UserI } from 'src/app/models/interfaces';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
 
 @Component({
@@ -13,12 +14,13 @@ export class RestaurantsComponent implements OnInit{
   id!: string;
   restaurant!: RestaurantI;
   restList!: RestaurantI[];
-
+  usuario!: UserI;
   constructor(private restApi: RestaurantsService, private router: Router) {}
 
   ngOnInit(): void {
     this.restApi.getRestaurants().subscribe((data: any) => {
       this.restList = [...data]
+      this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
     })
   }
 

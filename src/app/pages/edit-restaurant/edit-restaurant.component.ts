@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RestaurantI } from 'src/app/models/interfaces';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
+import { UserI } from 'src/app/models/interfaces';
 
 @Component({
   selector: 'app-edit-restaurant',
@@ -14,22 +15,23 @@ export class EditRestaurantComponent implements OnInit{
   restaurant!: RestaurantI;
   restForm!: FormGroup;
   submited: boolean = false;
+  usuario!: UserI;
 
   constructor(private restApi: RestaurantsService, private form: FormBuilder, private router: Router){
     this.restaurant = {...this.restApi.getRestaurant()};
     this.id = this.restApi.getId();
   }
 
- ngOnInit(): void {
-
+  ngOnInit(): void {
     this.restForm = this.form.group({
       name: [this.restaurant.name, Validators.required],
       img: [this.restaurant.img, Validators.required],
       description: [this.restaurant.description, Validators.required],
       city: [this.restaurant.city, Validators.required],
-      score: [this.restaurant.score, Validators.required]
+      score: [this.restaurant.score, Validators.required],
+      coments:['', Validators.required]
     })
-
+    this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
     this.restForm.valueChanges.subscribe((data) => {
       this.restaurant = {...data}
     })
