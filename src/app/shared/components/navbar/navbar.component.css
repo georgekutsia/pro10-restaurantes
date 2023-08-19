@@ -1,4 +1,67 @@
 .navBar {
   display: flex;
+  justify-content: space-between;
+  background-color: #2c7044;
+  height: 70px;
+  align-items: center;
+  margin-top: -20px;
+}
+.navBar-log a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
+  padding-bottom: 5px;
+}
+.navBar-log a:hover {
+  border-bottom: 2px solid white;
+  text-shadow: 2px 2px rgb(0, 0, 0);
+}
+.navBar-main {
+  display: flex;
+  align-items: center;
+}
+.navBar-main-profile {
   text-align: center;
+  color: white;
+}
+.navBar-main a {
+  color: white;
+  text-decoration: none;
+  margin: 0 50px;
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
+  padding-bottom: 5px;
+}
+.navBar-main a:hover {
+  border-bottom: 2px solid white;
+  text-shadow: 2px 2px rgb(0, 0, 0);
+}
+.navBar-main p {
+  margin: 0;
+}
+.navBar-exit-img {
+  width: 50px;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+.navBar-exit-img:hover {
+  scale: 1.2;
+}
+.navBar-exit-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.actived {
+  box-shadow: 0px 2px white;
 }/*# sourceMappingURL=navbar.component.css.map */

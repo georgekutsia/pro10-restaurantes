@@ -1,11 +1,22 @@
 <nav class="navBar">
-    <a routerLink='/'>INICIO</a>
-    <a routerLink='/restaurants'>RESTAURANTES</a>
-    <a *ngIf="!usuario.name" routerLink='/login'>INICIAR SESIÓN</a>
-    <a  *ngIf="!usuario.name" routerLink='/register'>REGISTARSE</a>
+  <div class="navBar-log"> 
+    <a *ngIf="!usuario.name" routerLink='/login' routerLinkActive="actived">INICIAR SESIÓN</a>
+    <a  *ngIf="!usuario.name" routerLink='/register' routerLinkActive="actived">REGISTARSE</a>
+  </div>
+  <div class="navBar-main">
+    <a  routerLink='/home' routerLinkActive="actived">INICIO</a>
+    <a routerLink='/restaurants' routerLinkActive="actived">RESTAURANTES</a>
     <!-- Con AUTH -->
-    <a *ngIf="usuario.name" routerLink='/register' routerLink='/profile'>PERFIL</a>
-    <a *ngIf="usuario.admin" routerLink='/register' routerLink='/profile'>Eres un admin</a>
+    <!-- <a *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>PERFIL</a> -->
+    <div class="navBar-main-profile">
+      <a  *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>   <img *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}"></a>
+      <p routerLinkActive="actived" *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'> Profile</p>
+    </div>
+  </div>
+  <div class="navBar-exit">
+    <a *ngIf="usuario.admin" routerLink='/register' >Eres un admin</a>
     <!-- <a routerLink='/users'>USUARIOS</a> -->
-      <button *ngIf="usuario.name" (click)="logout()">CERRAR SESIÓN</button>
+    <!-- <img *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}"> -->
+    <button class="navBar-exit-btn" *ngIf="usuario.name" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i></button>
+  </div>
 </nav>
