@@ -4,9 +4,21 @@
     margin: 0;
 }
 
-.red-star {
+.fa-regular.fa-star {
+    font-size: 20px;
+  }
+  
+  .fa-solid.fa-star {
+    font-size: 20px;
+  }
+  
+  .red-star {
+    color: red;
+  }
+  
+  .green-star {
     color: green;
-}
+  }
 
 .city{
     margin-top: 10px;
@@ -41,3 +53,7 @@
     margin: 4px 2px;
     border-radius: 12px;
 }
+
+.button:hover {
+    background-color: #038557;
+  }

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { RestaurantI } from 'src/app/models/interfaces';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
 
@@ -9,36 +9,31 @@ import { RestaurantsService } from 'src/app/shared/services/restaurants.service'
   templateUrl: './edit-restaurant.component.html',
   styleUrls: ['./edit-restaurant.component.scss']
 })
-export class EditRestaurantComponent {
+export class EditRestaurantComponent implements OnInit{
   id!: string;
   restaurant!: RestaurantI;
   restForm!: FormGroup;
   submited: boolean = false;
 
-  constructor(private restApi: RestaurantsService, private form: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute){}
+  constructor(private restApi: RestaurantsService, private form: FormBuilder, private router: Router){
+    this.restaurant = {...this.restApi.getRestaurant()};
+    this.id = this.restApi.getId();
+  }
 
-  ngOnInit(): void {
-
-    this.activatedRoute.paramMap.subscribe(params => {
-      this.id = String(params.get('id'))
-    })
-
-    this.restApi.getRestaurantById(this.id).subscribe((data:any) => {
-      this.restaurant = {...data}
-    })
+ ngOnInit(): void {
 
     this.restForm = this.form.group({
-      name: ["", Validators.required],
-      img: ["", Validators.required],
-      description: ["", Validators.required],
-      city: ["", Validators.required],
-      score: ["", Validators.required]
+      name: [this.restaurant.name, Validators.required],
+      img: [this.restaurant.img, Validators.required],
+      description: [this.restaurant.description, Validators.required],
+      city: [this.restaurant.city, Validators.required],
+      score: [this.restaurant.score, Validators.required]
     })
 
     this.restForm.valueChanges.subscribe((data) => {
       this.restaurant = {...data}
     })
-  }
+ }
 
   editRestaurant(){
     this.submited = true;
@@ -46,9 +41,9 @@ export class EditRestaurantComponent {
       this.submited = false;
       this.restApi.putRestaurant(this.restaurant, this.id).subscribe((data) => {
         console.log(data);
+        alert('Cambios guardados correctamente')
         this.restForm.reset();
-        
-        this.router.navigate(["/restaurants"])
+        this.router.navigate(['/restaurants'])
       })
     }
   }

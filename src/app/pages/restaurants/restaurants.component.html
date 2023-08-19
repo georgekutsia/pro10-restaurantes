@@ -1,7 +1,7 @@
 <div>
     <!-- Con auth admin -->
     <div>
-        <button>Añadir nuevo</button>
+        <button routerLink='/restaurants/add'>Añadir nuevo restaurante</button>
     </div>
     <!-- esto de abajo es bootstrap. se quita al maquetar bien con scss -->
     <div class="d-flex justify-content-around flex-wrap">
@@ -12,7 +12,7 @@
             <p class="city">{{restaurant.city}}</p>
             <p class="stars">Valoración: {{restaurant.score}}
                 <ng-container *ngFor="let star of [].constructor(10); let i = index">
-                    <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score, 'red-star': restaurant.score > 6, 'green-star': restaurant.score <= 6}"></i>
+                    <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score, 'red-star': restaurant.score < 6, 'green-star': restaurant.score >= 6}"></i>
                 </ng-container>
             </p>
             <p>Comentario de los clientes: {{restaurant.comments}}*</p>
@@ -22,8 +22,7 @@
             </div>
             <!-- Con auth admin -->
             <div>
-                <button class="button">Editar</button>
-                <button class="button" (click)="deleteRestaurant(restaurant.id)">Eliminar</button>
+                <button class="button" routerLink='/restaurants/{{restaurant.id}}'>Gestionar</button>
             </div>
         </div>
     </div>

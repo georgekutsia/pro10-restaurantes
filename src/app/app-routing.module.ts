@@ -7,6 +7,8 @@ import { RestaurantsComponent } from './pages/restaurants/restaurants.component'
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UsersComponent } from './pages/users/users.component';
 import { EditRestaurantComponent } from './pages/edit-restaurant/edit-restaurant.component';
+import { RestaurantGestionComponent } from './pages/restaurant-gestion/restaurant-gestion.component';
+import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.component';
 
 const routes: Routes = [
   {
@@ -16,7 +18,13 @@ const routes: Routes = [
     path:'restaurants', component: RestaurantsComponent
   },
   {
-    path:'restaurants/:id', component: EditRestaurantComponent
+    path:'restaurants/edit', component: EditRestaurantComponent
+  },
+  {
+    path:'restaurants/add', component: AddRestaurantComponent
+  },
+  {
+    path:'restaurants/:id', component: RestaurantGestionComponent
   },
   {
     path:'login', component: LoginComponent

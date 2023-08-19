@@ -1,0 +1,45 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #DEFFE9;
+  
+    div.email {
+      margin-top: 60px;
+      padding: 29px;
+      input {
+        border-color: #ccc;
+      }
+      p {
+        color: red;
+      }
+    }
+  
+    div.password {
+      margin-top: 20px; 
+      input {
+        border-color: #ccc;
+      }
+      p {
+        color: red;
+        }
+    }
+  
+    button.loginButton {
+      background-color: #04AA6D;
+      box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.2);
+      color: white;
+      padding: 13px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 20px 0;
+      border-radius: 12px;
+      transition: background-color 0.2s ease;
+  
+      &:hover {
+        background-color: #038557;
+      }
+    }
+  }
