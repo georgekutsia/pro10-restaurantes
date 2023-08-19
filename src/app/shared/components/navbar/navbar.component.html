@@ -1,9 +1,11 @@
 <nav class="navBar">
     <a routerLink='/'>INICIO</a>
     <a routerLink='/restaurants'>RESTAURANTES</a>
-    <a routerLink='/login'>INICIAR SESIÓN</a>
-    <a routerLink='/register'>REGISTRARSE</a>
+    <a *ngIf="!usuario.name" routerLink='/login'>INICIAR SESIÓN</a>
+    <a  *ngIf="!usuario.name" routerLink='/register'>REGISTARSE</a>
     <!-- Con AUTH -->
-    <a routerLink='/profile'>PERFIL</a>
+    <a *ngIf="usuario.name" routerLink='/register' routerLink='/profile'>PERFIL</a>
+    <a *ngIf="usuario.admin" routerLink='/register' routerLink='/profile'>Eres un admin</a>
     <!-- <a routerLink='/users'>USUARIOS</a> -->
+      <button *ngIf="usuario.name" (click)="logout()">CERRAR SESIÓN</button>
 </nav>

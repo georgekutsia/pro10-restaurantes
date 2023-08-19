@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+import { Subject } from 'rxjs';
 import { UserI } from 'src/app/models/interfaces';
 
 
@@ -12,7 +14,14 @@ export class UsersService {
   user!: UserI;
   url: string = 'http://localhost:3333/usuarios'
   constructor(private http: HttpClient) { }
+  
+  private userUpdated = new Subject<any>();
 
+  userUpdated$ = this.userUpdated.asObservable();
+
+  updateUser(user: any) {
+    this.userUpdated.next(user);
+  }
   getUsers(){
     return this.http.get(this.url)
   }
