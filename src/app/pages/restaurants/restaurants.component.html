@@ -4,10 +4,10 @@
         <button routerLink='/restaurants/add'>Añadir nuevo restaurante</button>
     </div>
     <!-- esto de abajo es bootstrap. se quita al maquetar bien con scss -->
-    <div class="d-flex justify-content-around flex-wrap">
-        <div [ngStyle]="{width: '300px'}"  *ngFor="let restaurant of restList">
-            <h3 class="mt-5">{{restaurant.name}}</h3>
-            <img src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240"/>
+    <div  class="d-flex justify-content-around flex-wrap">
+        <div  [ngStyle]="{width: '300px'}"  *ngFor="let restaurant of restList">
+            <h3  class="mt-5">{{restaurant.name}}</h3>
+            <img  src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240"/>
             <p class="description">{{restaurant.description}}</p>
             <p class="city">{{restaurant.city}}</p>
             <p class="stars">Valoración: {{restaurant.score}}

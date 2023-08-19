@@ -12,7 +12,7 @@ import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.co
 
 const routes: Routes = [
   {
-    path:'', component: HomeComponent
+    path:'home', component: HomeComponent
   },
   {
     path:'restaurants', component: RestaurantsComponent
@@ -33,7 +33,7 @@ const routes: Routes = [
     path:'register', component: RegisterComponent
   },
   {
-    path:'profile', component: ProfileComponent
+    path:'profile/:id', component: ProfileComponent
   },
   {
     path:'users', component: UsersComponent

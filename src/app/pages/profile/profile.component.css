@@ -1,1 +1,20 @@
-/*# sourceMappingURL=profile.component.css.map */
+.profile {
+  align-items: center;
+  text-align: center;
+  background-color: rgb(255, 225, 193);
+  align-items: center;
+  margin: 0;
+}
+.profile-ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+.profile-favorite {
+  background-color: rgb(253, 237, 206);
+  text-align: center;
+  border-radius: 30px;
+}
+
+li {
+  list-style: none;
+}/*# sourceMappingURL=profile.component.css.map */

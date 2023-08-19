@@ -1,1 +1,13 @@
-/*# sourceMappingURL=header.component.css.map */
+.header {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  font-size: 20px;
+  text-align: center;
+}
+.header h1 {
+  color: white;
+  margin: 0;
+  font-size: 24px;
+}/*# sourceMappingURL=header.component.css.map */

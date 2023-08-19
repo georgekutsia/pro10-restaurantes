@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { Router } from '@angular/router'
+import { UserI } from 'src/app/models/interfaces';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  usuario: any; 
+  usuario!: UserI; 
   constructor(private userService: UsersService, private router: Router) { }
 
   ngOnInit(): void {

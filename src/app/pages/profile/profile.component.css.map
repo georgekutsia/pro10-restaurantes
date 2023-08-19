@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"profile.component.css"}
+{"version":3,"sources":["profile.component.scss","profile.component.css"],"names":[],"mappings":"AAAA;EACE,mBAAA;EACA,kBAAA;EACA,oCAAA;EACA,mBAAA;EACA,SAAA;ACCF;ADAE;EACE,aAAA;EACA,6BAAA;ACEJ;ADAE;EACE,oCAAA;EACA,kBAAA;EACA,mBAAA;ACEJ;;ADCA;EACE,gBAAA;ACEF","file":"profile.component.css"}

@@ -16,4 +16,7 @@ export class AuthService {
   login(user: UserI){
     return this.http.post(`${this.db_url}/usuarios/login`, user)
   }
+  getUserById(id: string) {
+    return this.http.get(`${this.db_url}/usuarios/${id}`)
+  }
 }
