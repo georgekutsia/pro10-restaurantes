@@ -18,7 +18,7 @@
                 <p *ngIf="(submited && restForm?.get('city')?.hasError('required'))">Es obligatorio rellenar este campo</p>
             </div>
             <div>
-                <input type="text" placeholder="Puntuación" formControlName="score"/>
+                <input type="number" placeholder="Puntuación" formControlName="score" min="1" max="10"/>
                 <p *ngIf="(submited && restForm?.get('score')?.hasError('required'))">Es obligatorio rellenar este campo</p>
             </div>
             <button>Guardar cambios</button>

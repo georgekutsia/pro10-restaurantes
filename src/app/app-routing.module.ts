@@ -12,7 +12,8 @@ import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.co
 
 const routes: Routes = [
   {
-    path:'home', component: HomeComponent
+    //Se deja en blanco para que, al arrancar la aplicación, lo primero que se abra sea el componente de la página de inicio (Home)
+    path:'', component: HomeComponent
   },
   {
     path:'restaurants', component: RestaurantsComponent
