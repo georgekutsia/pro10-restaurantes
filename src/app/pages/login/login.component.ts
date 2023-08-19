@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
         console.log(data);
         localStorage.setItem('token', data.token)
         localStorage.setItem('user', JSON.stringify(data.usuario))
-        this.router.navigate(['/']);
+        localStorage.setItem('reloadFlag', 'true');
+        this.router.navigate(['/profile']);
       })
     }
   }
