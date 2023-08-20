@@ -13,14 +13,14 @@
     border: none;
     font-size: 18px;
     font-weight: 700;
-    background-color: white;
+    color: white;
+    background-color: #04AA6D;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     padding: 12px 14px;
     border-radius: 25px;
   }
   &-btn:hover{
     background-color: #038557;
-    color: white;
   }
 }
 
@@ -55,10 +55,6 @@
     color: black;
     font-size: 26px;
     margin-bottom: 16px;
-}
-
-.stars {
-
 }
 
 .button{
