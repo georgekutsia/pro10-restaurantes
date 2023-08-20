@@ -24,6 +24,16 @@
   }
 }
 
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  width: 90%;
+  margin-inline: auto;
+  padding-bottom: 50px;
+}
+
 .fa-regular.fa-star {
     font-size: 20px;
   }
