@@ -21,10 +21,10 @@
                 <input type="text" placeholder="Ciudad" formControlName="city"/>
                 <p *ngIf="(submited && restForm?.get('city')?.hasError('required'))">Es obligatorio rellenar este campo</p>
             </div>
-            <div>
+            <!-- <div>
                 <input type="number" placeholder="Valoración" formControlName="score" min="1" max="10"/>
                 <p *ngIf="(submited && restForm?.get('score')?.hasError('required'))">Es obligatorio rellenar este campo</p>
-            </div>
+            </div> -->
             <div>
                 <button class="add-form-btn">Añadir</button>
             </div>
