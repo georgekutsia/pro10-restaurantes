@@ -5,9 +5,9 @@
     <!-- Con AUTH -->
     <!-- <a *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>PERFIL</a> -->
     <div class="navBar-main-profile">
-      <a  *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>   
+      <!-- <a  *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>    -->
         <img *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}">
-      </a>
+      <!-- </a> -->
       <a routerLinkActive="actived" *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>PERFIL</a>
     </div>
   </div>
