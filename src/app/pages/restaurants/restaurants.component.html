@@ -10,11 +10,14 @@
             <img  src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240"/>
             <p class="description">{{restaurant.description}}</p>
             <p class="city">{{restaurant.city}}</p>
-            <p class="stars">{{restaurant.score}}
+            <p  *ngIf="restaurantAverages[restaurant.id]" class="stars">{{restaurantAverages[restaurant.id]}}
                 <ng-container *ngFor="let star of [].constructor(10); let i = index">
-                    <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score, 'red-star': restaurant.score < 6, 'green-star': restaurant.score >= 6}"></i>
+                    <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurantAverages[restaurant.id], 'red-star': restaurantAverages[restaurant.id] < 6, 'green-star': restaurantAverages[restaurant.id] >= 6}"></i>
                 </ng-container>
             </p>
+            <p  *ngIf="!restaurantAverages[restaurant.id]" class="stars"> No hay puntuacion para este restaurante. ¡Se el primero!
+            </p>
+
             <div>
                 <button class="button">Añadir a favoritos</button>
             </div>

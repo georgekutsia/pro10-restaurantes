@@ -9,8 +9,8 @@ import { format } from 'date-fns';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit{
-  usuario!: UserI; 
+export class ProfileComponent implements OnInit {
+  usuario!: UserI;
   id!: string;
   favorite!: any;
 
@@ -28,19 +28,23 @@ export class ProfileComponent implements OnInit{
     this.authUser.getUserById(this.id).subscribe((data: any) => {
       this.usuario = { ...data }
       this.favorite = this.usuario.favorite;
+      console.log(this.usuario)
       this.usuario.createdAt = this.formatDate(this.usuario.createdAt);
       this.usuario.updatedAt = this.formatDate(this.usuario.updatedAt);
-      console.log("eeee", this.usuario)
+
+      if (this.usuario.comments && this.usuario.comments.length > 0) {
+        this.usuario.comments.forEach((comentario: any) => {
+          comentario.createdAt = this.formatDate(comentario.createdAt);
+          comentario.updatedAt = this.formatDate(comentario.updatedAt);
+        });
+      }
     })
-    
-    // this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
+
     const reloadFlag = localStorage.getItem('reloadFlag');
     if (reloadFlag === 'true') {
-      localStorage.removeItem('reloadFlag'); 
+      localStorage.removeItem('reloadFlag');
       location.reload();
     }
     console.log()
   }
-
-  
 }
