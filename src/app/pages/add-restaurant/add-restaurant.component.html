@@ -1,43 +1,48 @@
-<button routerLink='/restaurants'>Volver</button>
 
-<div>
-    <form [formGroup]="restForm" (ngSubmit)="addRestaurant()">
-        <div>
-            <input type="text" placeholder="Nombre del restaurante" formControlName="name"/>
-            <p *ngIf="(submited && restForm?.get('name')?.hasError('required'))">Es obligatorio rellenar este campo</p>
-        </div>
-        <div>
-            <input type="text" placeholder="Imagen" formControlName="img"/>
-            <p *ngIf="(submited && restForm?.get('img')?.hasError('required'))">Es obligatorio rellenar este campo</p>
-        </div>
-        <div>
-            <input type="text" placeholder="Descripción" formControlName="description"/>
-            <p *ngIf="(submited && restForm?.get('description')?.hasError('required'))">Es obligatorio rellenar este campo</p>
-        </div>
-        <div>
-            <input type="text" placeholder="Ciudad" formControlName="city"/>
-            <p *ngIf="(submited && restForm?.get('city')?.hasError('required'))">Es obligatorio rellenar este campo</p>
-        </div>
-        <div>
-            <input type="text" placeholder="Valoración" formControlName="score"/>
-            <p *ngIf="(submited && restForm?.get('score')?.hasError('required'))">Es obligatorio rellenar este campo</p>
-        </div>
-        <button>Añadir</button>
-    </form>
+<div class="add-page">
     <div>
-        <h4>Previsualización</h4>
-        <div [ngStyle]="{width: '300px'}"  *ngIf="restaurant">
-            <h4 class="mt-5">{{restaurant.name}}</h4>
-            <img src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240"/>
-            <p>{{restaurant.description}}</p>
-            <p>{{restaurant.city}}</p>
-            <p>Valoración: {{restaurant.score}}
-                <ng-container *ngFor="let star of [].constructor(10); let i = index">
-                    <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score}"></i>
-                </ng-container>
-            </p>
+        <button class="add-page-btn" routerLink='/restaurants'><i class="fa-solid fa-arrow-left-long fa-2xl" style="color: #2c7044;"></i></button>
+    </div>
+    <div class="add-page-container">
+        <form [formGroup]="restForm" (ngSubmit)="addRestaurant()" class="add-form">
+            <div>
+                <input type="text" placeholder="Nombre del restaurante" formControlName="name"/>
+                <p *ngIf="(submited && restForm?.get('name')?.hasError('required'))">Es obligatorio rellenar este campo</p>
+            </div>
+            <div>
+                <input type="text" placeholder="Imagen" formControlName="img"/>
+                <p *ngIf="(submited && restForm?.get('img')?.hasError('required'))">Es obligatorio rellenar este campo</p>
+            </div>
+            <div>
+                <input type="text" placeholder="Descripción" formControlName="description"/>
+                <p *ngIf="(submited && restForm?.get('description')?.hasError('required'))">Es obligatorio rellenar este campo</p>
+            </div>
+            <div>
+                <input type="text" placeholder="Ciudad" formControlName="city"/>
+                <p *ngIf="(submited && restForm?.get('city')?.hasError('required'))">Es obligatorio rellenar este campo</p>
+            </div>
+            <div>
+                <input type="number" placeholder="Valoración" formControlName="score" min="1" max="10"/>
+                <p *ngIf="(submited && restForm?.get('score')?.hasError('required'))">Es obligatorio rellenar este campo</p>
+            </div>
+            <div>
+                <button class="add-form-btn">Añadir</button>
+            </div>
+        </form>
+        <div class="add-prev">
+            <h4 class="add-prev-h4">Previsualización</h4>
+            <div [ngStyle]="{width: '300px'}"  *ngIf="restaurant" class="add-prev-content">
+                <h4 class="add-prev-title">{{restaurant.name}}</h4>
+                <img src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240"/>
+                <p class="add-prev-des">{{restaurant.description}}</p>
+                <p class="add-prev-city">{{restaurant.city}}</p>
+                <p>Valoración: {{restaurant.score}}
+                    <ng-container *ngFor="let star of [].constructor(10); let i = index">
+                        <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score}"></i>
+                    </ng-container>
+                </p>
+            </div>
         </div>
     </div>
 </div>
-
 
