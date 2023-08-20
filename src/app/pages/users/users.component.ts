@@ -24,7 +24,6 @@ export class UsersComponent implements OnInit{
   deleteUser(id: string){
     this.userApi.deleteUsers(id).subscribe((data) => {
       alert("Usuario eliminado");
-      console.log("Usuario eliminado", data);
       this.router.navigate(["/users"])
     })
   }

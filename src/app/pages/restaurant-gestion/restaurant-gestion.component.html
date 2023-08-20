@@ -16,6 +16,8 @@
             </p>
     
     <p class="lastUpdated">Ultima actualización: {{restaurant.updatedAt}}</p>
+    <button (click)="addToFavorites()">Agregar a Favoritos</button>
+    <p>Ultima actualización:{{restaurant.updatedAt}}</p>
         <li class="profile-favorite" *ngFor="let res of restaurant.comments">
       <h4 class="restScore">Puntuación: {{ res.score }}</h4>
       <h4 class="userComment">Comentario de usuario:</h4>
