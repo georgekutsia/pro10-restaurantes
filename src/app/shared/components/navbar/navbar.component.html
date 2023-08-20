@@ -1,22 +1,26 @@
 <nav class="navBar">
-  <div class="navBar-log"> 
-    <a *ngIf="!usuario.name" routerLink='/login' routerLinkActive="actived">INICIAR SESIÓN</a>
-    <a  *ngIf="!usuario.name" routerLink='/register' routerLinkActive="actived">REGISTRARSE</a>
-  </div>
   <div class="navBar-main">
-    <a  routerLink='/' routerLinkActive="actived">INICIO</a>
+    <a  routerLink='/home' routerLinkActive="actived">INICIO</a>
     <a routerLink='/restaurants' routerLinkActive="actived">RESTAURANTES</a>
     <!-- Con AUTH -->
     <!-- <a *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>PERFIL</a> -->
     <div class="navBar-main-profile">
-      <a  *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>   <img *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}"></a>
-      <p routerLinkActive="actived" *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'> Profile</p>
+      <a  *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>   
+        <img *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}">
+      </a>
+      <a routerLinkActive="actived" *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>PERFIL</a>
     </div>
   </div>
-  <div class="navBar-exit">
-    <a *ngIf="usuario.admin" routerLink='/register' >Eres un admin</a>
+  <div class="navBar-log" *ngIf="!usuario.name"> 
+    <a *ngIf="!usuario.name" routerLink='/login' routerLinkActive="actived">INICIAR SESIÓN</a>
+    <a *ngIf="!usuario.name" routerLink='/register' routerLinkActive="actived">REGISTRARSE</a>
+  </div>
+  <div class="navBar-exit" *ngIf="usuario.name">
+    <a *ngIf="usuario.admin" routerLink='/register'>Eres Admin</a>
     <!-- <a routerLink='/users'>USUARIOS</a> -->
     <!-- <img *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}"> -->
-    <button class="navBar-exit-btn" *ngIf="usuario.name" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i></button>
+    <button class="navBar-exit-btn" (click)="logout()">
+      <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #ffffff;"></i>
+    </button>
   </div>
 </nav>

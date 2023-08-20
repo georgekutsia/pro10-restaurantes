@@ -2,6 +2,27 @@
     background-color: #DEFFE9;
 }
 
+.add{
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-block: 30px;
+  &-btn{
+    width: 400px;
+    border: 1px solid #04AA6D;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: white;
+    padding: 12px 14px;
+    border-radius: 25px;
+  }
+  &-btn:hover{
+    background-color: #038557;
+    color: white;
+  }
+}
+
 .fa-regular.fa-star {
     font-size: 20px;
   }
