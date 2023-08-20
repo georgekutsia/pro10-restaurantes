@@ -17,6 +17,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { EditRestaurantComponent } from './pages/edit-restaurant/edit-restaurant.component';
 import { RestaurantGestionComponent } from './pages/restaurant-gestion/restaurant-gestion.component';
 import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.component';
+import { CommentsComponent } from './pages/comments/comments.component';
 
 
 
@@ -34,7 +35,8 @@ import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.co
     FooterComponent,
     NavbarComponent,
     EditRestaurantComponent,
-    AddRestaurantComponent
+    AddRestaurantComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
