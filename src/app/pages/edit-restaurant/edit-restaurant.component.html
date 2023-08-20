@@ -20,14 +20,14 @@
                 <input type="text" placeholder="Ciudad" formControlName="city"/>
                 <p *ngIf="(submited && restForm?.get('city'))">Es obligatorio rellenar este campo</p>
             </div>
-            <div *ngIf="usuario.admin">
+            <!-- <div *ngIf="usuario.admin">
                 <input type="number" placeholder="Puntuación" formControlName="score" min="1" max="10"/>
                 <p *ngIf="(submited && restForm?.get('score'))">Es obligatorio rellenar este campo</p>
             </div>
             <div>
                 <input type="text" placeholder="Añadir comentario" formControlName="coments"/>
                 <p *ngIf="(submited && restForm?.get('score'))">Es obligatorio rellenar este campo</p>
-            </div>
+            </div> -->
             <div>
                 <button *ngIf="usuario.admin" class="edit-form-btn">Guardar cambios</button>
                 <!-- <button *ngIf="!usuario.admin && usuario.name">Añadir comentario</button> -->
@@ -45,7 +45,7 @@
                         <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score}"></i>
                     </ng-container>
                 </p>
-                <p>Comentario de los clientes: {{restaurant.comments}}*</p>
+                <!-- <p>Comentario de los clientes: {{restaurant.comments}}*</p> -->
             </div>
         </div>
     </div>
