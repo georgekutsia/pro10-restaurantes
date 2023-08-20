@@ -1,8 +1,8 @@
-<div>
-    <div *ngFor="let user of userList">
-        <img src="{{user.img}}" alt="{{user.name}}"/>
-        <h4>{{user.name}}</h4>
-        <p>{{user.age}}</p>
-        <button (click)="deleteUser(user.id)">Eliminar</button> 
+    <div class="containerUsers">
+    <div *ngFor="let user of userList" class="divUserList">
+        <img src="{{user.img}}" alt="{{user.name}}" class="userCompImg"/>
+        <h4 class="userNameList">{{user.name}}</h4>
+        <p class="userNameAge">{{user.age}}</p>
+        <button (click)="deleteUser(user.id)" class="userButton">Eliminar</button> 
     </div>
 </div>

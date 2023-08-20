@@ -19,7 +19,7 @@
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   align-items: center;
   justify-content: center; 
   text-align: center;
@@ -140,9 +140,14 @@ button[ngIf="usuario.admin"] {
 .comentariosGestion{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
   padding: 10px;
   margin-top: 20px;
-  font-size: 15px}
+  font-size: 15px;
+}
+
 
 button[ngIf="usuario.admin"] {
   background-color: green;
@@ -165,7 +170,7 @@ button[ngIf="usuario.admin"] {
   border: none;
   border-radius: 5px;
   margin: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 
   &:hover {
     background-color: darkgray;

@@ -1,4 +1,5 @@
 <button routerLink='/restaurants' class="button">Volver</button>
+<div class="wrapContainer">
 <div [ngStyle]="{width: '300px'}"  *ngIf="restaurant" class="divRestau">
     <h4 class="mt-5">{{restaurant.name}} ({{restaurant.city}})</h4>
     <p class="restHours">{{restaurant.hours}}</p>
@@ -13,9 +14,10 @@
             </p>
             <p  *ngIf="!averageRating" class="stars"> No hay puntuacion para este restaurante. ¡Se el primero!
             </p>
-    
+            
     <p class="lastUpdated">Ultima actualización: {{restaurant.updatedAt}}</p>
     <button (click)="addToFavorites()" class="buttonFav">Agregar a Favoritos</button>
+    </div>
     <div class="comentariosGestion"> 
     <li class="profile-favorite" *ngFor="let res of restaurant.comments">
             <h4 class="restScore">Puntuación de usuario: {{ res.score }}</h4>
