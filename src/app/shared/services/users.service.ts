@@ -33,4 +33,19 @@ export class UsersService {
   putUsers(user: UserI, id: string){
     return this.http.put(`${this.url}/${id}`, user)
   }
+
+  addToFavorites(userId: string, restaurantId: string) {
+    return this.http.post(`${this.url}/${restaurantId}/favorites`, { userId });
+  }
+  deleteFromFavorites(userId: string, restaurantId: string) {
+    const options = {
+      headers: { 'Content-Type': 'application/json' },
+      body: {
+        userId: userId,
+      },
+    };
+
+    return this.http.delete(`${this.url}/${restaurantId}/favorites`, options);
+  }
+
 }

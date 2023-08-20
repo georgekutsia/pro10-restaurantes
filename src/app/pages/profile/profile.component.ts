@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   usuario!: UserI;
   id!: string;
   favorite!: any;
-
+  
   constructor(private authUser: AuthService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   private formatDate(date: string): string {
@@ -28,10 +28,8 @@ export class ProfileComponent implements OnInit {
     this.authUser.getUserById(this.id).subscribe((data: any) => {
       this.usuario = { ...data }
       this.favorite = this.usuario.favorite;
-      console.log(this.usuario)
       this.usuario.createdAt = this.formatDate(this.usuario.createdAt);
       this.usuario.updatedAt = this.formatDate(this.usuario.updatedAt);
-
       if (this.usuario.comments && this.usuario.comments.length > 0) {
         this.usuario.comments.forEach((comentario: any) => {
           comentario.createdAt = this.formatDate(comentario.createdAt);
@@ -45,6 +43,5 @@ export class ProfileComponent implements OnInit {
       localStorage.removeItem('reloadFlag');
       location.reload();
     }
-    console.log()
   }
 }

@@ -1,3 +1,4 @@
+import { UsersService } from 'src/app/shared/services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
@@ -16,8 +17,12 @@ export class RestaurantGestionComponent implements OnInit {
   restaurant!: RestaurantI;
   usuario!: UserI;
   averageRating: number | undefined;
-
-  constructor(private restApi: RestaurantsService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(
+    private restApi: RestaurantsService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private usersService: UsersService 
+  ) { }
 
   private formatDate(date: string): string {
     const formattedDate = format(new Date(date), 'dd/MM/yyyy');
@@ -35,7 +40,6 @@ export class RestaurantGestionComponent implements OnInit {
       this.restaurant.createdAt = this.formatDate(this.restaurant.createdAt);
       this.restaurant.updatedAt = this.formatDate(this.restaurant.updatedAt);
 
-      // Calcular el promedio de puntuaciones
       if (this.restaurant.comments && this.restaurant.comments.length > 0) {
         const totalRating = this.restaurant.comments.reduce((acc: number, comentario: any) => acc + comentario.score, 0);
         this.averageRating = totalRating / this.restaurant.comments.length;
@@ -48,6 +52,20 @@ export class RestaurantGestionComponent implements OnInit {
         });
       }
     })
+  }
+
+  addToFavorites() {
+    const userId = this.usuario.id;
+    const restaurantId = this.id; 
+
+    this.usersService.addToFavorites(userId, restaurantId).subscribe(
+      (response:any) => {
+        console.log('Restaurante agregado a favoritos', response);
+      },
+      (error:any) => {
+        console.error('Error al agregar el restaurante a favoritos', error);
+      }
+    );
   }
 
   edit() {

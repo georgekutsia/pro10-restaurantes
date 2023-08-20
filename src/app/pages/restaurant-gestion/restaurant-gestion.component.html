@@ -14,7 +14,7 @@
             </p>
             <p  *ngIf="!averageRating" class="stars"> No hay puntuacion para este restaurante. ¡Se el primero!
             </p>
-    
+    <button (click)="addToFavorites()">Agregar a Favoritos</button>
     <p>Ultima actualización:{{restaurant.updatedAt}}</p>
         <li class="profile-favorite" *ngFor="let res of restaurant.comments">
       <h4>Puntuación: {{ res.score }}</h4>
