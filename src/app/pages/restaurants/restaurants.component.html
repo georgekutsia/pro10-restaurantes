@@ -1,27 +1,28 @@
 <div>
     <!-- Con auth admin -->
-    <div class="add">
-        <button *ngIf="usuario.admin" routerLink='/restaurants/add' class="add-btn">Añadir nuevo restaurante</button>
+  <div class="add">
+        <button *ngIf="usuario.admin" routerLink='/restaurants/add' class="add-btn">Añadir nuevo restaurante</button>   
+  </div>
+  <div class="d-flex justify-content-around flex-wrap">
+    <div [ngStyle]="{ width: '300px' }" *ngFor="let restaurant of restList">
+      <h3 class="mt-5">{{ restaurant.name }}</h3>
+      <img src="{{ restaurant.img }}" alt="{{ restaurant.name }}" width="300px" height="240" />
+      <p class="description">{{ restaurant.description }}</p>
+      <p class="city">{{ restaurant.city }}</p>
+      <p *ngIf="restaurantAverages[restaurant.id]" class="stars">{{ restaurantAverages[restaurant.id] }}
+        <ng-container *ngFor="let star of [].constructor(10); let i = index">
+          <i class="fa-regular fa-star"
+            [ngClass]="{ 'fa-solid': i < restaurantAverages[restaurant.id], 'red-star': restaurantAverages[restaurant.id] < 6, 'green-star': restaurantAverages[restaurant.id] >= 6 }"></i>
+        </ng-container>
+      </p>
+      <p *ngIf="!restaurantAverages[restaurant.id]" class="stars"> No hay puntuación para este restaurante. ¡Sé el primero!</p>
+
+      <button *ngIf="!isRestaurantFavorite(restaurant.id)" class="button" (click)="addToFavorites(restaurant.id)">Añadir a favoritos</button>
+      <button *ngIf="isRestaurantFavorite(restaurant.id)" class="button" (click)="deleteFromFavorites(restaurant.id)">Quitar de favoritos</button>
+      <div>
+        <button *ngIf="usuario.admin" class="button" routerLink='/restaurants/{{ restaurant.id }}'>Gestionar</button>
+        <button *ngIf="usuario.name && !usuario.admin" class="button" routerLink='/restaurants/{{ restaurant.id }}'>Ver detalles</button>
+      </div>
     </div>
-    <!-- esto de abajo es bootstrap. se quita al maquetar bien con scss -->
-    <div  class="d-flex justify-content-around flex-wrap">
-        <div  [ngStyle]="{width: '300px'}"  *ngFor="let restaurant of restList">
-            <h3  class="mt-5">{{restaurant.name}}</h3>
-            <img  src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240"/>
-            <p class="description">{{restaurant.description}}</p>
-            <p class="city">{{restaurant.city}}</p>
-            <p class="stars">{{restaurant.score}}
-                <ng-container *ngFor="let star of [].constructor(10); let i = index">
-                    <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score, 'red-star': restaurant.score < 6, 'green-star': restaurant.score >= 6}"></i>
-                </ng-container>
-            </p>
-            <div>
-                <button class="button">Añadir a favoritos</button>
-            </div>
-            <div>
-                <button *ngIf="usuario.admin" class="button" routerLink='/restaurants/{{restaurant.id}}'>Gestionar</button>
-                <button  *ngIf="usuario.name && !usuario.admin"  class="button" routerLink='/restaurants/{{restaurant.id}}'>Ver detalles</button>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>

@@ -24,12 +24,12 @@ export class EditRestaurantComponent implements OnInit{
 
   ngOnInit(): void {
     this.restForm = this.form.group({
-      name: [this.restaurant.name, Validators.required],
-      img: [this.restaurant.img, Validators.required],
-      description: [this.restaurant.description, Validators.required],
-      city: [this.restaurant.city, Validators.required],
-      score: [this.restaurant.score, Validators.required],
-      coments:['', Validators.required]
+      name: [this.restaurant.name,],
+      img: [this.restaurant.img,],
+      description: [this.restaurant.description,],
+      city: [this.restaurant.city,],
+      score: [this.restaurant.score,],
+      coments:['',]
     })
     this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
     this.restForm.valueChanges.subscribe((data) => {

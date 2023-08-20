@@ -13,7 +13,7 @@
   </div>
   <div class="navBar-log" *ngIf="!usuario.name"> 
     <a *ngIf="!usuario.name" routerLink='/login' routerLinkActive="actived">INICIAR SESIÓN</a>
-    <a *ngIf="!usuario.name" routerLink='/register' routerLinkActive="actived">REGISTARSE</a>
+    <a *ngIf="!usuario.name" routerLink='/register' routerLinkActive="actived">REGISTRARSE</a>
   </div>
   <div class="navBar-exit" *ngIf="usuario.name">
     <a *ngIf="usuario.admin" routerLink='/register'>Eres Admin</a>
