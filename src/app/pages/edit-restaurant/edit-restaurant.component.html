@@ -1,6 +1,9 @@
-<div>
+<div class="edit-page">
     <div>
-        <form [formGroup]="restForm" (ngSubmit)="editRestaurant()">
+        <button class="edit-page-btn" routerLink='/restaurants'><i class="fa-solid fa-arrow-left-long fa-2xl" style="color: #2c7044;"></i></button>
+    </div>
+    <div class="edit-page-container">
+        <form [formGroup]="restForm" (ngSubmit)="editRestaurant()" class="edit-form">
             <div *ngIf="usuario.admin">
                 <input type="text" placeholder="Nombre del restaurante" formControlName="name"/>
                 <p *ngIf="(submited && restForm?.get('name'))">Es obligatorio rellenar este campo</p>
@@ -25,23 +28,25 @@
                 <input type="text" placeholder="Añadir comentario" formControlName="coments"/>
                 <p *ngIf="(submited && restForm?.get('score'))">Es obligatorio rellenar este campo</p>
             </div>
-            <button *ngIf="usuario.admin">Guardar cambios</button>
-            <!-- <button *ngIf="!usuario.admin && usuario.name">Añadir comentario</button> -->
+            <div>
+                <button *ngIf="usuario.admin" class="edit-form-btn">Guardar cambios</button>
+                <!-- <button *ngIf="!usuario.admin && usuario.name">Añadir comentario</button> -->
+            </div>
         </form>
-    </div>
-    <div *ngIf="usuario.admin">
-        <h4>Previsualización</h4>
-        <div  [ngStyle]="{width: '300px'}"  *ngIf="restaurant">
-            <h4 class="mt-5">{{restaurant.name}}</h4>
-            <img src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240"/>
-            <p>{{restaurant.description}}</p>
-            <p>{{restaurant.city}}</p>
-            <p>Valoración: {{restaurant.score}}
-                <ng-container *ngFor="let star of [].constructor(10); let i = index">
-                    <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score}"></i>
-                </ng-container>
-            </p>
-            <p>Comentario de los clientes: {{restaurant.comments}}*</p>
+        <div *ngIf="usuario.admin" class="edit-prev">
+            <h4 class="edit-prev-h4">Previsualización</h4>
+            <div  [ngStyle]="{width: '300px'}"  *ngIf="restaurant" class="edit-prev-content">
+                <h4 class="edit-prev-title">{{restaurant.name}}</h4>
+                <img src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240"/>
+                <p class="edit-prev-des">{{restaurant.description}}</p>
+                <p class="add-prev-city">{{restaurant.city}}</p>
+                <p>Valoración: {{restaurant.score}}
+                    <ng-container *ngFor="let star of [].constructor(10); let i = index">
+                        <i class="fa-regular fa-star" [ngClass]="{'fa-solid': i < restaurant.score}"></i>
+                    </ng-container>
+                </p>
+                <p>Comentario de los clientes: {{restaurant.comments}}*</p>
+            </div>
         </div>
     </div>
 </div>
