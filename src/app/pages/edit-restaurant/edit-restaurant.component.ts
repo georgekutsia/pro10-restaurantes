@@ -20,6 +20,7 @@ export class EditRestaurantComponent implements OnInit{
   constructor(private restApi: RestaurantsService, private form: FormBuilder, private router: Router){
     this.restaurant = {...this.restApi.getRestaurant()};
     this.id = this.restApi.getId();
+
   }
 
   ngOnInit(): void {

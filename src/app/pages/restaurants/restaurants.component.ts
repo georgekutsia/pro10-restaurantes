@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestaurantI } from 'src/app/models/interfaces';
 import { UserI } from 'src/app/models/interfaces';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
 import { UsersService } from 'src/app/shared/services/users.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+
 
 @Component({
   selector: 'app-restaurants',
@@ -23,9 +24,8 @@ export class RestaurantsComponent implements OnInit {
 
   constructor(
     private restApi: RestaurantsService,
-    private router: Router,
     private usersService: UsersService,
-    private authService: AuthService
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +37,6 @@ export class RestaurantsComponent implements OnInit {
       this.calculateAverages();
     });
   }
-
   calculateAverages(): void {
     this.restList.forEach((restaurant: RestaurantI) => {
       let totalScore = 0;
@@ -58,8 +57,6 @@ export class RestaurantsComponent implements OnInit {
     this.usersService.addToFavorites(userId, restaurantId).subscribe(
       (response: any) => {
         this.userFavorites.push(restaurantId);
-        console.log("bla", this.userForFavorite);
-
         this.calculateAverages();
       },
       (error: any) => {
@@ -73,8 +70,6 @@ export class RestaurantsComponent implements OnInit {
     this.usersService.deleteFromFavorites(userId, restaurantId).subscribe(
       (response: any) => {
         this.userFavorites = this.userFavorites.filter(id => id !== restaurantId);
-        console.log("bla", this.userForFavorite);
-
         this.calculateAverages();
       },
       (error: any) => {
@@ -82,8 +77,6 @@ export class RestaurantsComponent implements OnInit {
       }
     );
   }
-
-
   isRestaurantFavorite(restaurantId: string): boolean {
     return this.userFavorites.includes(restaurantId);
   }

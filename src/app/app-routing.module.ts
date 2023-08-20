@@ -9,6 +9,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { EditRestaurantComponent } from './pages/edit-restaurant/edit-restaurant.component';
 import { RestaurantGestionComponent } from './pages/restaurant-gestion/restaurant-gestion.component';
 import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.component';
+import { CommentsComponent } from './pages/comments/comments.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,9 @@ const routes: Routes = [
   },
   {
     path:'users', component: UsersComponent
+  },
+  {
+    path: 'comentarios/:id/userComment', component: CommentsComponent
   },
 ];
 

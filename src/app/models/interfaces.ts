@@ -27,3 +27,8 @@ export interface RestaurantI{
     updatedAt: string,
     
 }
+export interface CommentI{
+    userId: string,
+    score: number,
+    comments: string,
+}

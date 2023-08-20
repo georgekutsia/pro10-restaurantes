@@ -18,10 +18,10 @@
       <p *ngIf="!restaurantAverages[restaurant.id]" class="stars"> No hay puntuación para este restaurante. ¡Sé el primero!</p>
 
       <button *ngIf="!isRestaurantFavorite(restaurant.id)" class="button" (click)="addToFavorites(restaurant.id)">Añadir a favoritos</button>
-      <button *ngIf="isRestaurantFavorite(restaurant.id)" class="button" (click)="deleteFromFavorites(restaurant.id)">Quitar de favoritos</button>
+      <button *ngIf="isRestaurantFavorite(restaurant.id)" class="button favorite-button" (click)="deleteFromFavorites(restaurant.id)"><i class="fa-regular fa-heart favorite-heart"></i><i class="fa-regular fa-heart favorite-heart1"></i><i class="fa-regular fa-heart favorite-heart2"></i><i class="fa-regular fa-heart favorite-heart3"></i> <span class="favorite-text"> Es uno de tus favoritos! </span> <i class="fa-solid fa-trash-arrow-up favorite-trash"></i></button>
       <div>
         <button *ngIf="usuario.admin" class="button" routerLink='/restaurants/{{ restaurant.id }}'>Gestionar</button>
-        <button *ngIf="usuario.name && !usuario.admin" class="button" routerLink='/restaurants/{{ restaurant.id }}'>Ver detalles</button>
+        <button *ngIf="usuario.name && usuario.admin" class="button" routerLink='/comentarios/{{ restaurant.id }}/userComment'>Ver comentarios</button>
       </div>
     </div>
   </div>
