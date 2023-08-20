@@ -5,43 +5,57 @@ import { RestaurantI } from 'src/app/models/interfaces';
 import { UserI } from 'src/app/models/interfaces';
 import { format } from 'date-fns';
 
-
 @Component({
   selector: 'app-restaurant-gestion',
   templateUrl: './restaurant-gestion.component.html',
   styleUrls: ['./restaurant-gestion.component.scss']
 })
-export class RestaurantGestionComponent implements OnInit{
+export class RestaurantGestionComponent implements OnInit {
 
   id!: string;
   restaurant!: RestaurantI;
   usuario!: UserI;
+  averageRating: number | undefined;
 
-  constructor(private restApi: RestaurantsService, private activatedRoute: ActivatedRoute, private router: Router){}
+  constructor(private restApi: RestaurantsService, private activatedRoute: ActivatedRoute, private router: Router) { }
+
   private formatDate(date: string): string {
     const formattedDate = format(new Date(date), 'dd/MM/yyyy');
     return formattedDate;
   }
+
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
       this.id = String(params.get('id'));
       this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
     })
 
-    this.restApi.getRestaurantById(this.id).subscribe((data:any) => {
-      this.restaurant = {...data}
+    this.restApi.getRestaurantById(this.id).subscribe((data: any) => {
+      this.restaurant = { ...data }
       this.restaurant.createdAt = this.formatDate(this.restaurant.createdAt);
       this.restaurant.updatedAt = this.formatDate(this.restaurant.updatedAt);
-      console.log(this.restaurant);
+
+      // Calcular el promedio de puntuaciones
+      if (this.restaurant.comments && this.restaurant.comments.length > 0) {
+        const totalRating = this.restaurant.comments.reduce((acc: number, comentario: any) => acc + comentario.score, 0);
+        this.averageRating = totalRating / this.restaurant.comments.length;
+      }
+
+      if (this.restaurant.comments && this.restaurant.comments.length > 0) {
+        this.restaurant.comments.forEach((comentario: any) => {
+          comentario.createdAt = this.formatDate(comentario.createdAt);
+          comentario.updatedAt = this.formatDate(comentario.updatedAt);
+        });
+      }
     })
   }
 
-  edit(){
+  edit() {
     this.restApi.setRestaurant(this.restaurant, this.id);
     this.router.navigate(['/restaurants/edit'])
   }
 
-    delete(){
+  delete() {
     this.restApi.deleteRestaurants(this.id).subscribe((data) => {
       alert("Restaurante eliminado");
       console.log("Restaurante eliminado", data);
