@@ -1,11 +1,11 @@
 <div class="profile" *ngIf="usuario">
   <h1 class="profileName">{{ usuario.name }}</h1>
-  <img src="{{ usuario.img }}" alt="" width="200" class="profileImg">
   <h3 class="profileEdad">Edad: {{ usuario.age }}</h3>
   <h4 class="profileEmail">Email: {{ usuario.email }}</h4>
-  <h4 class="profileRestaurant">Restaurantes Favoritos:</h4>
+  <img src="{{ usuario.img }}" alt="" width="200" class="profileImg">
+  <h4 class="profileRestaurant">Restaurantes favoritos de {{usuario.name}}:</h4>
 <ul class="profile-ul">
-    <li class="profile-favorite" *ngFor="let fav of favorite">
+    <li class="profile-favorit" *ngFor="let fav of favorite">
       <h4 class="favNave">Nombre: {{fav.name}}</h4>
       <img src="{{fav.img}}" alt="" width="200" class="favImage">
       <p class="profileDescrip">Descripción: {{fav.description}}</p>
@@ -16,9 +16,9 @@
     </li>
   </ul>
   <ul class="profile-ul">
-    <li class="profile-favorite" *ngFor="let comentario of usuario.comments">
+    <li class="profile-favorit1" *ngFor="let comentario of usuario.comments">
+      <h4 class="commentScore1">Comentario</h4>
       <h4 class="profileScore">Puntuación: {{ comentario.score }}</h4>
-      <h4 class="commentScore">Comentario:</h4>
       <p class="commentScore">{{ comentario.comments }}</p>
       <p class="creationDate">Fecha de Creación: {{ comentario.createdAt }}</p>
       <p class="actDate">Fecha de Actualización: {{ comentario.updatedAt }}</p>

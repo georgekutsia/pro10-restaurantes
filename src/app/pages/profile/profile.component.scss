@@ -1,39 +1,108 @@
 .profile {
   align-items: center;
   text-align: center;
-  background-color: lightgreen;
-  margin: 0;
-  
-  &-ul {
+  background-color: whitesmoke;
+  margin-top: 0;
+
+  .profileName {
+    color: black;
+    padding: 20px;
+    font-size: 24px;
+  }
+
+  .profileImg {
+    border: 2px solid lightgreen;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .profileEdad,
+  .profileEmail {
+    color: black;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  .profileRestaurant{
+    color: black;
+    margin-top: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 30px;
+  }
+
+  .profile-ul {
     display: flex;
     justify-content: space-evenly;
-  }
-  
-  &-favorite {
-    background-color: palegreen;
-    text-align: center;
-    border-radius: 30px;
-    padding: 10px;
-    
-    h4 {
-      color: darkgreen;
-    }
-    
-    .favImage {
-      border: 2px solid darkgreen;
-      border-radius: 5px;
-      margin-top: 5px;
-    }
-    
-    .profileDescrip,
-    .profileCity,
-    .profileComment {
-      color: darkgreen;
-      margin-top: 5px;
-    }
-  }
-}
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
 
-li {
-  list-style: none;
+    .profile-favorit {
+      background-color: #f8f5de;
+      color: black;
+      text-align: center;
+      border: solid black 0.5px;
+      padding: 15 px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 10px;
+      padding: 20px;
+      width: 350px;
+      margin: 10px;
+    }
+    .profile-favorit1 {
+      background-color: #b0e4b0;
+      color: black;
+      text-align: center;
+      border: solid black 1px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 20px;
+      padding: 20px;
+      width: 390px;
+      margin: 8px;
+      
+      .favImage {
+        border: 2px solid darkgreen;
+        border-radius: 2px;
+        margin-top: 10px;
+      }
+
+      .profileDescrip,
+      .profileCity,
+      .profileComment {
+        color: darkgreen;
+        margin-top: 5px;
+      }
+    }
+
+    .profileScore{
+      font-size: 21px;
+      color: darkgreen;
+    }
+    .commentScore1{
+      color: black;
+      padding: 15px;
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .commentScore{
+      font-style: italic;
+      font-size: 14px;
+      margin-top: 10px;
+      padding: 10px;
+      border-bottom: solid black 1px;
+    }
+
+    .creationDate,
+    .actDate{
+      font-size: 10px;
+      letter-spacing: 0.5px;
+    }
+  }
 }

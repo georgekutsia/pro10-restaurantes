@@ -1,11 +1,10 @@
-<button routerLink='/restaurants'>Volver</button>
+<button routerLink='/restaurants' class="button">Volver</button>
 <div [ngStyle]="{width: '300px'}"  *ngIf="restaurant" class="divRestau">
-    <h4 class="mt-5">{{restaurant.name}}</h4>
-    <img src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240" class="imgRestau"/>
-    <p class="restDescription">{{restaurant.description}}</p>
-    <p class="restCity">{{restaurant.city}}</p>
+    <h4 class="mt-5">{{restaurant.name}} ({{restaurant.city}})</h4>
     <p class="restHours">{{restaurant.hours}}</p>
     <p class="restAddress">{{restaurant.adress}}</p>
+    <img src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240" class="imgRestau"/>
+    <p class="restDescription">{{restaurant.description}}</p>
     <p class="restPhone">Llama al <span [ngStyle]="{color: 'blue'}" > {{restaurant.phone}}</span>  para reservar</p>
 <p  *ngIf="averageRating" class="stars">{{averageRating}}
                 <ng-container *ngFor="let star of [].constructor(10); let i = index">
@@ -16,15 +15,16 @@
             </p>
     
     <p class="lastUpdated">Ultima actualización: {{restaurant.updatedAt}}</p>
-    <button (click)="addToFavorites()">Agregar a Favoritos</button>
-    <p>Ultima actualización:{{restaurant.updatedAt}}</p>
-        <li class="profile-favorite" *ngFor="let res of restaurant.comments">
-      <h4 class="restScore">Puntuación: {{ res.score }}</h4>
-      <h4 class="userComment">Comentario de usuario:</h4>
+    <button (click)="addToFavorites()" class="buttonFav">Agregar a Favoritos</button>
+    <div class="comentariosGestion"> 
+    <li class="profile-favorite" *ngFor="let res of restaurant.comments">
+            <h4 class="restScore">Puntuación de usuario: {{ res.score }}</h4>
+      <h4 class="userComment">Comentario:</h4>
       <p class="restComment">{{ res.comments }}</p>
+    
       <p class="commentedOn">Comentado el: {{ res.updatedAt }}</p>
     </li>
-    <button  *ngIf="usuario.admin" (click)="edit()">Modificar datos</button>
-    <button *ngIf="usuario.admin" (click)="delete()">Eliminar</button>
+</div>
+    <p><button  *ngIf="usuario.admin" (click)="edit()" class="buttonAdmin">Modificar datos</button><button *ngIf="usuario.admin" (click)="delete()" class="buttonAdmin">Eliminar</button></p>   
     <!-- <button (click)="edit()">Añadir comentarios</button> -->
 </div>
