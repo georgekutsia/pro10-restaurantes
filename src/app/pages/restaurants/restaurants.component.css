@@ -2,6 +2,37 @@
   background-color: #DEFFE9;
 }
 
+.add {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-block: 30px;
+}
+.add-btn {
+  width: 350px;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: #04AA6D;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 12px 14px;
+  border-radius: 25px;
+}
+.add-btn:hover {
+  background-color: #038557;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  width: 90%;
+  margin-inline: auto;
+  padding-bottom: 50px;
+}
+
 .fa-regular.fa-star {
   font-size: 20px;
 }
@@ -47,6 +78,7 @@
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
+  margin-bottom: 20px;
   border-radius: 12px;
 }
 

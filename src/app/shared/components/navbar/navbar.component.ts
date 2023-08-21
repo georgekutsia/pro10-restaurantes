@@ -10,6 +10,7 @@ import { UserI } from 'src/app/models/interfaces';
 })
 export class NavbarComponent implements OnInit {
   usuario!: UserI; 
+  isActive:boolean=false;
   constructor(private userService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
@@ -18,10 +19,28 @@ export class NavbarComponent implements OnInit {
       this.usuario = user;
     });
   }
+  toggleButton() {
+    this.isActive = !this.isActive;
+  }
   logout() {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     this.userService.updateUser({});
     this.router.navigate(['/']);
+  }
+
+
+
+  botonesActivados:any = {
+    inicio: false,
+    restaurantes: false,
+    miembros: false
+  };
+
+  toggleShadow(button: string) {
+    for (const key in this.botonesActivados) {
+      this.botonesActivados[key] = false;
+    }
+    this.botonesActivados[button] = true;
   }
 }

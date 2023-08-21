@@ -37,21 +37,36 @@
         color: red;
     }
 
-    &-btn{
+    &-btn-log{
       background-color: #04AA6D;
       border: none;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
       color: white;
-      width: 100px;
+     min-width: 100px;
       margin-block: 20px;
       padding: 10px 12px;
       border-radius: 25px;
       transition: background-color 0.2s ease;
+      &:hover{
+      background-color: #038557;
+      }
+    }
+    &-btn-reg{
+      background-color: #10714e;
+      border: none;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      color: white;
+      min-width: 100px;
+      margin-block: 20px;
+      padding: 10px 12px;
+      border-radius: 25px;
+      transition: background-color 0.2s ease;
+      &:hover{
+      background-color: #038557;
+
+      }
     }
 
-    &-btn:hover{
-      background-color: #038557;
-    }
   }
   
 .lds-ring {

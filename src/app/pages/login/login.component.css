@@ -1,41 +1,120 @@
-form {
+.login-bg {
+  background-image: url(../../../assets/img/login-img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
+  background-position-y: center;
+  height: 750px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: #DEFFE9;
 }
-form div.email {
-  margin-top: 60px;
-  padding: 29px;
-}
-form div.email input {
-  border-color: #ccc;
-}
-form div.email p {
-  color: red;
-}
-form div.password {
-  margin-top: 20px;
-}
-form div.password input {
-  border-color: #ccc;
-}
-form div.password p {
-  color: red;
-}
-form button.loginButton {
-  background-color: #04AA6D;
-  box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.2);
-  color: white;
-  padding: 13px;
+
+.form {
+  background-color: rgba(222, 255, 233, 0.3);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  height: 500px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 20px 0;
-  border-radius: 12px;
+}
+.form-h3 {
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.form input {
+  border-color: #ccc;
+  border-radius: 24px;
+  padding: 5px 10px;
+  width: 250px;
+  margin-block: 15px;
+}
+.form p {
+  color: red;
+}
+.form-btn-log {
+  background-color: #04AA6D;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  color: white;
+  min-width: 100px;
+  margin-block: 20px;
+  padding: 10px 12px;
+  border-radius: 25px;
   transition: background-color 0.2s ease;
 }
-form button.loginButton:hover {
+.form-btn-log:hover {
   background-color: #038557;
+}
+.form-btn-reg {
+  background-color: #10714e;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  color: white;
+  min-width: 100px;
+  margin-block: 20px;
+  padding: 10px 12px;
+  border-radius: 25px;
+  transition: background-color 0.2s ease;
+}
+.form-btn-reg:hover {
+  background-color: #038557;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #ff9100;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #00aeff transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.father-password {
+  position: relative;
+}
+
+.button-toggle {
+  position: absolute;
+  border-radius: 50px;
+  right: 43px;
+  top: 24px;
+  padding: 0px;
+  margin: 0px;
+  background-color: rgba(244, 241, 241, 0.95);
+  border: none;
 }/*# sourceMappingURL=login.component.css.map */

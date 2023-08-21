@@ -14,9 +14,11 @@ export class RegisterComponent implements OnInit{
   regCorrect: boolean = false;
   registerError:boolean = false;
   showPass = 'password';
-
   defaultImg: string = "https://res.cloudinary.com/dxnzcewsy/image/upload/v1692581180/restaurantes%20y%20usuarios/otras/pngwing.com_30_b3rztq.png"
+
   constructor(private form: FormBuilder, private api: AuthService, private router: Router){}
+
+
     ngOnInit(): void{
       this.registerForm = this.form.group({
         email: ["", [Validators.required, Validators.pattern("^[a-zA-Z0-9.!#$%&`*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*")]],
@@ -30,6 +32,8 @@ export class RegisterComponent implements OnInit{
   togglePassword() {
     this.showPass = this.showPass === 'password' ? 'text' : 'password';
   }
+
+
   registrar(){
     this.regCorrect = true
     if(this.registerForm.valid){
