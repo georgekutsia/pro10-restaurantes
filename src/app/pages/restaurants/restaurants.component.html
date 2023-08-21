@@ -21,7 +21,8 @@
       <button *ngIf="isRestaurantFavorite(restaurant.id) && usuario.name" class="button favorite-button" (click)="deleteFromFavorites(restaurant.id)"><i class="fa-regular fa-heart favorite-heart"></i><i class="fa-regular fa-heart favorite-heart1"></i><i class="fa-regular fa-heart favorite-heart2"></i><i class="fa-regular fa-heart favorite-heart3"></i> <span class="favorite-text"> Es uno de tus favoritos! </span> <i class="fa-solid fa-trash-arrow-up favorite-trash"></i></button>
       <div>
         <button *ngIf="usuario.admin" class="button" routerLink='/restaurants/{{ restaurant.id }}'>Gestionar</button>
-        <button *ngIf="usuario.name && !usuario.admin" class="button" routerLink='/comentarios/{{ restaurant.id }}/userComment'>Ver comentarios</button>
+        <button *ngIf="usuario.name && !usuario.admin && restaurant.comments.length >= 1" class="button" routerLink='/comentarios/{{ restaurant.id }}/userComment'>Ver {{restaurant.comments.length}} comentarios</button>
+        <button *ngIf="usuario.name && !usuario.admin && restaurant.comments.length === 0" class="button" routerLink='/comentarios/{{ restaurant.id }}/userComment'>Añadir el primer comentario</button>
       </div>
     </div>
   </div>
