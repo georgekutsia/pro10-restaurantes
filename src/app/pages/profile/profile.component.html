@@ -3,7 +3,7 @@
   <img src="{{ usuario.img }}" alt="" width="200" class="profileImg">
   <h3 class="profileEdad">Edad: {{ usuario.age }}</h3>
   <h4 class="profileEmail">Email: {{ usuario.email }}</h4>
-  <h4 class="profileRestaurant">Restaurantes favoritos de {{usuario.name}}:</h4>
+  <h4 class="profileRestaurant">Restaurantes favoritos:</h4>
 <ul class="profile-ul">
     <li class="profile-favorit" *ngFor="let fav of favorite">
       <h4 class="favNave">{{fav.name}} ({{fav.city}})</h4>
@@ -15,13 +15,12 @@
       </ul>
     </li>
   </ul>
-  <h4 class="profileRestaurant">Comentarios de {{usuario.name}}:</h4>
+  <h4 class="profileRestaurant">Comentarios:</h4>
   <ul class="profile-ul">
     <li class="profile-favorit1" *ngFor="let comentario of usuario.comments">
       <h4 class="profileScore">Puntuación: {{ comentario.score }}</h4>
       <p class="commentScore">{{ comentario.comments }}</p>
-      <p class="creationDate">Fecha de Creación: {{ comentario.createdAt }}</p>
-      <p class="actDate">Fecha de Actualización: {{ comentario.updatedAt }}</p>
+      <p class="actDate">Fecha del comentario: {{ comentario.updatedAt }}</p>
     </li>
   </ul>
 </div>

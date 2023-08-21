@@ -1,20 +1,102 @@
 .profile {
   align-items: center;
   text-align: center;
-  background-color: rgb(255, 225, 193);
-  align-items: center;
-  margin: 0;
+  background-color: whitesmoke;
+  margin-top: 0;
 }
-.profile-ul {
+.profile .profileName {
+  color: black;
+  padding: 20px;
+  font-size: 24px;
+}
+.profile .profileImg {
+  border: 2px solid lightgreen;
+  border-radius: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.profile .profileEdad,
+.profile .profileEmail {
+  color: black;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.profile .profileRestaurant {
+  color: black;
+  margin-top: 20px;
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: left;
+  margin-left: 30px;
+}
+.profile .profile-ul {
   display: flex;
   justify-content: space-evenly;
-}
-.profile-favorite {
-  background-color: rgb(253, 237, 206);
-  text-align: center;
-  border-radius: 30px;
-}
-
-li {
+  flex-wrap: wrap;
   list-style: none;
+  padding: 0;
+}
+.profile .profile-ul .profile-favorit {
+  background-color: #f8f5de;
+  color: black;
+  text-align: center;
+  border: solid black 0.5px;
+  padding: 15 px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+  width: 350px;
+  margin: 10px;
+}
+.profile .profile-ul .profile-favorit1 {
+  background-color: #b0e4b0;
+  color: black;
+  text-align: center;
+  border: solid black 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px;
+  width: 390px;
+  margin: 8px;
+}
+.profile .profile-ul .profile-favorit1 .favImage {
+  border: 2px solid darkgreen;
+  border-radius: 2px;
+  margin-top: 10px;
+}
+.profile .profile-ul .profile-favorit1 .profileDescrip,
+.profile .profile-ul .profile-favorit1 .profileCity,
+.profile .profile-ul .profile-favorit1 .profileComment {
+  color: darkgreen;
+  margin-top: 5px;
+}
+.profile .profile-ul .profileScore {
+  font-size: 21px;
+  color: darkgreen;
+}
+.profile .profile-ul .commentScore1 {
+  color: black;
+  padding: 15px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+.profile .profile-ul .commentScore {
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 10px;
+  border-bottom: solid black 1px;
+}
+.profile .profile-ul .creationDate,
+.profile .profile-ul .actDate {
+  font-size: 10px;
+  letter-spacing: 0.5px;
 }/*# sourceMappingURL=profile.component.css.map */

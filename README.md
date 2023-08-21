@@ -6,6 +6,8 @@ Una página dedicada a los amantes de la buena gastronomía, que les gusta compa
 
 Puedes ver restaurantes, sus puntuaciones, comentarios e información general, pero si te registras como miebro, además podrás comentar tu mismo y añadir tus restaurantes favoritos a tu lista. Todo aparecerá en tu perfil.
 
+Si no tienes foto para registrarte no te prepcupes, te ponemos una por defecto
+
 Atento al mail de bienvenido si te registras con un id real
 
 La media de todas las puntuaciones de todos los comentarios de los restaurantes, que aparece en forma de estrellas de puntuación,  es un buen indicativo de la opinión de los usuarios. 
