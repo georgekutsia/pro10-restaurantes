@@ -1,5 +1,6 @@
 <div class="signup-bg">
-    <form [formGroup]="registerForm" (ngSubmit)="registrar()" class="form">
+    <div *ngIf="submited" class="lds-ripple"><div></div><div></div></div>
+    <form *ngIf="!submited" [formGroup]="registerForm" (ngSubmit)="registrar()" class="form">
         <h3 class="form-h3">CREA UNA NUEVA CUENTA PARA ACCEDER</h3>
         <div>
             <input type="email" placeholder="Email" formControlName="email"/>
