@@ -17,12 +17,11 @@
       padding: 40px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       width: 400px;
-      height: 500px;
-      text-align: center;
+        text-align: center;
   
       &-h3{
         font-weight: bold;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
       }
     
       input{
@@ -32,11 +31,21 @@
           width: 250px;
           margin-block: 15px;
       }
-  
+  .parts{
+    position: relative;
+    width: 100%;
+  }
       p{
           color: red;
+          margin: 0px;
+          position: absolute;
+          bottom: -10px;
+          margin: auto;
       }
-  
+  article{
+          color: red;
+          font-size: 16px;
+  }
       &-btn{
         background-color: #04AA6D;
         border: none;
@@ -98,4 +107,14 @@
     height: 144px;
     opacity: 0;
   }
+}
+.button-toggle{
+  position: absolute;
+  border-radius: 50px;
+  right: 43px;
+  top:24px;
+  padding:0px;
+  margin: 0px;
+  background-color: rgba(244, 241, 241, 0.95);;
+  border: none;
 }

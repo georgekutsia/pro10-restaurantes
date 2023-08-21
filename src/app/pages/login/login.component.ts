@@ -11,14 +11,15 @@ import { Router } from '@angular/router'
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup; 
   submited: boolean = false;
-  showPass = 'password';
-  loginError = false;
+  subCorrect:boolean = false;
+  showPass:string = 'password';
+  loginError:boolean = false;
   constructor(private form: FormBuilder, private api: AuthService, private router: Router){}
 
   ngOnInit(): void {
     this.loginForm = this.form.group({
       email: ["", [Validators.required, Validators.pattern("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*")]],
-      password: [""],
+      password: ["", [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)]],
     })
   }
 
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
     this.showPass = this.showPass === 'password' ? 'text' : 'password';
   }
   login() {
-  if (this.loginForm.valid) {
+    this.subCorrect = true;
+    if (this.loginForm.valid) {
     this.submited = true;
     this.api.login(this.loginForm.value).subscribe(
       (data: any) => {
@@ -37,8 +39,8 @@ export class LoginComponent implements OnInit {
       },
       (error) => {
         console.error(error);
-        this.loginError = true;
         this.submited = false;
+        this.loginError = true;
       }
     );
   }
