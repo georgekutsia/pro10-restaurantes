@@ -1,0 +1,31 @@
+<section class="info" *ngIf="restaurant">
+    <h1>{{restaurant.name}}</h1>
+    <div>
+     <h5 *ngIf="averageRating">Puntuación media <span [ngClass]="{'text-danger': averageRating < 5, 'text-gold': averageRating >= 5}">{{averageRating}}</span> con {{restaurant.comments.length}} comentarios</h5>
+    </div>
+</section>
+<form class="commenter" [formGroup]="restForm" (ngSubmit)="submitComment()">
+    <div class="commenter-points"  class="form-group">
+    <label for="score"></label>
+    <input type="number" placeholder="1" class="form-control" id="score" formControlName="score" min="1" max="10">
+  </div>
+  <div class="commenter-input" >
+    <input type="hidden" [value]="usersId" class="form-contro bulalal" formControlName="userId">
+  </div>
+  <div class="form-group commenter-comment">
+    <label for="comments"></label>
+    <input type="text" class="form-control" id="comments"  formControlName="comments" placeholder="Deja tus comentarios aquí... ">
+  </div>
+  <button type="submit" class="btn-submit">Comentar</button>
+</form>
+
+<section class="commentBox" *ngIf="restaurant">
+  <ul class="commentBox-ul"> 
+    <li class="commentBox-ul-li" *ngFor="let res of restaurant.comments">
+        <h4> <i class="fa-regular fa-star"></i>{{ res.score }}</h4>
+        <p >{{ res.comments }}</p>
+        <h6 > {{ res.updatedAt }}</h6>
+      </li>
+  </ul>
+</section>
+

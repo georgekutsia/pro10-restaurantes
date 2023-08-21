@@ -1,27 +1,17 @@
-# WebRestaurantes
+# Restaumanía
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+Una página dedicada a los amantes de la buena gastronomía, que les gusta compartir sus experiencias y con algo de dinero para gastar
 
-## Development server
+## ¿Que se puede hacer?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Puedes ver restaurantes, sus puntuaciones, comentarios e información general, pero si te registras como miebro, además podrás comentar tu mismo y añadir tus restaurantes favoritos a tu lista. Todo aparecerá en tu perfil.
 
-## Code scaffolding
+Si no tienes foto para registrarte no te prepcupes, te ponemos una por defecto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Atento al mail de bienvenido si te registras con un id real
 
-## Build
+La media de todas las puntuaciones de todos los comentarios de los restaurantes, que aparece en forma de estrellas de puntuación,  es un buen indicativo de la opinión de los usuarios. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+A diferencia de los usuarios, los admins sí podrán editar los restaurantes de todas las formas posibles, para evitar comentarios ofensivos o datos incorrectos.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Y mucho más! Pero con esto cubrimos lo básico. 

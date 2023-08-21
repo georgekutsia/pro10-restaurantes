@@ -1,0 +1,16 @@
+<div class="login-bg">
+<form [formGroup]="loginForm" (ngSubmit)="login()" class="form">
+    <h3 class="form-h3">INICIA SESIÓN CON TU CUENTA DE RESTAUMANÍACO</h3>
+    <div>
+        <input type="email" placeholder="Email" formControlName="email"/>
+        <p *ngIf="(submited && loginForm?.get('email')?.hasError('required'))">El campo es requerido</p>
+        <p *ngIf="(submited && loginForm?.get('email')?.hasError('pattern'))">No tiene formato válido</p>
+    </div>
+    <div>
+    <input type="password" placeholder="Contraseña" formControlName="password"/>
+    <p *ngIf="(submited && loginForm?.get('password')?.hasError('required'))">El campo es requerido</p>
+    <p *ngIf="(submited && loginForm?.get('password')?.hasError('pattern'))">No tiene formato válido</p>
+    </div>
+    <button class="form-btn">Entrar</button>   
+</form>
+</div>

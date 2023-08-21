@@ -1,0 +1,28 @@
+<div>
+    <!-- Con auth admin -->
+  <div class="add">
+        <button *ngIf="usuario?.admin" routerLink='/restaurants/add' class="add-btn">Añadir nuevo restaurante</button>   
+  </div>
+  <div class="gallery">
+    <div [ngStyle]="{ width: '300px' }" *ngFor="let restaurant of restList">
+      <h3 class="mt-5">{{ restaurant.name }}</h3>
+      <img src="{{ restaurant.img }}" alt="{{ restaurant.name }}" width="300px" height="240" />
+      <p class="description">{{ restaurant.description }}</p>
+      <p class="city">{{ restaurant.city }}</p>
+      <p *ngIf="restaurantAverages[restaurant.id]" class="stars">{{ restaurantAverages[restaurant.id] }}
+        <ng-container *ngFor="let star of [].constructor(10); let i = index">
+          <i class="fa-regular fa-star"
+            [ngClass]="{ 'fa-solid': i < restaurantAverages[restaurant.id], 'red-star': restaurantAverages[restaurant.id] < 6, 'green-star': restaurantAverages[restaurant.id] >= 6 }"></i>
+        </ng-container>
+      </p>
+      <p *ngIf="!restaurantAverages[restaurant.id]" class="stars"> No hay puntuación para este restaurante. ¡Sé el primero!</p>
+
+      <button *ngIf="!isRestaurantFavorite(restaurant.id) && usuario.name" class="button" (click)="addToFavorites(restaurant.id)">Añadir a favoritos</button>
+      <button *ngIf="isRestaurantFavorite(restaurant.id) && usuario.name" class="button favorite-button" (click)="deleteFromFavorites(restaurant.id)"><i class="fa-regular fa-heart favorite-heart"></i><i class="fa-regular fa-heart favorite-heart1"></i><i class="fa-regular fa-heart favorite-heart2"></i><i class="fa-regular fa-heart favorite-heart3"></i> <span class="favorite-text"> Es uno de tus favoritos! </span> <i class="fa-solid fa-trash-arrow-up favorite-trash"></i></button>
+      <div>
+        <button *ngIf="usuario.admin" class="button" routerLink='/restaurants/{{ restaurant.id }}'>Gestionar</button>
+        <button *ngIf="usuario.name && !usuario.admin" class="button" routerLink='/comentarios/{{ restaurant.id }}/userComment'>Ver comentarios</button>
+      </div>
+    </div>
+  </div>
+</div>

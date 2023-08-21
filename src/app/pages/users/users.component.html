@@ -1,0 +1,9 @@
+    <div class="containerUsers">
+    <div *ngFor="let user of userList" class="divUserList">
+        <img src="{{user.img}}" alt="{{user.name}}" class="userCompImg"/>
+        <h4 class="userNameList">{{user.name}}</h4>
+        <p class="userNameAge">{{user.age}} años</p>
+        <p class="userNameAge">Ha contribuido con {{user.comments?.length}} comentarios</p>
+        <button *ngIf="loggedUser.admin && !user.admin" (click)="deleteUser(user.id)" class="userButton">Eliminar</button> 
+    </div>
+</div>

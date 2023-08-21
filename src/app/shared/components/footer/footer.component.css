@@ -1,0 +1,14 @@
+.footer {
+  background-color: #333333;
+  width: 100%;
+  height: auto;
+  padding: 20px 0px 10px 0px;
+  text-align: center;
+  color: white;
+}
+.footer-i {
+  margin-block: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}/*# sourceMappingURL=footer.component.css.map */

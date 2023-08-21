@@ -1,0 +1,26 @@
+<div class="profile" *ngIf="usuario">
+  <h1 class="profileName">{{ usuario.name }}</h1>
+  <img src="{{ usuario.img }}" alt="" width="200" class="profileImg">
+  <h3 class="profileEdad">Edad: {{ usuario.age }}</h3>
+  <h4 class="profileEmail">Email: {{ usuario.email }}</h4>
+  <h4 class="profileRestaurant">Restaurantes favoritos:</h4>
+<ul class="profile-ul">
+    <li class="profile-favorit" *ngFor="let fav of favorite">
+      <h4 class="favNave">{{fav.name}} ({{fav.city}})</h4>
+      <img src="{{fav.img}}" alt="" width="200" class="favImage">
+      <p class="profileDescrip">{{fav.description}}</p>
+      <p class="profileCity"></p>
+      <ul>
+        <li *ngFor="let comment of fav.coments" class="profileComment">{{comment}}</li>
+      </ul>
+    </li>
+  </ul>
+  <h4 class="profileRestaurant">Comentarios:</h4>
+  <ul class="profile-ul">
+    <li class="profile-favorit1" *ngFor="let comentario of usuario.comments">
+      <h4 class="profileScore">Puntuación: {{ comentario.score }}</h4>
+      <p class="commentScore">{{ comentario.comments }}</p>
+      <p class="actDate">Fecha del comentario: {{ comentario.updatedAt }}</p>
+    </li>
+  </ul>
+</div>

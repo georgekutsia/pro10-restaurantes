@@ -1,0 +1,188 @@
+* {
+  background-color: #DEFFE9;
+}
+
+.fa-regular.fa-star {
+  font-size: 20px;
+}
+
+.fa-solid.fa-star {
+  font-size: 20px;
+}
+
+.red-star {
+  color: rgba(255, 36, 36, 0.7882352941);
+}
+
+.green-star {
+  color: #2c7044;
+}
+
+.city {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: darkolivegreen;
+}
+
+.description {
+  font-style: italic;
+  font-size: 17px;
+  margin-top: 16px;
+}
+
+.mt-5 {
+  color: black;
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.button {
+  background-color: #04AA6D;
+  box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.2);
+  color: white;
+  padding: 13px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 12px;
+}
+
+.button:hover {
+  background-color: #038557;
+}
+
+.favorite-text {
+  padding-left: 40px;
+  background-color: transparent;
+}
+
+.favorite-heart {
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 900;
+  margin-right: 10px;
+  transition: 6s ease-in-out;
+  animation: rotate 15s linear infinite;
+  color: red;
+  position: absolute;
+}
+
+@keyframes rotate {
+  0% {
+    scale: 1;
+    transform: translateY(5px);
+  }
+  4% {
+    scale: 1.5;
+  }
+  10% {
+    scale: 1;
+  }
+  20% {
+    scale: 1.4;
+  }
+  30% {
+    scale: 1;
+  }
+  60% {
+    scale: 1.5;
+  }
+  90% {
+    scale: 1;
+    transform: translateY(-5px);
+  }
+  100% {
+    scale: 1.5;
+    transform: translateY(5px);
+  }
+}
+.favorite-heart1 {
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 400;
+  margin-right: 10px;
+  transition: 1s ease-in-out;
+  animation: rotate1 0.3s linear;
+  color: red;
+  padding-top: 30px;
+  position: absolute;
+  opacity: 0;
+}
+
+@keyframes rotate1 {
+  0% {
+    transform: translate(-30%, -30%) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-30%, -30%) translateY(-80px) rotate(130deg);
+    color: rgb(242, 255, 0);
+    opacity: 0;
+  }
+}
+.favorite-heart2 {
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 400;
+  margin-right: 10px;
+  transition: 1s ease-in-out;
+  animation: rotate2 0.5s linear;
+  color: red;
+  padding-top: 30px;
+  margin-left: 20px;
+  position: absolute;
+  opacity: 0;
+}
+
+@keyframes rotate2 {
+  0% {
+    transform: translate(-30%, -30%) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-30%, -30%) translateY(-80px) rotate(130deg);
+    color: rgb(242, 255, 0);
+    opacity: 0;
+  }
+}
+.favorite-heart3 {
+  background-color: transparent;
+  font-size: 10px;
+  font-weight: 400;
+  margin-right: 10px;
+  transition: 1s ease-in-out;
+  animation: rotate3 0.3s linear;
+  color: red;
+  padding-top: 30px;
+  margin-left: 10px;
+  position: absolute;
+  opacity: 0;
+}
+
+@keyframes rotate3 {
+  0% {
+    transform: translate(-30%, -30%) translateY(-300) rotate(0deg);
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-30%, -30%) translateY(-80px) rotate(130deg);
+    color: rgb(242, 255, 0);
+    opacity: 0;
+  }
+}
+.favorite-trash {
+  background-color: transparent;
+  color: black;
+}/*# sourceMappingURL=restaurants.component.css.map */

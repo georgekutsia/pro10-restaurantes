@@ -1,0 +1,31 @@
+<div class="signup-bg">
+    <form [formGroup]="registerForm" (ngSubmit)="registrar()" class="form">
+        <h3 class="form-h3">CREA UNA NUEVA CUENTA PARA ACCEDER</h3>
+        <div>
+            <input type="email" placeholder="Email" formControlName="email"/>
+            <p *ngIf="(submited && registerForm?.get('email')?.hasError('required'))">El campo es requerido</p>
+            <p *ngIf="(submited && registerForm?.get('email')?.hasError('pattern'))">Asegúrate de que tu email tiene el formato correcto</p>
+        </div>
+        <div>
+            <input type="password" placeholder="Contraseña" formControlName="password"/>
+            <p *ngIf="(submited && registerForm?.get('password')?.hasError('required'))">El campo es requerido</p>
+            <p *ngIf="(submited && registerForm?.get('password')?.hasError('pattern'))">Asegúrate de que tu contraseña incluye una letra minúscula, una mayúscula y un número y tiene más de 8 caracteres</p>
+        </div>
+        <div>
+            <input type="age" placeholder="Edad" formControlName="age"/>
+            <p *ngIf="(submited && registerForm?.get('age')?.hasError('required'))">El campo es requerido</p>
+            <p *ngIf="(submited && registerForm?.get('age')?.hasError('min'))">No puedes registrarte si no tienes 18 años</p>
+        </div>
+        <div>
+            <input type="name" placeholder="Nombre" formControlName="name"/>
+            <p *ngIf="(submited && registerForm?.get('name')?.hasError('required'))">El campo es requerido</p>
+            <p *ngIf="submited && registerForm?.get('name')?.hasError('pattern')">Patrón inválido</p>
+            <p *ngIf="submited && registerForm?.get('name')?.hasError('minlength')">El nombre es demasiado corto</p>
+            <p *ngIf="submited && registerForm?.get('name')?.hasError('maxlength')">El nombre es demasiado largo</p>
+        </div>
+        <div>
+            <input type="img" placeholder="Foto" formControlName="img" />
+        </div>
+        <button class="form-btn">Registrarme</button>
+    </form>
+</div>

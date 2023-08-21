@@ -1,0 +1,75 @@
+.info {
+  text-align: center;
+  background-color: #DEFFE9;
+}
+.info h5 {
+  margin: 0px;
+}
+.info h5 span {
+  font-size: 24px;
+}
+
+.text-danger {
+  color: red;
+}
+
+.text-gold {
+  color: goldenrod;
+}
+
+.commenter {
+  display: flex;
+  background-color: #DEFFE9;
+  padding: 0px 330px;
+  margin: 0px;
+}
+.commenter-comment {
+  width: 100%;
+}
+.commenter .btn-submit {
+  padding-top: 15px;
+  align-items: center;
+  margin: auto;
+  border: none;
+  background-color: transparent;
+  border-bottom: 3px solid white;
+  padding-bottom: 3px;
+  padding-top: 0px;
+  margin-top: 28px;
+  transition: 0.5s ease-in-out;
+}
+.commenter .btn-submit:hover {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+.commentBox {
+  padding: 10px 250px;
+  background-color: #DEFFE9;
+}
+.commentBox-ul-li {
+  background-image: url("https://res.cloudinary.com/dxnzcewsy/image/upload/v1692574340/restaurantes%20y%20usuarios/otras/smooth-white-stucco-wall_zdgbfd.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  padding: 7px 10px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.commentBox-ul-li h4 {
+  color: black;
+}
+.commentBox-ul-li h4 i {
+  color: rgb(255, 215, 0);
+  text-shadow: 1px 1px black;
+  margin-right: 5px;
+}
+.commentBox-ul-li h6 {
+  color: rgb(154, 153, 153);
+}
+.commentBox-ul-li p {
+  color: black;
+  font-size: 20px;
+  width: 80%;
+}/*# sourceMappingURL=comments.component.css.map */
