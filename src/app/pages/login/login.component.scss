@@ -89,3 +89,17 @@
     transform: rotate(360deg);
   }
 }
+
+.father-password{
+  position: relative;
+}
+.button-toggle{
+  position: absolute;
+  border-radius: 50px;
+  right: 43px;
+  top:24px;
+  padding:0px;
+  margin: 0px;
+  background-color: rgba(244, 241, 241, 0.95);;
+  border: none;
+}
