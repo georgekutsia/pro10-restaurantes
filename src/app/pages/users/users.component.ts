@@ -12,17 +12,19 @@ export class UsersComponent implements OnInit{
   
   id!: string;
   userList!: UserI[];
- 
+  loggedUser!: UserI;
   constructor(private userApi: UsersService, private router: Router) {}
  
   ngOnInit(): void{
     this.userApi.getUsers().subscribe((data: any) => {
      this.userList = [...data]
     })
+    this.loggedUser = JSON.parse(localStorage.getItem('user')!)
   }
 
   deleteUser(id: string){
     this.userApi.deleteUsers(id).subscribe((data) => {
+      location.reload();
       alert("Usuario eliminado");
       this.router.navigate(["/users"])
     })

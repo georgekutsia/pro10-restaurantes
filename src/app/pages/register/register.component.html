@@ -23,6 +23,9 @@
             <p *ngIf="submited && registerForm?.get('name')?.hasError('minlength')">El nombre es demasiado corto</p>
             <p *ngIf="submited && registerForm?.get('name')?.hasError('maxlength')">El nombre es demasiado largo</p>
         </div>
+        <div>
+            <input type="img" placeholder="Foto" formControlName="img" />
+        </div>
         <button class="form-btn">Registrarme</button>
     </form>
 </div>

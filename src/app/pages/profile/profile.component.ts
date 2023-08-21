@@ -37,7 +37,6 @@ export class ProfileComponent implements OnInit {
         });
       }
     })
-
     const reloadFlag = localStorage.getItem('reloadFlag');
     if (reloadFlag === 'true') {
       localStorage.removeItem('reloadFlag');
