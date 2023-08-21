@@ -1,31 +1,34 @@
 <div class="signup-bg">
-    <div *ngIf="submited" class="lds-ripple"><div></div><div></div></div>
-    <form *ngIf="!submited" [formGroup]="registerForm" (ngSubmit)="registrar()" class="form">
+    <div *ngIf="registered" class="lds-ripple"><div></div><div></div></div>
+    <form *ngIf="!registered" [formGroup]="registerForm" (ngSubmit)="registrar()" class="form">
         <h3 class="form-h3">CREA UNA NUEVA CUENTA PARA ACCEDER</h3>
-        <div>
+        <div class="parts">
             <input type="email" placeholder="Email" formControlName="email"/>
-            <p *ngIf="(submited && registerForm?.get('email')?.hasError('required'))">El campo es requerido</p>
-            <p *ngIf="(submited && registerForm?.get('email')?.hasError('pattern'))">Asegúrate de que tu email tiene el formato correcto</p>
+            <p *ngIf="(regCorrect && registerForm.get('email')?.hasError('required'))">El Email es requerido</p>
+            <p *ngIf="regCorrect && registerForm.get('email')?.hasError('pattern')">Asegúrate de que tu email tiene el formato correcto</p>
+        </div>
+        <div class="parts">
+            <input type="{{ showPass }}" placeholder="Contraseña" formControlName="password"/>
+            <button *ngIf="showPass === 'password'" class="button-toggle" type="button" (click)="togglePassword()"><i class="fa-regular fa-eye"></i></button>
+            <button *ngIf="showPass === 'text'" class="button-toggle" type="button" (click)="togglePassword()"><i class="fa-regular fa-eye-slash"></i></button>
+            <p *ngIf="regCorrect && registerForm.get('password')?.hasError('required')">La contraseña es requerida</p>
+            <article *ngIf="regCorrect && registerForm.get('password')?.hasError('pattern')">Debe incluir minúscula, mayúscula, un número y tener más de 8 caracteres</article>
+        </div>
+        <div class="parts">
+            <input type="number" placeholder="Edad" formControlName="age" min="12" max="350"/>
+            <p *ngIf="regCorrect && registerForm.get('age')?.hasError('required')">La edad es requerida</p>
+            <p *ngIf="regCorrect && registerForm.get('age')?.hasError('min')">No puedes registrarte si tienes menos 18 años, pero por favor disfruta del resto de las opciones</p>
+            <p *ngIf="regCorrect && registerForm.get('age')?.hasError('max')">No puedes registrarte si tienes más de 300 años</p>
+        </div>
+        <div class="parts">
+            <input type="text" placeholder="Nombre" formControlName="name"/>
+            <p *ngIf="(regCorrect && registerForm.get('name')?.hasError('required'))">Tienes que proporcionar un nombre</p>
+            <p *ngIf="regCorrect && registerForm.get('name')?.hasError('pattern')">Patrón inválido</p>
+            <p *ngIf="regCorrect && registerForm.get('name')?.hasError('minlength')">El nombre es demasiado corto</p>
+            <p *ngIf="regCorrect && registerForm.get('name')?.hasError('maxlength')">El nombre es demasiado largo</p>
         </div>
         <div>
-            <input type="password" placeholder="Contraseña" formControlName="password"/>
-            <p *ngIf="(submited && registerForm?.get('password')?.hasError('required'))">El campo es requerido</p>
-            <p *ngIf="(submited && registerForm?.get('password')?.hasError('pattern'))">Asegúrate de que tu contraseña incluye una letra minúscula, una mayúscula y un número y tiene más de 8 caracteres</p>
-        </div>
-        <div>
-            <input type="age" placeholder="Edad" formControlName="age"/>
-            <p *ngIf="(submited && registerForm?.get('age')?.hasError('required'))">El campo es requerido</p>
-            <p *ngIf="(submited && registerForm?.get('age')?.hasError('min'))">No puedes registrarte si no tienes 18 años</p>
-        </div>
-        <div>
-            <input type="name" placeholder="Nombre" formControlName="name"/>
-            <p *ngIf="(submited && registerForm?.get('name')?.hasError('required'))">El campo es requerido</p>
-            <p *ngIf="submited && registerForm?.get('name')?.hasError('pattern')">Patrón inválido</p>
-            <p *ngIf="submited && registerForm?.get('name')?.hasError('minlength')">El nombre es demasiado corto</p>
-            <p *ngIf="submited && registerForm?.get('name')?.hasError('maxlength')">El nombre es demasiado largo</p>
-        </div>
-        <div>
-            <input type="img" placeholder="Foto" formControlName="img" />
+            <input type="text" placeholder="Foto" formControlName="img" />
         </div>
         <button class="form-btn">Registrarme</button>
     </form>
