@@ -39,12 +39,10 @@ export class RestaurantGestionComponent implements OnInit {
       this.restaurant = { ...data }
       this.restaurant.createdAt = this.formatDate(this.restaurant.createdAt);
       this.restaurant.updatedAt = this.formatDate(this.restaurant.updatedAt);
-
       if (this.restaurant.comments && this.restaurant.comments.length > 0) {
         const totalRating = this.restaurant.comments.reduce((acc: number, comentario: any) => acc + comentario.score, 0);
         this.averageRating = totalRating / this.restaurant.comments.length;
       }
-
       if (this.restaurant.comments && this.restaurant.comments.length > 0) {
         this.restaurant.comments.forEach((comentario: any) => {
           comentario.createdAt = this.formatDate(comentario.createdAt);
