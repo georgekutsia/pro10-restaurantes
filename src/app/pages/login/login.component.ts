@@ -11,6 +11,8 @@ import { Router } from '@angular/router'
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup; 
   submited: boolean = false;
+  showPass = 'password';
+  loginError = false;
   constructor(private form: FormBuilder, private api: AuthService, private router: Router){}
 
   ngOnInit(): void {
@@ -19,16 +21,26 @@ export class LoginComponent implements OnInit {
       password: [""],
     })
   }
-  login(){
+
+  togglePassword() {
+    this.showPass = this.showPass === 'password' ? 'text' : 'password';
+  }
+  login() {
+  if (this.loginForm.valid) {
     this.submited = true;
-    if(this.loginForm.valid){
-      this.api.login(this.loginForm.value).subscribe((data: any) =>{
-        console.log(data);
-        localStorage.setItem('token', data.token)
-        localStorage.setItem('user', JSON.stringify(data.usuario))
+    this.api.login(this.loginForm.value).subscribe(
+      (data: any) => {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.usuario));
         localStorage.setItem('reloadFlag', 'true');
         this.router.navigate([`/profile/${data.usuario.id}`]);
-      })
-    }
+      },
+      (error) => {
+        console.error(error);
+        this.loginError = true;
+        this.submited = false;
+      }
+    );
   }
+}
 }
