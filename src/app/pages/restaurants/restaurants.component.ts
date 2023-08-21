@@ -46,7 +46,7 @@ export class RestaurantsComponent implements OnInit {
           totalScore += comment.score;
         });
 
-        const average = totalScore / comments.length;
+        const average = parseFloat((totalScore / comments.length).toFixed(1));
         this.restaurantAverages[restaurant.id] = average;
       }
     });

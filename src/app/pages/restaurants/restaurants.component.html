@@ -1,7 +1,7 @@
 <div>
     <!-- Con auth admin -->
   <div class="add">
-        <button *ngIf="usuario.admin" routerLink='/restaurants/add' class="add-btn">Añadir nuevo restaurante</button>   
+        <button *ngIf="usuario?.admin" routerLink='/restaurants/add' class="add-btn">Añadir nuevo restaurante</button>   
   </div>
   <div class="d-flex justify-content-around flex-wrap">
     <div [ngStyle]="{ width: '300px' }" *ngFor="let restaurant of restList">

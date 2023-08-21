@@ -14,4 +14,7 @@ export class ComentariosService {
     const url = `${this.url}/${id}/userComment`;
     return this.http.post(url, comentarioData);
   }
+  getRestaurantById(id: string) {
+    return this.http.get(`${this.url}/${id}/userComment`)
+  }
 }
