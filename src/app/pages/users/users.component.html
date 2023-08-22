@@ -4,9 +4,9 @@
 
         <h4 class="userNameList">{{user.name}}</h4>
         <p class="userNameAge">{{user.age}} años</p>
-        <p *ngIf="user.comments !== undefined && user.comments.length >=5" class="userNameCont">Ha contribuido con <span>{{user.comments?.length}} </span> comentarios y es nuestro miembro Gold</p>
-        <p *ngIf="user.comments !== undefined && user.comments.length >= 2 && user.comments.length <5" class="userNameCont">Ha contribuido con <span>{{user.comments?.length}} </span> comentarios</p>
-        <p *ngIf="user.comments !== undefined && user.comments.length === 1" class="userNameCont">Ya tiene <span>{{user.comments?.length}} </span> comentario</p>
+        <p *ngIf="user.comments !== undefined && user.comments.length >=5" class="userNameCont">Ha contribuido con <span>{{user.comments.length}} </span> comentarios y es nuestro miembro Gold</p>
+        <p *ngIf="user.comments !== undefined && user.comments.length >= 2 && user.comments.length <5" class="userNameCont">Ha contribuido con <span>{{user.comments.length}} </span> comentarios</p>
+        <p *ngIf="user.comments !== undefined && user.comments.length === 1" class="userNameCont">Ya tiene <span>{{user.comments.length}} </span> comentario</p>
         <p *ngIf="user.comments !== undefined && user.comments.length === 0" class="userNameCont">Aún no ha aportado comentarios</p>
         <button *ngIf="loggedUser?.admin && !user.admin" (click)="deleteUser(user.id)" class="userButton">Eliminar</button> 
     </div>

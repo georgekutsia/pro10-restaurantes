@@ -1,6 +1,6 @@
 <nav class="navBar">
   <!-- barra con pantalla movil -->
-  <div class="mainnavbar" [ngClass]="{'x-mark-z': isActive}">
+  <div  class="mainnavbar" [ngClass]="{'x-mark-z': isActive}">
     <div class="mainnavbar-button"[ngClass]="{'x-mark': isActive}" (click)="toggleButton()">
       <span class="mainnavbar-button-line top" [ngClass]="{'x-mark1': isActive}"></span>
       <span class="mainnavbar-button-line middle" [ngClass]="{'x-mark0': isActive}"></span>
@@ -11,7 +11,7 @@
       <a routerLink='/restaurants' class="mainnavbar-menuOn-a"><i class="fa-solid fa-utensils"></i></a>
       <a routerLink='/users' class="mainnavbar-menuOn-a"><i class="fa-solid fa-users"></i></a>
       <img  *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}">
-      <a *ngIf="!usuario.name" routerLink='/login'   class="mainnavbar-menuOn-a" routerLinkActive="actived">Iniciar <br> Sesión</a>
+      <a *ngIf="!usuario.name" routerLink='/login'   class="mainnavbar-menuOn-a iniciarSesion" routerLinkActive="actived">Iniciar <br> Sesión</a>
     </div>
       <div class="navBar-exit" *ngIf="usuario.name">
     <button class="navBar-exit-btn-small" (click)="logout()">

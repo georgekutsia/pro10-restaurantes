@@ -63,6 +63,9 @@ a:hover {
   .respons {
     display: none;
   }
+  .iniciarSesion {
+    margin-right: 20px;
+  }
   .mainnavbar {
     height: 60px;
     align-items: center;
