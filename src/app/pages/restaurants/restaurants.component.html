@@ -1,5 +1,8 @@
 <div>
     <!-- Con auth admin -->
+    <div class="loader-div">
+      <div *ngIf="loaded" class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
   <div class="add">
         <button *ngIf="usuario?.admin" routerLink='/restaurants/add' class="add-btn">Añadir nuevo restaurante</button>   
   </div>

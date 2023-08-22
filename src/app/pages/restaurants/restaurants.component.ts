@@ -21,6 +21,7 @@ export class RestaurantsComponent implements OnInit {
   isFavorite: boolean = false;
   restaurantAverages: { [key: string]: number } = {};
   userFavorites: string[] = [];
+  loaded: boolean = true;
 
   constructor(
     private restApi: RestaurantsService,
@@ -30,11 +31,13 @@ export class RestaurantsComponent implements OnInit {
 
   ngOnInit(): void {
     this.restApi.getRestaurants().subscribe((data: any) => {
+      console.log("Bulala")
       this.restList = [...data];
       this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
       this.userFavorites = this.usuario.favorite || []; 
       this.userForFavorite = this.authService.getUserById(this.usuario.id);
       this.calculateAverages();
+      this.loaded= false
     });
   }
   calculateAverages(): void {
