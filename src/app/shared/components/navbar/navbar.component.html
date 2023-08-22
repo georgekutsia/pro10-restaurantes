@@ -1,27 +1,50 @@
 <nav class="navBar">
+  <!-- barra con pantalla movil -->
+  <div  class="mainnavbar" [ngClass]="{'x-mark-z': isActive}">
+    <div class="mainnavbar-button"[ngClass]="{'x-mark': isActive}" (click)="toggleButton()">
+      <span class="mainnavbar-button-line top" [ngClass]="{'x-mark1': isActive}"></span>
+      <span class="mainnavbar-button-line middle" [ngClass]="{'x-mark0': isActive}"></span>
+      <span class="mainnavbar-button-line bottom" [ngClass]="{'x-mark2': isActive}"></span>
+    </div>
+    <div [ngClass]="{'mainnavbar-menuOn': isActive, 'mainnavbar-menuOff': !isActive}">
+      <a routerLink='/home'  class="mainnavbar-menuOn-a"><i class="fa-solid fa-house"></i></a>
+      <a routerLink='/restaurants' class="mainnavbar-menuOn-a"><i class="fa-solid fa-utensils"></i></a>
+      <a routerLink='/users' class="mainnavbar-menuOn-a"><i class="fa-solid fa-users"></i></a>
+      <img  *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}">
+      <a *ngIf="!usuario.name" routerLink='/login'   class="mainnavbar-menuOn-a iniciarSesion" routerLinkActive="actived">Iniciar <br> Sesión</a>
+    </div>
+      <div class="navBar-exit" *ngIf="usuario.name">
+    <button class="navBar-exit-btn-small" (click)="logout()">
+      <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #ffffff;"></i>
+    </button>
+  </div>
+  </div >
   <div class="navBar-main">
-    <a  routerLink='/home' routerLinkActive="actived">INICIO</a>
-    <a routerLink='/restaurants' routerLinkActive="actived">RESTAURANTES</a>
-    <a routerLink='/users' routerLinkActive="actived">MIEMBROS</a>
+    <!-- barra con pantalla movil -->
+    <!-- barra con pantalla grande -->
+
+    <a   routerLink='/home'  class="respons" routerLinkActive="actived">INICIO</a>
+    <a routerLink='/restaurants'  class="respons" routerLinkActive="actived">RESTAURANTES</a>
+    <a routerLink='/users'  class="respons" routerLinkActive="actived">MIEMBROS</a>
     <!-- Con AUTH -->
     <!-- <a *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>PERFIL</a> -->
     <div class="navBar-main-profile">
       <!-- <a  *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>    -->
-        <img *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}">
+        <img ngClass="respons" *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}">
       <!-- </a> -->
-      <a routerLinkActive="actived" *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>PERFIL</a>
+      <a  class="respons" routerLinkActive="actived" *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>PERFIL</a>
     </div>
   </div>
   <div class="navBar-log" *ngIf="!usuario.name"> 
-    <a *ngIf="!usuario.name" routerLink='/login' routerLinkActive="actived">INICIAR SESIÓN</a>
-    <a *ngIf="!usuario.name" routerLink='/register' routerLinkActive="actived">REGISTRARSE</a>
+    <a *ngIf="!usuario.name" routerLink='/login'  class="respons" routerLinkActive="actived">INICIAR SESIÓN</a>
+    <a *ngIf="!usuario.name" routerLink='/register'  class="respons" routerLinkActive="actived">REGISTRARSE</a>
   </div>
-  <div class="navBar-exit" *ngIf="usuario.name">
-    <a *ngIf="usuario.admin" routerLink='/register'>Eres Admin</a>
-    <!-- <a routerLink='/users'>USUARIOS</a> -->
-    <!-- <img *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}"> -->
+  <div class="navBar-exit respons" *ngIf="usuario.name">
+    <a *ngIf="usuario.admin" routerLink='/register' class="respons">Eres Admin</a>
     <button class="navBar-exit-btn" (click)="logout()">
       <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #ffffff;"></i>
     </button>
   </div>
+    <!-- barra con pantalla grande -->
+
 </nav>

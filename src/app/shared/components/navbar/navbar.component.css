@@ -1,49 +1,27 @@
 .navBar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding-inline: 80px;
   background-color: #2c7044;
   height: 70px;
-  align-items: center;
 }
-.navBar-log a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 20px;
-  transition: 0.3s ease-in-out;
-  padding-bottom: 5px;
-}
-.navBar-log a:hover {
-  border-bottom: 2px solid white;
-  text-shadow: 2px 2px rgb(0, 0, 0);
-}
-.navBar-main {
+.navBar-log, .navBar-main {
   display: flex;
   align-items: center;
+  gap: 50px;
 }
-.navBar-main-profile {
-  text-align: center;
-  color: white;
-}
-.navBar-main a {
-  color: white;
-  text-decoration: none;
-  margin: 0 50px;
-  font-size: 20px;
-  transition: 0.3s ease-in-out;
-  padding-bottom: 5px;
-}
-.navBar-main a:hover {
-  border-bottom: 2px solid white;
-  text-shadow: 2px 2px rgb(0, 0, 0);
-}
-.navBar-main p {
-  margin: 0;
+.navBar-exit {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 .navBar-exit-img {
-  width: 50px;
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   transition: 0.3s ease-in-out;
+  margin-right: 5px;
 }
 .navBar-exit-img:hover {
   scale: 1.2;
@@ -51,16 +29,127 @@
 .navBar-exit-btn {
   background-color: transparent;
   border: none;
-  color: white;
-  font-size: 30px;
-  margin-right: 10px;
+}
+
+.navBar-exit-btn-small {
+  display: none;
 }
 
 a {
-  text-decoration: none;
   color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
+  padding-bottom: 5px;
+}
+a:hover {
+  border-bottom: 2px solid white;
+  text-shadow: 2px 2px rgb(0, 0, 0);
+}
+
+.mainnavbar-menuOff, .mainnavbar-menuOn {
+  display: none;
 }
 
 .actived {
   box-shadow: 0px 2px white;
+}
+
+@media screen and (max-width: 765px) {
+  .navBar {
+    width: 100%;
+    padding: 0px;
+  }
+  .respons {
+    display: none;
+  }
+  .iniciarSesion {
+    margin-right: 20px;
+  }
+  .mainnavbar {
+    height: 60px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px 10px 20px;
+    border-radius: 50px;
+    margin: auto;
+    transition: 0.5s ease-in-out;
+  }
+  .mainnavbar-menuOn {
+    gap: 40px;
+    align-items: center;
+    justify-content: space-around;
+    transition: 0.4s ease-in-out;
+    display: flex;
+    opacity: 1;
+    animation: menu 0.2s linear;
+  }
+  .mainnavbar-menuOff {
+    width: 300px;
+    opacity: 0;
+    display: none;
+    transition: 0.4s ease-in-out;
+  }
+  .mainnavbar-button {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.5s, opacity 0.5s;
+  }
+  .mainnavbar-button-line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.5s, opacity 0.5s;
+    align-items: center;
+  }
+  .top {
+    transform-origin: top left;
+  }
+  .middle {
+    opacity: 1;
+  }
+  .bottom {
+    transform-origin: bottom left;
+  }
+  .x-mark0 {
+    opacity: 0;
+  }
+  .x-mark1 {
+    transform: rotate(45deg);
+  }
+  .x-mark2 {
+    transform: rotate(-45deg);
+  }
+  .x-mark {
+    padding-left: 5px;
+    transform: rotate(90deg);
+  }
+  .x-mark-z {
+    width: 100%;
+    border-radius: 0px;
+    justify-content: space-between;
+  }
+  .navBar-exit-btn-small {
+    position: absolute;
+    right: 0px;
+    display: block;
+    background-color: transparent;
+    border: none;
+  }
+}
+@keyframes menu {
+  0% {
+    opacity: 0;
+    position: absolute;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
 }/*# sourceMappingURL=navbar.component.css.map */

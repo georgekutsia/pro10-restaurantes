@@ -3,11 +3,11 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .divUserList {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     padding: 20px;
     background-color: #f0f7f2;
     border-radius: 8px;
@@ -15,7 +15,6 @@
     text-align: center;
     width: 200px;
     margin: 20px;
-
     .userCompImg {
         width: 180px;
         height: 180px;
@@ -23,19 +22,85 @@
         object-fit: cover;
         margin: 20px;
     }
-
     .userNameList {
         margin-top: 10px;
         font-size: 1.2rem;
         color: #216c3f;
     }
-
     .userNameAge {
         margin-top: 5px;
         font-size: 1rem;
         color: #216c3f;
     }
+    .userNameCont {
+        margin-top: 5px;
+        font-size: 1rem;
+        color: #216c3f;
+        span{
+            color: #0069cc;
+            font-size: 1.4rem;
+        }
+    }
+    .userButton {
+        position:absolute;
+        background-color: #cc3300;
+        bottom: 5px;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        &:hover {
+            background-color: #a32900;
+        }
+    }
+}
 
+
+@media screen and (max-width: 765px) {
+.containerUsers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.divUserList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    background-color: #f0f7f2;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 140px;
+    margin: 20px;
+
+    .userCompImg {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 20px;
+    }
+    .userNameList {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        color: #216c3f;
+    }
+    .userNameAge {
+        margin-top: 5px;
+        font-size: 1rem;
+        color: #216c3f;
+    }
+    .userNameCont {
+        margin-top: 5px;
+        font-size: 1rem;
+        color: #216c3f;
+        span{
+            color: #0069cc;
+            font-size: 1.4rem;
+        }
+    }
     .userButton {
         margin-top: 10px;
         padding: 5px 10px;
@@ -49,4 +114,6 @@
             background-color: #a32900;
         }
     }
+}
+
 }

@@ -48,9 +48,7 @@
   background-color: #DEFFE9;
 }
 .commentBox-ul-li {
-  background-image: url("https://res.cloudinary.com/dxnzcewsy/image/upload/v1692574340/restaurantes%20y%20usuarios/otras/smooth-white-stucco-wall_zdgbfd.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: rgba(111, 87, 27, 0.079);
   border-radius: 5px;
   padding: 7px 10px;
   margin-top: 5px;
