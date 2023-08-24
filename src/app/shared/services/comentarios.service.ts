@@ -17,4 +17,7 @@ export class ComentariosService {
   getRestaurantById(id: string) {
     return this.http.get(`${this.url}/${id}/userComment`)
   }
+  deleteComentario(id: string) {
+    return this.http.delete(`${this.url}/${id}`)
+  }
 }

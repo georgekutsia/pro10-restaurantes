@@ -7,8 +7,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+        text-shadow: 1px 1px 2px black;
+
     &-text{
         color: white;
+        
         text-align: center;
         width: 70%;
         h1{
@@ -21,6 +24,113 @@
         }
     }
 }
+.scroll-text{
+    position: absolute;
+    backdrop-filter: blur(4px);
+    width: 550%;
+    overflow: hidden;
+    &-gracias{
+        color: white;
+        text-shadow: 1px 1px 2px black;
+        animation: scroll-text-gracias 25s linear infinite;
+        span{
+            margin: 0px 100px;
+        }
+    }
+    &-disfruta{
+        position: absolute;
+        margin-top: -100px;
+        margin: auto;
+        width: 100vw;
+        text-align: center;
+        animation: scroll-text-disfruta 25s linear infinite;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+    }
+    &-bienvenido{
+        position: absolute;
+        margin-top: -100px;
+        margin: auto;
+        width: 100vw;
+        text-align: center;
+        animation: scroll-text-bienvenido 25s linear infinite;
+        color: white;
+        text-shadow: 1px 1px 2px black;
+    }
+}
+@keyframes scroll-text-gracias{
+    0%{
+        transform: translateX(calc(100vw + 10px));
+    }
+    25%{
+        transform: translateX(calc(100vw + 10px));
+    }
+    80%{
+        transform: translateX(calc(0vw - 1000px));
+    }
+    100%{
+        transform: translateX(calc(0vw - 1000px));
+    }
+}
+@keyframes scroll-text-disfruta{
+    0%{
+        opacity: 0;
+    }
+    2%{
+        opacity: 1;
+    }
+    10%{
+        opacity: 1;
+    }
+    12%{
+        opacity: 0;
+    }
+    72%{
+        opacity: 0;
+    }
+    75%{
+        opacity: 1;
+    }
+    85%{
+        opacity: 1;
+    }
+    88%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes scroll-text-bienvenido{
+    0%{
+        opacity: 0;
+    }
+    13%{
+        opacity: 0;
+    }
+    15%{
+        opacity: 1;
+    }
+    15%{
+        opacity: 1;
+    }
+    25%{
+        opacity: 1;
+    }
+    28%{
+        opacity: 0;
+    }
+    88%{
+        opacity: 0;
+    }
+    91%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 
 @media screen and (max-width: 765px) {
 .home-bg{

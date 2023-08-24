@@ -32,6 +32,13 @@
   margin-bottom: 20px;
   text-align: left;
   margin-left: 30px;
+  background-color: transparent;
+  border: none;
+  box-shadow: 0px 4px rgba(23, 99, 4, 0.381);
+  transition: 0.3s ease-in-out;
+}
+.profile .activated {
+  opacity: 0.4;
 }
 .profile .profile-ul {
   display: flex;
@@ -41,17 +48,17 @@
   padding: 0;
 }
 .profile .profile-ul .profile-favorit {
+  flex-grow: 1;
   background-color: #f8f5de;
   color: black;
   text-align: center;
   border: solid black 0.5px;
-  padding: 15 px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  padding: 20px;
-  width: 350px;
+  min-width: 350px;
   margin: 10px;
 }
 .profile .profile-ul .profile-favorit1 {
@@ -99,4 +106,62 @@
 .profile .profile-ul .actDate {
   font-size: 10px;
   letter-spacing: 0.5px;
+}
+
+img {
+  cursor: pointer;
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  min-height: 300px;
+}
+
+.lds-ripple div {
+  position: absolute;
+  border: 8px solid #77ff92;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 72px;
+    left: 72px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 72px;
+    left: 72px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 72px;
+    left: 72px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 144px;
+    height: 144px;
+    opacity: 0;
+  }
+}
+.loader-div {
+  margin: auto;
+  text-align: center;
 }/*# sourceMappingURL=profile.component.css.map */

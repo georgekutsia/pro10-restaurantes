@@ -1,67 +1,66 @@
-.signup-bg{
-    background-image: url(../../../assets/img/signup-img.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.9;
-    background-position-y: center;
-    height: 750px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.signup-bg {
+  background-image: url(../../../assets/img/signup-img.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
+  background-position-y: center;
+  height: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  background-color: rgba(222, 255, 233, 0.3);
+  backdrop-filter: blur(3px);
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  text-align: center;
+
+  &-h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
   }
-  
-  .form {
-      background-color: rgba(222, 255, 233, 0.3);
-      backdrop-filter: blur(3px);
-      border-radius: 10px;
-      padding: 40px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      width: 400px;
-        text-align: center;
-  
-      &-h3{
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-    
-      input{
-          border-color: #ccc;
-          border-radius: 24px;
-          padding: 5px 10px;
-          width: 250px;
-          margin-block: 15px;
-      }
-  .parts{
+
+  input {
+    border-color: #ccc;
+    border-radius: 24px;
+    padding: 5px 10px;
+    width: 250px;
+    margin-block: 15px;
+  }
+  .parts {
     position: relative;
     width: 100%;
   }
-      p{
-          color: red;
-          margin: 0px;
-          position: absolute;
-          bottom: -10px;
-          margin: auto;
-      }
-  article{
-          color: red;
-          font-size: 16px;
+  p {
+    color: red;
+    margin: 0px;
+    position: absolute;
+    bottom: -10px;
+    margin: auto;
   }
-      &-btn{
-        background-color: #04AA6D;
-        border: none;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-        color: white;
-        width: 150px;
-        margin-block: 20px;
-        padding: 10px 12px;
-        border-radius: 25px;
-        transition: background-color 0.2s ease;
-      }
-  
-      &-btn:hover{
-        background-color: #038557;
-      }
-    }
+  article {
+    color: red;
+    font-size: 16px;
+  }
+  &-btn {
+    background-color: #04aa6d;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    color: white;
+    width: 150px;
+    margin-block: 20px;
+    padding: 10px 12px;
+    border-radius: 25px;
+    transition: background-color 0.2s ease;
+  }
+
+  &-btn:hover {
+    background-color: #038557;
+  }
+}
 .lds-ripple {
   display: inline-block;
   position: relative;
@@ -108,14 +107,13 @@
     opacity: 0;
   }
 }
-.button-toggle{
+.button-toggle {
   position: absolute;
   border-radius: 50px;
   right: 43px;
-  top:24px;
-  padding:0px;
+  top: 24px;
+  padding: 0px;
   margin: 0px;
-  background-color: rgba(244, 241, 241, 0.95);;
+  background-color: rgba(244, 241, 241, 0.95);
   border: none;
 }
-

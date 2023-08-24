@@ -5,7 +5,7 @@
         <div class="parts">
             <input type="email" placeholder="Email" formControlName="email"/>
             <p *ngIf="(regCorrect && registerForm.get('email')?.hasError('required'))">El Email es requerido</p>
-            <p *ngIf="regCorrect && registerForm.get('email')?.hasError('pattern')">Asegúrate de que tu email tiene el formato correcto</p>
+            <p *ngIf="regCorrect && registerForm.get('email')?.hasError('pattern')">Formato de Email incorrecto</p>
         </div>
         <div class="parts">
             <input type="{{ showPass }}" placeholder="Contraseña" formControlName="password"/>
@@ -17,7 +17,7 @@
         <div class="parts">
             <input type="number" placeholder="Edad" formControlName="age" min="12" max="350"/>
             <p *ngIf="regCorrect && registerForm.get('age')?.hasError('required')">La edad es requerida</p>
-            <p *ngIf="regCorrect && registerForm.get('age')?.hasError('min')">No puedes registrarte si tienes menos 18 años, pero por favor disfruta del resto de las opciones</p>
+            <article *ngIf="regCorrect && registerForm.get('age')?.hasError('min')">No puedes registrarte si tienes menos 18 años, pero por favor disfruta del resto de las opciones</article>
             <p *ngIf="regCorrect && registerForm.get('age')?.hasError('max')">No puedes registrarte si tienes más de 300 años</p>
         </div>
         <div class="parts">
@@ -30,6 +30,7 @@
         <div>
             <input type="text" placeholder="Foto" formControlName="img" />
         </div>
+        
         <button class="form-btn">Registrarme</button>
     </form>
 </div>

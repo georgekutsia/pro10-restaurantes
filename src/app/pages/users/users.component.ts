@@ -13,11 +13,14 @@ export class UsersComponent implements OnInit{
   id!: string;
   userList!: UserI[];
   loggedUser!: UserI;
+  loaded: boolean = true;
+
   constructor(private userApi: UsersService, private router: Router) {}
  
   ngOnInit(): void{
     this.userApi.getUsers().subscribe((data: any) => {
      this.userList = [...data]
+     this.loaded=false
     })
     this.loggedUser = JSON.parse(localStorage.getItem('user')!)
   }

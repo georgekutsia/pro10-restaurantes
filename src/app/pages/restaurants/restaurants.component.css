@@ -1,5 +1,6 @@
-* {
+.restaurant-box {
   background-color: #DEFFE9;
+  min-height: 300px;
 }
 
 .add {
@@ -23,6 +24,12 @@
   background-color: #038557;
 }
 
+h3 {
+  margin: auto;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -31,6 +38,14 @@
   width: 90%;
   margin-inline: auto;
   padding-bottom: 50px;
+}
+.gallery-rest {
+  opacity: 0;
+  transition: 5s ease-in-out;
+}
+
+.stars {
+  text-align: center;
 }
 
 .fa-regular.fa-star {
@@ -50,10 +65,23 @@
 }
 
 .city {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin-left: 5px;
+  margin-bottom: 3px;
   font-size: 14px;
-  color: darkolivegreen;
+  color: rgb(254, 254, 254);
+  text-shadow: 2px 2px 19px rgb(0, 0, 0);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+}
+.city:hover {
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.city p {
+  margin: 2px 2px;
 }
 
 .description {
@@ -68,16 +96,20 @@
   margin-bottom: 16px;
 }
 
+.button-div {
+  display: flex;
+  justify-content: center;
+}
+
 .button {
   background-color: #04AA6D;
   box-shadow: 5px 5px 1px rgba(0, 0, 0, 0.2);
   color: white;
-  padding: 13px;
+  padding: 8px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 14px;
   margin-bottom: 20px;
   border-radius: 12px;
 }
@@ -87,7 +119,7 @@
 }
 
 .favorite-text {
-  padding-left: 40px;
+  padding-left: 20px;
   background-color: transparent;
 }
 
@@ -95,7 +127,6 @@
   background-color: transparent;
   font-size: 20px;
   font-weight: 900;
-  margin-right: 10px;
   transition: 6s ease-in-out;
   animation: rotate 15s linear infinite;
   color: red;
@@ -214,7 +245,60 @@
     opacity: 0;
   }
 }
-.favorite-trash {
-  background-color: transparent;
-  color: black;
+img {
+  cursor: pointer;
+}
+
+.loader-div {
+  text-align: center;
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ripple div {
+  position: absolute;
+  border: 8px solid #77ff92;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 72px;
+    left: 72px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 72px;
+    left: 72px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 72px;
+    left: 72px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 144px;
+    height: 144px;
+    opacity: 0;
+  }
 }/*# sourceMappingURL=restaurants.component.css.map */

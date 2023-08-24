@@ -1,7 +1,10 @@
     <div class="containerUsers">
+    <div class="loader-div">
+       <div *ngIf="loaded" class="lds-ripple"><div></div><div></div></div>
+    </div>
     <div *ngFor="let user of userList" class="divUserList">
-        <img [ngStyle]="user.comments !== undefined && user.comments.length >= 5 ? {'border': '5px solid gold'} : {}" [src]="user.img" [alt]="user.name" class="userCompImg" />
-
+        <img routerLink='/profile/{{user.id}}' routerLinkActive="router-link-active"  [ngStyle]="user.comments !== undefined && user.comments.length >= 5 ? {'border': '5px solid gold'} : {}" [src]="user.img" [alt]="user.name" class="userCompImg" />
+        <a *ngIf="loggedUser.admin"  routerLink='/profile/{{user.id}}'>Revisar perfil</a>
         <h4 class="userNameList">{{user.name}}</h4>
         <p class="userNameAge">{{user.age}} años</p>
         <p *ngIf="user.comments !== undefined && user.comments.length >=5" class="userNameCont">Ha contribuido con <span>{{user.comments.length}} </span> comentarios y es nuestro miembro Gold</p>

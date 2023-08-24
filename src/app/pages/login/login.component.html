@@ -1,5 +1,6 @@
 <div class="login-bg">
-    <div *ngIf="submited" class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    <div *ngIf="submited" class="lds-ripple"><div></div><div></div></div>
+
     <form *ngIf="!submited" [formGroup]="loginForm" (ngSubmit)="login()" class="form">
         <h3 class="form-h3">INICIA SESIÓN CON TU CUENTA DE RESTAUMANÍACO</h3>
         <div>

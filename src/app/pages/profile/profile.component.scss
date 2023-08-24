@@ -3,11 +3,13 @@
   text-align: center;
   background-color: whitesmoke;
   margin-top: 0;
-
   .profileName {
     color: black;
     padding: 20px;
     font-size: 24px;
+  }
+  .favs,
+  .coms {
   }
 
   .profileImg {
@@ -15,11 +17,10 @@
     border-radius: 50%;
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 200px; 
-    height: 200px; 
+    width: 200px;
+    height: 200px;
     object-fit: cover;
   }
-  
 
   .profileEdad,
   .profileEmail {
@@ -27,15 +28,21 @@
     margin-top: 10px;
     font-size: 16px;
   }
-  .profileRestaurant{
+  .profileRestaurant {
     color: black;
     margin-top: 20px;
     font-size: 28px;
     margin-bottom: 20px;
     text-align: left;
     margin-left: 30px;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0px 4px  rgba(23, 99, 4, 0.381);
+    transition: 0.3s ease-in-out;
   }
-
+  .activated {
+    opacity: 0.4;
+  }
   .profile-ul {
     display: flex;
     justify-content: space-evenly;
@@ -44,17 +51,17 @@
     padding: 0;
 
     .profile-favorit {
+      flex-grow: 1;
       background-color: #f8f5de;
       color: black;
       text-align: center;
       border: solid black 0.5px;
-      padding: 15 px;
+      padding: 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
       border-radius: 10px;
-      padding: 20px;
-      width: 350px;
+      min-width: 350px;
       margin: 10px;
     }
     .profile-favorit1 {
@@ -69,7 +76,7 @@
       padding: 20px;
       width: 390px;
       margin: 8px;
-      
+
       .favImage {
         border: 2px solid darkgreen;
         border-radius: 2px;
@@ -84,18 +91,18 @@
       }
     }
 
-    .profileScore{
+    .profileScore {
       font-size: 21px;
       color: darkgreen;
     }
-    .commentScore1{
+    .commentScore1 {
       color: black;
       padding: 15px;
       margin-top: 10px;
       font-size: 18px;
     }
 
-    .commentScore{
+    .commentScore {
       font-style: italic;
       font-size: 14px;
       margin-top: 10px;
@@ -104,9 +111,62 @@
     }
 
     .creationDate,
-    .actDate{
+    .actDate {
       font-size: 10px;
       letter-spacing: 0.5px;
     }
   }
+}
+img{
+    cursor:pointer;
+}
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  min-height: 300px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 8px solid #77ff92;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 72px;
+    left: 72px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 72px;
+    left: 72px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 72px;
+    left: 72px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 144px;
+    height: 144px;
+    opacity: 0;
+  }
+}
+.loader-div {
+  margin: auto;
+  text-align: center;
 }

@@ -1,5 +1,4 @@
 .add-page {
-  height: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,6 +19,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+i {
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 .add-form, .add-prev {
