@@ -13,6 +13,8 @@
   width: -moz-fit-content;
   width: fit-content;
   position: absolute;
+  background-color: transparent;
+  border: none;
 }
 
 .text-danger {
