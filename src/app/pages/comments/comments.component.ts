@@ -23,6 +23,7 @@ export class CommentsComponent implements OnInit {
   restaurant!: RestaurantI;
   averageRating: number | undefined;
   comments: CommentI = {
+    id:"",
     userId: '', 
     score: 0,
     comments: '',
@@ -53,7 +54,8 @@ export class CommentsComponent implements OnInit {
         score: 0,
         comments: '',
         updatedAt: '',
-        createdAt: ''
+        createdAt: '',
+        id: ""
       };
 
       this.restApi.getRestaurantById(this.restId).subscribe((data: any) => {
@@ -65,6 +67,7 @@ export class CommentsComponent implements OnInit {
           this.averageRating = parseFloat((totalRating / this.restaurant.comments.length).toFixed(1));
         }
         if (this.restaurant.comments && this.restaurant.comments.length > 0) {
+          console.log("aaaver", this.restaurant.comments)
           this.restaurant.comments.forEach((comentario: any) => {
             comentario.createdAt = this.formatDate(comentario.createdAt);
             comentario.updatedAt = this.formatDate(comentario.updatedAt);
@@ -103,6 +106,17 @@ export class CommentsComponent implements OnInit {
 
       return dateB.getTime() - dateA.getTime();
     });
+  }
+  deleteComment(commentId: string) {
+    this.comentariosService.deleteComentario(commentId).subscribe(
+      (data: any) => {
+        this.restaurant.comments = this.restaurant.comments.filter(comentario => comentario.id !== commentId);
+        console.log('Comentario eliminado exitosamente');
+      },
+      (error) => {
+        console.error('Error al eliminar el comentario:', error);
+      }
+    );
   }
 
   submitComment() {

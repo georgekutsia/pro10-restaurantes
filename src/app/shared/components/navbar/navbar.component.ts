@@ -57,7 +57,6 @@ export class NavbarComponent implements OnInit {
       const mainnavbarOffset = mainnavbarElement.offsetTop;
 
       if (scrollY > mainnavbarOffset) {
-        this.renderer.setStyle(navbarElements, 'backgroundColor', `transparent`);
         this.renderer.setStyle(mainnavbarElement, 'position', 'fixed');
         this.renderer.setStyle(mainnavbarElement, 'top', '0');
         this.renderer.setStyle(mainnavbarElement, 'zIndex', '40');
@@ -69,8 +68,6 @@ export class NavbarComponent implements OnInit {
         this.renderer.removeStyle(mainnavbarElement, 'top');
         this.renderer.removeStyle(mainnavbarElement, 'backgroundColor');
         this.renderer.removeStyle(mainnavbarElement, 'width');
-        this.renderer.removeStyle(navbarElements, 'backgroundColor');
-        this.renderer.removeStyle(navbarElements, 'borderRadius');
       }
 
       if (scrollY < 200) { 

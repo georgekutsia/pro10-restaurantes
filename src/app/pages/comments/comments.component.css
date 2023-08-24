@@ -9,6 +9,12 @@
   font-size: 24px;
 }
 
+.button-back {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+}
+
 .text-danger {
   color: red;
 }
@@ -17,10 +23,27 @@
   color: goldenrod;
 }
 
+.restaurant-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.restaurant-info {
+  text-align: left;
+}
+
+i {
+  margin: 10px;
+  font-size: 1.5rem;
+  color: rgb(0, 162, 255);
+  text-shadow: 1px 1px 1px blue;
+}
+
 .commenter {
   display: flex;
   background-color: #DEFFE9;
-  padding: 0px 330px;
+  padding: 0px 10%;
   margin: 0px;
 }
 .commenter-comment {
@@ -44,8 +67,11 @@
 }
 
 .commentBox {
-  padding: 10px 250px;
+  padding: 10px 5%;
   background-color: #DEFFE9;
+}
+.commentBox-ul {
+  padding: 0px;
 }
 .commentBox-ul-li {
   background-color: rgba(111, 87, 27, 0.079);
@@ -54,6 +80,7 @@
   margin-top: 5px;
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 .commentBox-ul-li h4 {
   color: black;
@@ -69,5 +96,17 @@
 .commentBox-ul-li p {
   color: black;
   font-size: 20px;
-  width: 80%;
+  width: 95%;
+}
+
+@media screen and (max-width: 765px) {
+  .restaurant-box {
+    display: block;
+    justify-content: center;
+    gap: 10px;
+  }
+  .phone-links {
+    display: flex;
+    justify-content: space-between;
+  }
 }/*# sourceMappingURL=comments.component.css.map */

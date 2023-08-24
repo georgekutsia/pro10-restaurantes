@@ -30,7 +30,10 @@ export class EditRestaurantComponent implements OnInit{
       description: [this.restaurant.description,],
       city: [this.restaurant.city,],
       score: [this.restaurant.score,],
-      coments:['',]
+      address: [this.restaurant.address,],
+      phone: [this.restaurant.phone,],
+      hours: [this.restaurant.hours,],
+      coments:[this.restaurant.comments],
     })
     this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
     this.restForm.valueChanges.subscribe((data) => {

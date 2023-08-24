@@ -7,7 +7,7 @@ export interface UserI{
     img?: string
     admin?: boolean,
     favorite: any[],
-    comments?: any[],
+    comments: any[],
     createdAt: string,
     updatedAt: string
 }
@@ -19,15 +19,16 @@ export interface RestaurantI{
     description: string,
     city: string,
     score: number,
-    adress: string,
+    address: string,
     hours: string,
-    phone:number,
+    phone:number[],
     comments: any[],
     createdAt: string,
     updatedAt: string,
     
 }
 export interface CommentI{
+    id: string,
     userId: string,
     score: number,
     comments: string,

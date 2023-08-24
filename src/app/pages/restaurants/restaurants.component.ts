@@ -6,7 +6,6 @@ import { RestaurantsService } from 'src/app/shared/services/restaurants.service'
 import { UsersService } from 'src/app/shared/services/users.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
-
 @Component({
   selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',
@@ -34,12 +33,14 @@ export class RestaurantsComponent implements OnInit {
       console.log("Bulala")
       this.restList = [...data];
       this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
-      this.userFavorites = this.usuario.favorite || []; 
+      this.userFavorites = this.usuario.favorite || [];
       this.userForFavorite = this.authService.getUserById(this.usuario.id);
       this.calculateAverages();
-      this.loaded= false
+      this.loaded = false;
+      
     });
   }
+
   calculateAverages(): void {
     this.restList.forEach((restaurant: RestaurantI) => {
       let totalScore = 0;
@@ -67,7 +68,6 @@ export class RestaurantsComponent implements OnInit {
       }
     );
   }
-
   deleteFromFavorites(restaurantId: string): void {
     const userId = this.usuario.id;
     this.usersService.deleteFromFavorites(userId, restaurantId).subscribe(

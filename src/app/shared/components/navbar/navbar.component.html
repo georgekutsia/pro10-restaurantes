@@ -19,32 +19,28 @@
     </button>
   </div>
   </div >
+  <!-- barra con pantalla movil -->
+  <!-- barra con pantalla grande -->
   <div class="navBar-main">
-    <!-- barra con pantalla movil -->
-    <!-- barra con pantalla grande -->
-
-    <a   routerLink='/home'  class="respons" routerLinkActive="actived">INICIO</a>
+    <a   routerLink='/home'  class="respons inicio" routerLinkActive="actived">INICIO</a>
     <a routerLink='/restaurants'  class="respons" routerLinkActive="actived">RESTAURANTES</a>
     <a routerLink='/users'  class="respons" routerLinkActive="actived">MIEMBROS</a>
-    <!-- Con AUTH -->
-    <!-- <a *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>PERFIL</a> -->
     <div class="navBar-main-profile">
-      <!-- <a  *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>    -->
         <img ngClass="respons" *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'  class="navBar-exit-img" src="{{usuario.img}}" alt="{{usuario.name}}">
-      <!-- </a> -->
       <a  class="respons" routerLinkActive="actived" *ngIf="usuario.name" routerLink='/register' routerLink='/profile/{{usuario.id}}'>PERFIL</a>
     </div>
   </div>
-  <div class="navBar-log" *ngIf="!usuario.name"> 
-    <a *ngIf="!usuario.name" routerLink='/login'  class="respons" routerLinkActive="actived">INICIAR SESIÓN</a>
-    <a *ngIf="!usuario.name" routerLink='/register'  class="respons" routerLinkActive="actived">REGISTRARSE</a>
-  </div>
-  <div class="navBar-exit respons" *ngIf="usuario.name">
-    <a *ngIf="usuario.admin" routerLink='/register' class="respons">Eres Admin</a>
-    <button class="navBar-exit-btn" (click)="logout()">
-      <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #ffffff;"></i>
-    </button>
+  <div class="logout">
+      <div class="navBar-log" *ngIf="!usuario.name"> 
+        <a *ngIf="!usuario.name" routerLink='/login'  class="respons" routerLinkActive="actived">INICIAR SESIÓN</a>
+        <a *ngIf="!usuario.name" routerLink='/register'  class="respons" routerLinkActive="actived">REGISTRARSE</a>
+      </div>
+      <div class="navBar-exit respons" *ngIf="usuario.name">
+        <a *ngIf="usuario.admin" routerLink='/register' class="respons">Eres Admin</a>
+        <button class="navBar-exit-btn" (click)="logout()">
+          <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #ffffff;"></i>
+        </button>
+    </div>
   </div>
     <!-- barra con pantalla grande -->
-
 </nav>

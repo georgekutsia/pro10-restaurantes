@@ -1,9 +1,9 @@
-<button routerLink='/restaurants' class="button">Volver</button>
+<button routerLink='/restaurants' class="button"><i class="fa-solid fa-arrow-rotate-left"></i></button>
 <div class="wrapContainer">
 <div [ngStyle]="{width: '300px'}"  *ngIf="restaurant" class="divRestau">
     <h4 class="mt-5">{{restaurant.name}} ({{restaurant.city}})</h4>
     <p class="restHours">{{restaurant.hours}}</p>
-    <p class="restAddress">{{restaurant.adress}}</p>
+    <p class="restAddress">{{restaurant.address}}</p>
     <img src="{{restaurant.img}}" alt="{{restaurant.name}}" width="300px" height="240" class="imgRestau"/>
     <p class="restDescription">{{restaurant.description}}</p>
     <p class="restPhone">Llama al <span [ngStyle]="{color: 'blue'}" > {{restaurant.phone}}</span>  para reservar</p>
