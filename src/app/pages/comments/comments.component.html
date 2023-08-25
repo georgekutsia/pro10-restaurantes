@@ -26,7 +26,23 @@
       <img *ngIf="food.img" [src]="food.img" alt="{{ food.name }} Image" width="100" height="100">
     </li>
   </ul>
+  <img src="https://res.cloudinary.com/dxnzcewsy/image/upload/v1692920201/restaurantes%20y%20usuarios/hamburguer/tacos_vgpbji.jpg" class="d-block w-100" alt="...">
 </section> -->
+<section class="foods">
+  <div class="carousel">
+    <div class="car-slide" *ngFor="let food of foods; let i = index">
+      <div class="slide-inner">
+        <img  class="car-img" [src]="food.img" alt="{{ food.name }}" *ngIf="i === currentSlideIndex" class="car-img" />
+        <div class="car-caption" *ngIf="i === currentSlideIndex">{{ food.name }}</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button (click)="showPreviousSlide()">Anterior</button>
+    <button (click)="showNextSlide()">Siguiente</button>
+  </div>
+</section>
+
 
 
 <form class="commenter" [formGroup]="restForm" (ngSubmit)="submitComment()">
@@ -35,7 +51,7 @@
     <input type="number" placeholder="1" class="form-control" id="score" formControlName="score" min="1" max="10">
   </div>
   <div class="commenter-input" >
-    <input type="hidden" [value]="usersId" class="form-contro" formControlName="userId">
+    <input type="hidden" [value]="usersId" class="form-control" formControlName="userId">
   </div>
   <div class="form-group commenter-comment">
     <label for="comments"></label>

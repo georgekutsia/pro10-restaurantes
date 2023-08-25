@@ -24,6 +24,7 @@ export class CommentsComponent implements OnInit {
   restaurant!: RestaurantI;
   foods!: FoodI[];
   averageRating: number | undefined;
+  currentSlideIndex: number=0;
   comments: CommentI = {
     id:"",
     userId: '', 
@@ -54,7 +55,9 @@ export class CommentsComponent implements OnInit {
         createdAt: '',
         id: ""
       };
-
+      setInterval(() => {
+        this.showNextSlide();
+      }, 5000);
       this.foodService.getFoods().subscribe((data: any) => {
         this.foods = Object.values(data);
         console.log(this.foods);
@@ -134,6 +137,18 @@ export class CommentsComponent implements OnInit {
     } else {
       this.submited = true;
     }
+  }
+
+
+
+  changeSlide(index: number) {
+    this.currentSlideIndex = index;
+  }
+  showNextSlide() {
+    this.currentSlideIndex = (this.currentSlideIndex + 1) % this.foods.length;
+  }
+  showPreviousSlide() {
+    this.currentSlideIndex = (this.currentSlideIndex - 1 + this.foods.length) % this.foods.length;
   }
 
   }
