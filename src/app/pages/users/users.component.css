@@ -5,6 +5,24 @@
   min-height: 300px;
 }
 
+.title {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-around;
+}
+.filter button {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid blue;
+  background-color: transparent;
+}
+
 .divUserList {
   display: flex;
   flex-direction: column;
@@ -165,4 +183,7 @@
     height: 144px;
     opacity: 0;
   }
+}
+img {
+  cursor: pointer;
 }/*# sourceMappingURL=users.component.css.map */

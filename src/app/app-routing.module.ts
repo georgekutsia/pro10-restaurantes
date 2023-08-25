@@ -10,6 +10,7 @@ import { EditRestaurantComponent } from './pages/edit-restaurant/edit-restaurant
 import { RestaurantGestionComponent } from './pages/restaurant-gestion/restaurant-gestion.component';
 import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.component';
 import { CommentsComponent } from './pages/comments/comments.component';
+import { CommentEditComponent } from './pages/comment-edit/comment-edit.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,9 @@ const routes: Routes = [
   },
   {
     path: 'comentarios/:id/userComment', component: CommentsComponent
+  },
+  {
+    path: 'comentarios/:id', component: CommentEditComponent
   },
 ];
 

@@ -16,19 +16,19 @@ export class FoodService {
     return this.http.get(this.url)
   }
 
-  getRestaurantById(id: string) {
+  getFoodById(id: string) {
     return this.http.get(`${this.url}/${id}`)
   }
 
-  postRestaurant(restaurant: FoodI) {
+  postFood(restaurant: FoodI) {
     return this.http.post(this.url, restaurant)
   }
 
-  putRestaurant(restaurant: FoodI, id: string) {
+  putFood(restaurant: FoodI, id: string) {
     return this.http.put(`${this.url}/${id}`, restaurant)
   }
 
-  deleteComidas(id: string) {
+  deleteFood(id: string) {
     return this.http.delete(`${this.url}/${id}`)
   }
 
@@ -37,7 +37,7 @@ export class FoodService {
     this.id = id
   }
 
-  getRestaurant() {
+  getFood() {
     return this.restaurant;
   }
 

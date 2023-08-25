@@ -18,4 +18,5 @@ describe('RestaurantsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });
