@@ -12,7 +12,13 @@
     background-color: darkgray;
   }
 }
-
+.deleteCommentButton{
+  padding: 20px;
+  background-color: transparent;
+  &:hover{
+    background-color: #3e9a5e;
+  }
+}
 .divRestau {
   width: 100%;
   display: flex;

@@ -5,8 +5,8 @@
 }
 
 .edit-comentario-button1 {
-   padding: 20px 50px;
-  position: relative; 
+  padding: 20px 50px;
+  position: relative;
   font-size: 1.1rem;
 }
 
@@ -18,9 +18,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 2px  #ff0000 solid; 
-  border-radius: 10%; 
-  animation: rotate 2s linear infinite; 
+  border: 2px #ff0000 solid;
+  border-radius: 10%;
+  animation: rotate 2s linear infinite;
 }
 
 @keyframes rotate {
@@ -30,8 +30,7 @@
   10% {
     transform: rotate(360deg);
   }
-  100%{
+  100% {
     transform: rotate(360deg);
-
   }
-}
+}/*# sourceMappingURL=comment-edit.component.css.map */
