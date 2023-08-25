@@ -19,4 +19,7 @@ export class AuthService {
   getUserById(id: string) {
     return this.http.get(`${this.db_url}/usuarios/${id}`)
   }
+  updateUsuarios(id: string, data: any) {
+    return this.http.put(`${this.db_url}/usuarios/${id}`, data);
+  }
 }

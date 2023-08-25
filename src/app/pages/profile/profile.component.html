@@ -19,6 +19,7 @@
         <ul>
           <li *ngFor="let comment of fav.coments" class="profileComment">{{comment}}</li>
         </ul>
+        <button (onclick)="deleteRest(fav.id)">Ya no me gusta</button>
       </li>
     </ul>
   <ul *ngIf="favComments" class="profile-ul">
@@ -27,7 +28,6 @@
       <p class="commentScore">{{ comentario.comments }}</p>
       <p class="actDate">Fecha del comentario: {{ comentario.updatedAt }}</p>
         <button *ngIf="usuario.name" class="btn-delete" (click)="deleteComment(comentario.id)">Borrar</button>
-
     </li>
   </ul>
 </div>
