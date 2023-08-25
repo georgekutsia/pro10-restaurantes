@@ -35,3 +35,15 @@ export interface CommentI{
     updatedAt: string,
     createdAt: string
 }
+export interface FoodI {
+    id?: string; 
+    name: string;
+    img?: string;
+    description: string;
+    price?: string;
+    dietaryPreferences?: string;
+    allergen?: string[];
+    spicy?: number;
+    createdAt?: Date;
+    updatedAt?: Date;
+}

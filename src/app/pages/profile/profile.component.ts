@@ -42,7 +42,6 @@ export class ProfileComponent implements OnInit {
     this.authUser.getUserById(this.id).subscribe((data: any) => {
       this.usuario = { ...data }
       this.favorite = this.usuario.favorite;
-      console.log(this.usuario)
       this.usuario.createdAt = this.formatDate(this.usuario.createdAt);
       this.usuario.updatedAt = this.formatDate(this.usuario.updatedAt);
       this.loaded = false;

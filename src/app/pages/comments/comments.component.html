@@ -2,7 +2,7 @@
 <section class="info" *ngIf="restaurant">
     <h1>{{restaurant.name}}</h1>
     <div class="restaurant-box">
-      <img [src]="restaurant.img" [alt]="restaurant.name" width="200px" height="auto">
+      <img [src]="restaurant.img" [alt]="restaurant.name" width="300px" height="auto">
       <div class="restaurant-info">
         <p><i class="fa-solid fa-map-location-dot"></i>  {{restaurant.address}}</p>
         <p><i class="fa-regular fa-clock"></i>  {{restaurant.hours}}</p>
@@ -18,6 +18,17 @@
      <h5 *ngIf="averageRating">Puntuación media <span [ngClass]="{'text-danger': averageRating < 5, 'text-gold': averageRating >= 5}">{{averageRating}}</span> con {{restaurant.comments.length}} comentarios</h5>
     </div>
 </section>
+
+<!-- <section class="foods" *ngIf="foods">
+  <ul>
+    <li *ngFor="let food of foods">
+      <p>{{ food.name }}</p>
+      <img *ngIf="food.img" [src]="food.img" alt="{{ food.name }} Image" width="100" height="100">
+    </li>
+  </ul>
+</section> -->
+
+
 <form class="commenter" [formGroup]="restForm" (ngSubmit)="submitComment()">
     <div class="commenter-points"  class="form-group">
     <label for="score"></label>
