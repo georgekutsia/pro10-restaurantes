@@ -18,6 +18,7 @@ import { EditRestaurantComponent } from './pages/edit-restaurant/edit-restaurant
 import { RestaurantGestionComponent } from './pages/restaurant-gestion/restaurant-gestion.component';
 import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.component';
 import { CommentsComponent } from './pages/comments/comments.component';
+import { CommentEditComponent } from './pages/comment-edit/comment-edit.component';
 
 
 
@@ -36,7 +37,8 @@ import { CommentsComponent } from './pages/comments/comments.component';
     NavbarComponent,
     EditRestaurantComponent,
     AddRestaurantComponent,
-    CommentsComponent
+    CommentsComponent,
+    CommentEditComponent
   ],
   imports: [
     BrowserModule,

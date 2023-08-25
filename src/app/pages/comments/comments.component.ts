@@ -55,13 +55,6 @@ export class CommentsComponent implements OnInit {
         createdAt: '',
         id: ""
       };
-      setInterval(() => {
-        this.showNextSlide();
-      }, 5000);
-      this.foodService.getFoods().subscribe((data: any) => {
-        this.foods = Object.values(data);
-        console.log(this.foods);
-      });
 
       this.restApi.getRestaurantById(this.restId).subscribe((data: any) => {
         this.restaurant = { ...data }

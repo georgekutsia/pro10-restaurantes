@@ -18,13 +18,15 @@
     <p class="lastUpdated">Ultima actualización: {{restaurant.updatedAt}}</p>
     <button (click)="addToFavorites()" class="buttonFav">Agregar a Favoritos</button>
     </div>
-    <div class="comentariosGestion"> 
-    <li class="profile-favorite" *ngFor="let res of restaurant.comments">
-            <h4 class="restScore">Puntuación de usuario: {{ res.score }}</h4>
-      <h4 class="userComment">Comentario:</h4>
-      <p class="restComment">{{ res.comments }}</p>
-      <p class="commentedOn">Comentado el: {{ res.updatedAt }}</p>
-    </li>
+<div class="comentariosGestion">
+  <li class="profile-favorite" *ngFor="let res of restaurant?.comments; let i = index">
+    <h4 class="restScore">Puntuación de usuario: {{ res.score }}</h4>
+    <h4 class="userComment">Comentario:</h4>
+    <p class="restComment">{{ res.comments }}</p>
+    <p class="restComment">{{ res.comments }}</p>
+    <p class="commentedOn">Comentado el: {{ res.updatedAt }}</p>
+    <button routerLink='/comentarios/{{res.id}}' class="deleteCommentButton">Eliminar Comentario</button>
+  </li>
 </div>
     <p><button  *ngIf="usuario.admin" (click)="edit()" class="buttonAdmin">Modificar datos</button><button *ngIf="usuario.admin" (click)="delete()" class="buttonAdmin">Eliminar</button></p>   
     <!-- <button (click)="edit()">Añadir comentarios</button> -->

@@ -1,7 +1,9 @@
+import { CommentI } from './../../models/interfaces';
 import { UsersService } from 'src/app/shared/services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
+import {ComentariosService} from "src/app/shared/services/comentarios.service";
 import { RestaurantI } from 'src/app/models/interfaces';
 import { UserI } from 'src/app/models/interfaces';
 import { format } from 'date-fns';
@@ -21,7 +23,8 @@ export class RestaurantGestionComponent implements OnInit {
     private restApi: RestaurantsService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private usersService: UsersService 
+    private usersService: UsersService ,
+    private ComentariosService: ComentariosService
   ) { }
 
   private formatDate(date: string): string {
@@ -78,4 +81,5 @@ export class RestaurantGestionComponent implements OnInit {
       this.router.navigate(["/restaurants"])
     })
   }
+
 }

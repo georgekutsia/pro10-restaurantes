@@ -1,10 +1,10 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RestaurantI } from 'src/app/models/interfaces';
-import { UserI } from 'src/app/models/interfaces';
+import { RestaurantI , UserI, FoodI} from 'src/app/models/interfaces';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
 import { UsersService } from 'src/app/shared/services/users.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { FoodService } from 'src/app/shared/services/foods.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -21,11 +21,14 @@ export class RestaurantsComponent implements OnInit {
   restaurantAverages: { [key: string]: number } = {};
   userFavorites: string[] = [];
   loaded: boolean = true;
+  currentSlideIndex: number = 0;
+  foods!: FoodI[];
 
   constructor(
     private restApi: RestaurantsService,
     private usersService: UsersService,
     private authService: AuthService,
+    private foodService: FoodService,
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +41,13 @@ export class RestaurantsComponent implements OnInit {
       this.loaded = false;
       console.log(this.restList)
     });
+    setInterval(() => {
+      this.showNextSlide();
+    }, 5000);
+    this.foodService.getFoods().subscribe((data: any) => {
+      this.foods = Object.values(data);
+      console.log(this.foods);
+    })
   }
 
   calculateAverages(): void {
@@ -81,5 +91,14 @@ export class RestaurantsComponent implements OnInit {
   }
   isRestaurantFavorite(restaurantId: string): boolean {
     return this.userFavorites.includes(restaurantId);
+  }
+  changeSlide(index: number) {
+    this.currentSlideIndex = index;
+  }
+  showNextSlide() {
+    this.currentSlideIndex = (this.currentSlideIndex + 1) % this.foods.length;
+  }
+  showPreviousSlide() {
+    this.currentSlideIndex = (this.currentSlideIndex - 1 + this.foods.length) % this.foods.length;
   }
 }
