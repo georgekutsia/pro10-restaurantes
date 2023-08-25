@@ -2,7 +2,7 @@
 <section class="info" *ngIf="restaurant">
     <h1>{{restaurant.name}}</h1>
     <div class="restaurant-box">
-      <img [src]="restaurant.img" [alt]="restaurant.name" width="200px" height="auto">
+      <img [src]="restaurant.img" [alt]="restaurant.name" width="300px" height="auto">
       <div class="restaurant-info">
         <p><i class="fa-solid fa-map-location-dot"></i>  {{restaurant.address}}</p>
         <p><i class="fa-regular fa-clock"></i>  {{restaurant.hours}}</p>
@@ -18,13 +18,40 @@
      <h5 *ngIf="averageRating">Puntuación media <span [ngClass]="{'text-danger': averageRating < 5, 'text-gold': averageRating >= 5}">{{averageRating}}</span> con {{restaurant.comments.length}} comentarios</h5>
     </div>
 </section>
+
+<!-- <section class="foods" *ngIf="foods">
+  <ul>
+    <li *ngFor="let food of foods">
+      <p>{{ food.name }}</p>
+      <img *ngIf="food.img" [src]="food.img" alt="{{ food.name }} Image" width="100" height="100">
+    </li>
+  </ul>
+  <img src="https://res.cloudinary.com/dxnzcewsy/image/upload/v1692920201/restaurantes%20y%20usuarios/hamburguer/tacos_vgpbji.jpg" class="d-block w-100" alt="...">
+</section> -->
+<section class="foods">
+  <div class="carousel">
+    <div class="car-slide" *ngFor="let food of foods; let i = index">
+      <div class="slide-inner">
+        <img  class="car-img" [src]="food.img" alt="{{ food.name }}" *ngIf="i === currentSlideIndex" class="car-img" />
+        <div class="car-caption" *ngIf="i === currentSlideIndex">{{ food.name }}</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button (click)="showPreviousSlide()">Anterior</button>
+    <button (click)="showNextSlide()">Siguiente</button>
+  </div>
+</section>
+
+
+
 <form class="commenter" [formGroup]="restForm" (ngSubmit)="submitComment()">
     <div class="commenter-points"  class="form-group">
     <label for="score"></label>
     <input type="number" placeholder="1" class="form-control" id="score" formControlName="score" min="1" max="10">
   </div>
   <div class="commenter-input" >
-    <input type="hidden" [value]="usersId" class="form-contro" formControlName="userId">
+    <input type="hidden" [value]="usersId" class="form-control" formControlName="userId">
   </div>
   <div class="form-group commenter-comment">
     <label for="comments"></label>

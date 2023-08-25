@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CommentI, RestaurantI } from 'src/app/models/interfaces';
+import { CommentI, RestaurantI, FoodI } from 'src/app/models/interfaces';
 import { RestaurantsService } from 'src/app/shared/services/restaurants.service';
+import { FoodService } from 'src/app/shared/services/foods.service';
 import { ActivatedRoute } from '@angular/router';
 import { ComentariosService } from 'src/app/shared/services/comentarios.service';
 import { format } from 'date-fns';
@@ -17,11 +18,13 @@ import { format } from 'date-fns';
 export class CommentsComponent implements OnInit {
   restId!: string;
   usersId!: any;
-  patata!: any;
+  users!: any;
   submited: boolean = false;
   restForm!: FormGroup;
   restaurant!: RestaurantI;
+  foods!: FoodI[];
   averageRating: number | undefined;
+  currentSlideIndex: number=0;
   comments: CommentI = {
     id:"",
     userId: '', 
@@ -31,7 +34,7 @@ export class CommentsComponent implements OnInit {
     createdAt: ''
   };
 
-  constructor(private restApi: RestaurantsService, public form: FormBuilder, private router: Router, private activeRoute: ActivatedRoute, private comentariosService: ComentariosService) {
+  constructor(private restApi: RestaurantsService, private foodService: FoodService, public form: FormBuilder, private router: Router, private activeRoute: ActivatedRoute, private comentariosService: ComentariosService) {
 
   }
   private formatDate(date: string): string {
@@ -41,14 +44,9 @@ export class CommentsComponent implements OnInit {
   ngOnInit(): void {
     this.activeRoute.params.subscribe(params => {
       const id = params['id'];
-      console.log('ID de los parámetros:', id);
       this.restId = id;
-      console.log("restId ahora si que si", this.restId);
-
-      this.patata = JSON.parse(localStorage.getItem('user') || '{}');
-      this.usersId = this.patata.id;
-      console.log("patataid", this.usersId);
-
+      this.users = JSON.parse(localStorage.getItem('user') || '{}');
+      this.usersId = this.users.id;
       this.comments = {
         userId: this.usersId,
         score: 0,
@@ -57,6 +55,13 @@ export class CommentsComponent implements OnInit {
         createdAt: '',
         id: ""
       };
+      setInterval(() => {
+        this.showNextSlide();
+      }, 5000);
+      this.foodService.getFoods().subscribe((data: any) => {
+        this.foods = Object.values(data);
+        console.log(this.foods);
+      });
 
       this.restApi.getRestaurantById(this.restId).subscribe((data: any) => {
         this.restaurant = { ...data }
@@ -67,17 +72,13 @@ export class CommentsComponent implements OnInit {
           this.averageRating = parseFloat((totalRating / this.restaurant.comments.length).toFixed(1));
         }
         if (this.restaurant.comments && this.restaurant.comments.length > 0) {
-          console.log("aaaver", this.restaurant.comments)
           this.restaurant.comments.forEach((comentario: any) => {
             comentario.createdAt = this.formatDate(comentario.createdAt);
             comentario.updatedAt = this.formatDate(comentario.updatedAt);
           });
-          console.log("bulaaala",this.restaurant)
         }
-
         if (this.restaurant.comments && this.restaurant.comments.length > 0) {
           this.restaurant.comments = this.sortNewFirst(this.restaurant.comments);
-          console.log(this.restaurant.comments);
         }
       });
     });
@@ -87,7 +88,6 @@ export class CommentsComponent implements OnInit {
       score: [1, [Validators.required, Validators.min(1), Validators.max(10)]], // Establece 1 como valor predeterminado
       comments: ['', Validators.required],
     });
-
     this.restForm.valueChanges.subscribe((data) => {
       this.comments = { ...data };
     });
@@ -126,7 +126,6 @@ export class CommentsComponent implements OnInit {
         score: this.comments.score,
         comments: this.comments.comments
       };
-
       this.comentariosService.enviarComentario(this.restId, comentarioData).subscribe(
         (response: any) => {
           location.reload();
@@ -138,6 +137,18 @@ export class CommentsComponent implements OnInit {
     } else {
       this.submited = true;
     }
+  }
+
+
+
+  changeSlide(index: number) {
+    this.currentSlideIndex = index;
+  }
+  showNextSlide() {
+    this.currentSlideIndex = (this.currentSlideIndex + 1) % this.foods.length;
+  }
+  showPreviousSlide() {
+    this.currentSlideIndex = (this.currentSlideIndex - 1 + this.foods.length) % this.foods.length;
   }
 
   }
