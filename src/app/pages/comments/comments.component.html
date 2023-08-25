@@ -22,7 +22,7 @@
 
 
 
-<form class="commenter" [formGroup]="restForm" (ngSubmit)="submitComment()">
+<form *ngIf="users.name" class="commenter" [formGroup]="restForm" (ngSubmit)="submitComment()">
     <div class="commenter-points"  class="form-group">
     <label for="score"></label>
     <input type="number" placeholder="1" class="form-control" id="score" formControlName="score" min="1" max="10">
@@ -34,7 +34,7 @@
     <label for="comments"></label>
     <input type="text" class="form-control" id="comments"  formControlName="comments" placeholder="Deja tus comentarios aquí... ">
   </div>
-  <button type="submit" class="btn-submit">Comentar</button>
+  <button  type="submit" class="btn-submit">Comentar</button>
 </form>
 
 <section class="commentBox" *ngIf="restaurant">

@@ -19,7 +19,12 @@ export class ProfileComponent implements OnInit {
   favRests:boolean = true;
   favComments:boolean = false;
 
-  constructor(private authUser: AuthService, private activatedRoute: ActivatedRoute, private router: Router, private commentRoute: ComentariosService) { }
+  constructor(
+    private authUser: AuthService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private commentRoute: ComentariosService
+  ) { }
 
   private formatDate(date: string): string {
     const formattedDate = format(new Date(date), 'dd/MM/yyyy HH:mm:ss');
@@ -58,6 +63,7 @@ export class ProfileComponent implements OnInit {
       location.reload();
     }
   }
+  
   deleteComment(commentId: string) {
     this.commentRoute.deleteComentario(commentId).subscribe(
       (data: any) => {
@@ -69,4 +75,27 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
+  
+  deleteRest(restId: string) {
+    const index = this.favorite.findIndex((fav: any) => fav.id === restId);
+
+    if (index !== -1) {
+      this.favorite.splice(index, 1);
+      const updatedData = {
+        favorite: this.favorite,
+        name: this.usuario.name,
+        age: this.usuario.age, 
+      };
+
+      this.authUser.updateUsuarios(this.id, updatedData).subscribe(
+        (data: any) => {
+          console.log('Restaurante eliminado de la lista de favoritos con éxito.');
+        },
+        (error) => {
+          console.error('Error al eliminar el restaurante de la lista de favoritos:', error);
+        }
+      );
+    }
+  }
+
 }
