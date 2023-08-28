@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   comments?: Comment[];
   favRests:boolean = true;
   favComments:boolean = false;
-
+dat!:any;
   constructor(
     private authUser: AuthService,
     private activatedRoute: ActivatedRoute,
@@ -39,7 +39,6 @@ export class ProfileComponent implements OnInit {
     this.favRests =true;
     this.favComments = false;
   }
-
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
       this.id = String(params.get('id'));
@@ -76,17 +75,16 @@ export class ProfileComponent implements OnInit {
     );
   }
   
-  deleteRest(restId: string) {
-    const index = this.favorite.findIndex((fav: any) => fav.id === restId);
-
-    if (index !== -1) {
-      this.favorite.splice(index, 1);
+  deleteRest(restId: string, ind: number) {
+    if (ind >= 0 && ind < this.favorite.length) {
+      this.favorite.splice(ind, 1);
+      const favoriteIds = this.usuario.favorite.map((item:any) => item.id);
+      
       const updatedData = {
-        favorite: this.favorite,
+        favorite: favoriteIds,
         name: this.usuario.name,
-        age: this.usuario.age, 
+        comments: this.usuario.comments.map(comment => comment.id),
       };
-
       this.authUser.updateUsuarios(this.id, updatedData).subscribe(
         (data: any) => {
           console.log('Restaurante eliminado de la lista de favoritos con éxito.');
@@ -95,7 +93,8 @@ export class ProfileComponent implements OnInit {
           console.error('Error al eliminar el restaurante de la lista de favoritos:', error);
         }
       );
+    } else {
+      console.log('Índice no válido:', ind);
     }
   }
-
 }
