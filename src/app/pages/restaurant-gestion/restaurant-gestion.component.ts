@@ -53,6 +53,7 @@ export class RestaurantGestionComponent implements OnInit {
         });
       }
     })
+    console.log(this.restaurant)
   }
 
   addToFavorites() {

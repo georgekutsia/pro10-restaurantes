@@ -6,10 +6,11 @@ import { UserI } from '../../models/interfaces'
   providedIn: 'root'
 })
 export class AuthService {
-  db_url: string = 'http://localhost:3333'
+  // db_url: string = 'http://localhost:3333'
+  db_url: string = 'https://api-restaurantes-7453rk2vs-georgekutsia.vercel.app'
+  
   constructor(private http: HttpClient) {}
 
-  
   register(user: UserI){
     return this.http.post(`${this.db_url}/usuarios/register`, user)
   }

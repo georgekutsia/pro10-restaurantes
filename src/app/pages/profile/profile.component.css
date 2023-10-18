@@ -45,7 +45,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   list-style: none;
-  padding: 0;
+  padding: 0% 10%;
 }
 .profile .profile-ul .profile-favorit {
   flex-grow: 1;
@@ -61,6 +61,23 @@
   min-width: 350px;
   margin: 10px;
 }
+.profile .profile-ul .profile-favorit .favImage {
+  border: 2px solid darkgreen;
+  border-radius: 2px;
+  margin-top: 10px;
+}
+.profile .profile-ul .profile-favorit .profileDescrip,
+.profile .profile-ul .profile-favorit .profileCity,
+.profile .profile-ul .profile-favorit .profileComment {
+  color: darkgreen;
+  margin-top: 5px;
+  max-width: 250px;
+}
+.profile .profile-ul .profile-favorit .button-like {
+  padding: 5px 10px;
+  background-color: rgba(0, 128, 0, 0.343);
+  border: 3px groove rgba(0, 128, 0, 0.188);
+}
 .profile .profile-ul .profile-favorit1 {
   background-color: #b0e4b0;
   color: black;
@@ -73,17 +90,6 @@
   padding: 20px;
   width: 390px;
   margin: 8px;
-}
-.profile .profile-ul .profile-favorit1 .favImage {
-  border: 2px solid darkgreen;
-  border-radius: 2px;
-  margin-top: 10px;
-}
-.profile .profile-ul .profile-favorit1 .profileDescrip,
-.profile .profile-ul .profile-favorit1 .profileCity,
-.profile .profile-ul .profile-favorit1 .profileComment {
-  color: darkgreen;
-  margin-top: 5px;
 }
 .profile .profile-ul .profileScore {
   font-size: 21px;

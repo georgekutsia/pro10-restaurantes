@@ -12,7 +12,9 @@ export class UsersService {
 
   id!: string;
   user!: UserI;
-  url: string = 'http://localhost:3333/usuarios'
+  // url: string = 'http://localhost:3333/usuarios'
+  url: string = 'https://api-restaurantes-7453rk2vs-georgekutsia.vercel.app//usuarios'
+
   constructor(private http: HttpClient) { }
   private userUpdated = new Subject<any>();
 

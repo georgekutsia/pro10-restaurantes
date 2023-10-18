@@ -11,7 +11,7 @@
     <button  (click)="favRestTotggle()" class="profileRestaurant"  [ngClass]="{'': !favRests, 'activated': favRests}">  Tus comentarios:</button>
   </div>
   <ul *ngIf="favRests" class="profile-ul">
-      <li class="profile-favorit" *ngFor="let fav of favorite">
+      <li class="profile-favorit" *ngFor="let fav of favorite; let i = index">
         <h4 class="favNave">{{fav.name}} ({{fav.city}})</h4>
         <img routerLink='/comentarios/{{ fav.id }}/userComment' src="{{fav.img}}" alt="" width="200" class="favImage">
         <p class="profileDescrip">{{fav.description}}</p>
@@ -19,7 +19,7 @@
         <ul>
           <li *ngFor="let comment of fav.coments" class="profileComment">{{comment}}</li>
         </ul>
-        <button (onclick)="deleteRest(fav.id)">Ya no me gusta</button>
+        <button class="button-like" (click)="deleteRest(fav.id, i)">Ya no me gusta</button>
       </li>
     </ul>
   <ul *ngIf="favComments" class="profile-ul">

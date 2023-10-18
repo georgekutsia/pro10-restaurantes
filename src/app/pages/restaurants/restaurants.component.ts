@@ -16,10 +16,12 @@ export class RestaurantsComponent implements OnInit {
   restaurant!: RestaurantI;
   restList!: RestaurantI[];
   usuario!: UserI;
-  userForFavorite!: any;
+  userId!: string;
+  usuarioData!: UserI;
   isFavorite: boolean = false;
   restaurantAverages: { [key: string]: number } = {};
   userFavorites: string[] = [];
+  // userFavorites1:any[] = [];
   loaded: boolean = true;
   currentSlideIndex: number = 0;
   foods!: FoodI[];
@@ -32,21 +34,28 @@ export class RestaurantsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log("bulala")
     this.restApi.getRestaurants().subscribe((data: any) => {
       this.restList = [...data];
       this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
-      this.userFavorites = this.usuario.favorite || [];
-      this.userForFavorite = this.authService.getUserById(this.usuario.id);
+      this.userId = this.usuario.id;
+      this.authService.getUserById(this.userId).subscribe((data: any) => {
+      this.usuarioData = {...data};
+      this.userFavorites = this.usuarioData.favorite || [];
+      // this.userFavorites1 = this.usuarioData.favorite || [];
+      console.log("favorites",this.userFavorites)
+      console.log("id",this.userId)
+      })
       this.calculateAverages();
       this.loaded = false;
-      console.log(this.restList)
     });
+
+
     setInterval(() => {
       this.showNextSlide();
     }, 5000);
     this.foodService.getFoods().subscribe((data: any) => {
       this.foods = Object.values(data);
-      console.log(this.foods);
     })
   }
 
@@ -78,8 +87,7 @@ export class RestaurantsComponent implements OnInit {
     );
   }
   deleteFromFavorites(restaurantId: string): void {
-    const userId = this.usuario.id;
-    this.usersService.deleteFromFavorites(userId, restaurantId).subscribe(
+    this.usersService.deleteFromFavorites(this.userId, restaurantId).subscribe(
       (response: any) => {
         this.userFavorites = this.userFavorites.filter(id => id !== restaurantId);
         this.calculateAverages();
@@ -87,11 +95,19 @@ export class RestaurantsComponent implements OnInit {
       (error: any) => {
         console.error('Error al quitar el restaurante de favoritos', error);
       }
-    );
+      );
   }
   isRestaurantFavorite(restaurantId: string): boolean {
+    console.log("sss", this.userFavorites);
+    console.log(this.usuarioData);
     return this.userFavorites.includes(restaurantId);
   }
+  
+  // isRestaurantFavorite1(restaurantId: string): boolean {
+  //   return this.userFavorites1.some(item => item._id === restaurantId);
+  // }
+
+  
   changeSlide(index: number) {
     this.currentSlideIndex = index;
   }

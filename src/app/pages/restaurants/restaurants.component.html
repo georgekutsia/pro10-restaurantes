@@ -9,8 +9,7 @@
   <div class="add">
         <button *ngIf="usuario?.admin" routerLink='/restaurants/add' class="add-btn">Añadir nuevo restaurante</button>   
   </div>
-
-
+<!-- 
   <section class="foods">
     <h2>Nuestros platos estrella del mes</h2>
   <div class="carousel">
@@ -30,7 +29,7 @@
   <div class="foods-btns2">
     <button (click)="showNextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
-</section>
+</section> -->
 
 
   <div class="gallery">
@@ -51,9 +50,9 @@
         </ng-container>
       </p>
       <p *ngIf="!restaurantAverages[restaurant.id]" class="stars"> No hay opiniones. ¡Sé el primero!</p>
-      <div class="button-div">
+      <div *ngIf="usuario.favorite.length >= 1" class="button-div">
         <button *ngIf="!isRestaurantFavorite(restaurant.id) && usuario.name" class="button" (click)="addToFavorites(restaurant.id)">Añadir a favoritos</button>
-        <button *ngIf="isRestaurantFavorite(restaurant.id) && usuario.name" class="button favorite-button" (click)="deleteFromFavorites(restaurant.id)"><i class="fa-regular fa-heart favorite-heart"></i><i class="fa-regular fa-heart favorite-heart1"></i><i class="fa-regular fa-heart favorite-heart2"></i><i class="fa-regular fa-heart favorite-heart3"></i> <span class="favorite-text"> </span> </button>
+        <button *ngIf="isRestaurantFavorite(restaurant.id)  && usuario.name" class="button favorite-button" (click)="deleteFromFavorites(restaurant.id)"><i class="fa-regular fa-heart favorite-heart"></i><i class="fa-regular fa-heart favorite-heart1"></i><i class="fa-regular fa-heart favorite-heart2"></i><i class="fa-regular fa-heart favorite-heart3"></i> <span class="favorite-text"> </span> </button>
         <div>
           <button *ngIf="usuario.admin" class="button" routerLink='/restaurants/{{ restaurant.id }}'>Gestionar</button>
           <button *ngIf="usuario.name && !usuario.admin && restaurant.comments.length >= 1" class="button" routerLink='/comentarios/{{ restaurant.id }}/userComment'>Ver {{restaurant.comments.length}} comentarios</button>
