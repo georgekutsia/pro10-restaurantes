@@ -11,6 +11,7 @@ import { RestaurantGestionComponent } from './pages/restaurant-gestion/restauran
 import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.component';
 import { CommentsComponent } from './pages/comments/comments.component';
 import { CommentEditComponent } from './pages/comment-edit/comment-edit.component';
+import { ErrorsComponentComponent } from './errors.component/errors.component.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,9 @@ const routes: Routes = [
   },
   {
     path: 'comentarios/:id', component: CommentEditComponent
+  },
+  {
+    path: '**', component: ErrorsComponentComponent
   },
 ];
 

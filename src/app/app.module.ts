@@ -19,6 +19,7 @@ import { RestaurantGestionComponent } from './pages/restaurant-gestion/restauran
 import { AddRestaurantComponent } from './pages/add-restaurant/add-restaurant.component';
 import { CommentsComponent } from './pages/comments/comments.component';
 import { CommentEditComponent } from './pages/comment-edit/comment-edit.component';
+import { ErrorsComponentComponent } from './errors.component/errors.component.component';
 
 
 
@@ -38,7 +39,8 @@ import { CommentEditComponent } from './pages/comment-edit/comment-edit.componen
     EditRestaurantComponent,
     AddRestaurantComponent,
     CommentsComponent,
-    CommentEditComponent
+    CommentEditComponent,
+    ErrorsComponentComponent
   ],
   imports: [
     BrowserModule,
