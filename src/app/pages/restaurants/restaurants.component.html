@@ -3,7 +3,7 @@
     <div class="loader-div">
        <div *ngIf="loaded" class="lds-ripple"><div></div><div></div></div>
       </div>
-      <div class="titol">
+      <div class="titol"> 
         <h1>Descubre, disfruta, comparte...</h1>
       </div>
   <div class="add">
@@ -50,7 +50,7 @@
         </ng-container>
       </p>
       <p *ngIf="!restaurantAverages[restaurant.id]" class="stars"> No hay opiniones. ¡Sé el primero!</p>
-      <div *ngIf="usuario.favorite.length >= 1" class="button-div">
+      <div *ngIf="usuario.favorite" class="button-div">
         <button *ngIf="!isRestaurantFavorite(restaurant.id) && usuario.name" class="button" (click)="addToFavorites(restaurant.id)">Añadir a favoritos</button>
         <button *ngIf="isRestaurantFavorite(restaurant.id)  && usuario.name" class="button favorite-button" (click)="deleteFromFavorites(restaurant.id)"><i class="fa-regular fa-heart favorite-heart"></i><i class="fa-regular fa-heart favorite-heart1"></i><i class="fa-regular fa-heart favorite-heart2"></i><i class="fa-regular fa-heart favorite-heart3"></i> <span class="favorite-text"> </span> </button>
         <div>

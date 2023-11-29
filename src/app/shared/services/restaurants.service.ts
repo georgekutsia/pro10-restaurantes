@@ -9,8 +9,8 @@ export class RestaurantsService {
 
   id!: string;
   restaurant!: RestaurantI;
-  // url: string = 'http://localhost:3333/restaurantes'
-  url: string = 'https://api-restaurantes-7453rk2vs-georgekutsia.vercel.app/restaurantes'
+  url: string = 'http://localhost:3333/restaurantes'
+  // url: string = 'https://api-restaurantes-7453rk2vs-georgekutsia.vercel.app/restaurantes'
 
 
   constructor(private http: HttpClient) {}
