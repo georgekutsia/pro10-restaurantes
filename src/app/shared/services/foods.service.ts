@@ -8,8 +8,8 @@ export class FoodService {
 
   id!: string;
   restaurant!: FoodI;
-  url: string = 'http://localhost:3333/comidas'
-  // url: string = 'https://api-restaurantes-7453rk2vs-georgekutsia.vercel.app/comidas'
+  // url: string = 'http://localhost:3333/comidas'
+  url: string = 'https://api-restaurantes-7453rk2vs-georgekutsia.vercel.app/comidas'
 
 
   constructor(private http: HttpClient) { }
