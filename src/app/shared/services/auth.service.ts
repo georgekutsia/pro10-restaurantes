@@ -7,7 +7,7 @@ import { UserI } from '../../models/interfaces'
 })
 export class AuthService {
   // db_url: string = 'http://localhost:3333'
-  db_url: string = 'https://api-restaurantes-7453rk2vs-georgekutsia.vercel.app'
+  db_url: string = 'https://pro10-apirestaurantes.onrender.com'
   
   constructor(private http: HttpClient) {}
 

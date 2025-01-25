@@ -9,7 +9,7 @@ export class FoodService {
   id!: string;
   restaurant!: FoodI;
   // url: string = 'http://localhost:3333/comidas'
-  url: string = 'https://api-restaurantes-7453rk2vs-georgekutsia.vercel.app/comidas'
+  url: string = 'https://pro10-apirestaurantes.onrender.com/comidas'
 
 
   constructor(private http: HttpClient) { }

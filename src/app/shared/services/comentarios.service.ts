@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ComentariosService {
   // url: string = 'http://localhost:3333/comentarios'
-  url: string = 'https://api-restaurantes-7453rk2vs-georgekutsia.vercel.app/comentarios'
+  url: string = 'https://pro10-apirestaurantes.onrender.com/comentarios'
 
   constructor(private http: HttpClient) { }
 
