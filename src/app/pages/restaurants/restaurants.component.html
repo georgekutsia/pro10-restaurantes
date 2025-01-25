@@ -1,37 +1,14 @@
 <div class="restaurant-box">
     <!-- Con auth admin -->
+    <div class="titol"> 
+      <h1>Descubre, disfruta, comparte...</h1>
+    </div>
     <div class="loader-div">
        <div *ngIf="loaded" class="lds-ripple"><div></div><div></div></div>
-      </div>
-      <div class="titol"> 
-        <h1>Descubre, disfruta, comparte...</h1>
       </div>
         <div class="add">
               <button *ngIf="usuario?.admin" routerLink='/restaurants/add' class="add-btn">Añadir nuevo restaurante</button>   
         </div>
-<!-- 
-  <section class="foods">
-    <h2>Nuestros platos estrella del mes</h2>
-  <div class="carousel">
-    <div class="car-slide" *ngFor="let food of foods; let i = index">
-      <div class="slide-inner">
-        <img  class="car-img" [src]="food.img" alt="{{ food.name }}" *ngIf="i === currentSlideIndex" class="car-img" />
-      </div>
-      <h4 class="car-caption" *ngIf="i === currentSlideIndex">{{ food.name }}  <span>{{food.price}} €</span> </h4>
-      <h5 *ngIf="i === currentSlideIndex"> {{food.description}} </h5>
-      <div class="preference" *ngIf="i === currentSlideIndex && food.dietaryPreferences?.length !== 0">Adecuado para:  <span>{{food.dietaryPreferences}}</span>s</div>
-      <div class="alergens" *ngIf="i === currentSlideIndex && food.allergen?.length !== 0">Alérgenos:  <span>{{food.allergen}}</span></div>
-    </div>
-  </div>
-  <div class="foods-btns1">
-    <button (click)="showPreviousSlide()"><i class="fa-solid fa-chevron-left"></i></button>
-  </div>
-  <div class="foods-btns2">
-    <button (click)="showNextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
-  </div>
-</section> -->
-
-
   <div class="gallery">
     <div  [ngStyle]="{ width: '300px' }" *ngFor="let restaurant of restList">
       <h3 class="mt-5">{{ restaurant.name }} </h3>
@@ -61,4 +38,24 @@
       </div>
     </div>
   </div>
+  <section class="foods">
+    <h2>Nuestros platos estrella del mes</h2>
+  <div class="carousel">
+    <div class="car-slide" *ngFor="let food of foods; let i = index">
+      <div class="slide-inner">
+        <img  class="car-img" [src]="food.img" alt="{{ food.name }}" *ngIf="i === currentSlideIndex" class="car-img" />
+      </div>
+      <h4 class="car-caption" *ngIf="i === currentSlideIndex">{{ food.name }}  <span>{{food.price}} €</span> </h4>
+      <h5 *ngIf="i === currentSlideIndex"> {{food.description}} </h5>
+      <div class="preference" *ngIf="i === currentSlideIndex && food.dietaryPreferences?.length !== 0">Adecuado para:  <span>{{food.dietaryPreferences}}</span>s</div>
+      <div class="alergens" *ngIf="i === currentSlideIndex && food.allergen?.length !== 0">Alérgenos:  <span>{{food.allergen}}</span></div>
+    </div>
+  </div>
+  <div class="foods-btns1">
+    <button (click)="showPreviousSlide()"><i class="fa-solid fa-chevron-left"></i></button>
+  </div>
+  <div class="foods-btns2">
+    <button (click)="showNextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+</section> 
 </div>

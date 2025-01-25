@@ -34,20 +34,18 @@ export class RestaurantsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("bulala")
     this.restApi.getRestaurants().subscribe((data: any) => {
       this.restList = [...data];
       this.usuario = JSON.parse(localStorage.getItem('user') || '{}');
       this.userId = this.usuario.id;
       this.authService.getUserById(this.userId).subscribe((data: any) => {
-      this.usuarioData = {...data};
-      this.userFavorites = this.usuarioData.favorite || [];
-      // this.userFavorites1 = this.usuarioData.favorite || [];
-      console.log("favorites",this.userFavorites)
-      console.log("id",this.userId)
+        this.usuarioData = {...data};
+        this.userFavorites = this.usuarioData.favorite || [];
+        
       })
       this.calculateAverages();
       this.loaded = false;
+      console.log("bulala")
     });
 
 
@@ -98,8 +96,6 @@ export class RestaurantsComponent implements OnInit {
       );
   }
   isRestaurantFavorite(restaurantId: string): boolean {
-    console.log("sss", this.userFavorites);
-    console.log(this.usuarioData);
     return this.userFavorites.includes(restaurantId);
   }
   
